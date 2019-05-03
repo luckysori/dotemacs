@@ -525,3 +525,7 @@
 ;;; Always add copied text to kill ring, even if it's not yanked:
 
 (setq save-interprogram-paste-before-kill t)
+
+;;; Follow link to vc'd file:
+
+(setq vc-follow-symlinks t)
