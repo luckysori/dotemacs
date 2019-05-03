@@ -381,14 +381,15 @@
          ( "C-x b" . 'helm-mini) 
          ( "C-x C-r" . 'helm-recentf) 
          ( "M-x" . 'helm-M-x)) 
-  :custom (helm-autoresize-mode t) 
+  :custom (helm-mode 1)
+  (helm-autoresize-mode t) 
   (helm-split-window-in-side-p t) 
   (helm-autoresize-max-height 30) 
   (helm-autoresize-min-height 30) 
   (helm-display-header-line nil) 
   (helm-echo-input-in-header-line t) 
   (set-face-attribute 'helm-source-header nil 
-                      :height 0.1) 
+                      :height 0.1)
   (helm-flx-mode t) 
   (helm-mode-fuzzy-match t) 
   (helm-buffers-fuzzy-matching t) 
@@ -397,7 +398,8 @@
   (helm-flx-for-helm-find-files t) 
   (helm-flx-for-helm-locate t) 
   (helm-flx-for-helm-M-x t) 
-  (helm-completion-in-region-fuzzy-match t))
+  (helm-completion-in-region-fuzzy-match t)
+  :config (require 'helm-config))
 
 (use-package 
   helm-swoop 
