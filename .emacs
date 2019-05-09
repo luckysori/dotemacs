@@ -461,7 +461,8 @@
 
 (use-package 
   typescript-mode 
-  :hook ((typescript-mode-hook . add-node-modules-path)))
+  :config (add-hook 'typescript-mode-hook 'add-node-modules-path) 
+  (add-hook 'typescript-mode-hook 'setup-tide-mode))
 
 ;; TODO: delete if above works
 ;; (eval-after-load 'typescript-mode '(add-hook 'typescript-mode-hook
