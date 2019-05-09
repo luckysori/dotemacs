@@ -472,18 +472,18 @@
 
 (use-package 
   tide 
-  :after (typescript-mode company flycheck) 
-  :hook ((typescript-mode . tide-setup) 
-         (typescript-mode . tide-hl-identifier-mode)))
+  :after (exec-path-from-shell typescript-mode company flycheck) 
+  :config (add-hook 'typescript-mode-hook 'tide-setup) 
+  (add-hook 'typescript-mode-hook 'tide-hl-identifier-mode))
 
 (defun setup-tide-mode () 
   (interactive) 
   (tide-setup) 
-  (flycheck-mode +1) 
-  (setq flycheck-check-syntax-automatically '(save mode-enabled)) 
-  (eldoc-mode +1) 
-  (tide-hl-identifier-mode +1) 
-  (company-mode +1))
+  (eldoc-mode) 
+  (flycheck-mode) 
+  (company-mode) 
+  (tide-hl-identifier-mode) 
+  (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
 ;;; company-mode:
 
