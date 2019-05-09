@@ -452,7 +452,7 @@
 ;; TODO: generalise this for all text modes
 (use-package 
   markdown-mode 
-  :hook ((markdown-mode-hook . visual-line-mode)))
+  :config (add-hook 'markdown-mode-hook 'visual-line-mode))
 
 ;; Set markdown-command to pandoc
 ;; TODO: something is missing here
