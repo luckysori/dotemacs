@@ -144,12 +144,11 @@
   (web-mode-enable-current-element-highlight t) 
   (web-mode-enable-auto-indentation t) 
   (web-mode-enable-auto-quoting nil) 
-  :hook ((web-mode . (lambda () 
-                       (when (string-equal "tsx" (file-name-extension buffer-file-name)) 
-                         (setup-tide-mode)))) 
-         (web-mode . web-mode-init-prettier-hook) 
-         (flycheck-mode . add-node-modules-path)) 
-  :config
+  :config (add-hook 'web-mode-hook 'web-mode-init-prettier-hook) 
+  (add-hook 'flycheck-mode-hook 'add-node-modules-path) 
+  (add-hook 'web-mode-hook (lambda () 
+                             (when (string-equal "tsx" (file-name-extension buffer-file-name)) 
+                               (setup-tide-mode))))
   ;; disable default jslint
   (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint
                                                                                 json-jsonlist)))
