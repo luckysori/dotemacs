@@ -324,23 +324,20 @@
 
 (use-package 
   smartparens 
-  :custom (smartparens-global-mode t) 
+  :custom (smartparens-global-mode t)
+  (show-smartparens-global-mode t)
   :bind ("C-M-u" . sp-backward-up-sexp) 
   ("C-M-d" . sp-down-sexp) 
   ("C-M-f" . sp-forward-sexp) 
   ("C-M-b" . sp-backward-sexp) 
-  ("C-M-k" . sp-kill-sexp) 
+  ("C-M-k" . sp-kill-sexp)
+  ("C-M-<backspace>" . sp-backward-kill-sexp)
   ("C-(" . sp-rewrap-sexp) 
   ("M-D" . sp-splice-sexp) 
   ("C-M-w" . sp-copy-sexp) 
   ("C-M-<SPC>" . sp-mark-sexp) 
   ("C-M-t" . sp-transpose-sexp) 
   :config (require 'smartparens-config) 
-  (defun sp-backward-kill-sexp () 
-    "Kill the balanced expression behind point." 
-    (interactive) 
-    (sp-backward-sexp) 
-    (sp-kill-sexp)) 
   (global-set-key (kbd "C-M-<backspace>") 'sp-backward-kill-sexp))
 
 ;;; expand-region:
