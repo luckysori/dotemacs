@@ -362,13 +362,13 @@
 
 ;;; global-subword-mode:
 
-(setq global-subword-mode 1)
+(global-subword-mode 1)
 
 ;;; JavaScript:
 
 ;; Default JS mode set to js2-mode
-(use-package 
-  js2-mode 
+(use-package
+  js2-mode
   :config (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
 
 ;; JS formatter
