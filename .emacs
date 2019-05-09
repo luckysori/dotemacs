@@ -541,3 +541,7 @@
 ;;; Follow link to vc'd file:
 
 (setq vc-follow-symlinks t)
+
+;;; Close emacs client and server:
+
+(global-set-key (kbd "C-c C-x C-c") 'save-buffers-kill-emacs)
