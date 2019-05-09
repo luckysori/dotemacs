@@ -50,6 +50,12 @@
 (use-package 
   org 
   :bind ("C-c a" . 'org-agenda) 
+  :custom (org-todo-keywords '((sequence "TODO" "IN-PROGRESS" "BLOCKED" "DONE" "CANCELLED"))) 
+  (org-todo-keyword-faces '(("TODO" . org-warning) 
+                            ("IN-PROGRESS" . "yellow") 
+                            ("BLOCKED" . "dim gray") 
+                            ("DONE" . org-done) 
+                            ("CANCELLED" . "blue"))) 
   :config (;; New org heading or list item doesn't generate new line
            setf org-blank-before-new-entry '((heading . nil) 
                                              (plain-list-item . nil))))
