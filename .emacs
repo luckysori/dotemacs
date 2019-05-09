@@ -357,7 +357,11 @@
 ;;; global-diff-hl-mode:
 
 ;; TODO: figure out what this does
-(setq global-diff-hl-mode 1)
+(use-package 
+  diff-hl 
+  :hook ((after-init . global-diff-hl-mode) 
+         (dired-mode . diff-hl-dired-mode)) 
+  :config (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
 ;;; global-subword-mode:
 
