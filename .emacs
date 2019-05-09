@@ -5,7 +5,9 @@
 
 ;;; use-package:
 
-(eval-when-compile (add-to-list 'load-path "/home/luckysori/.emacs.d/elpa/use-package-2.3") 
+;; TODO: what version should be loaded?
+(eval-when-compile (add-to-list 'load-path
+                                "/home/luckysori/.emacs.d/elpa/use-package-20190405.2047") 
                    (require 'use-package))
 (setq use-package-always-ensure t)
 
