@@ -301,15 +301,13 @@
   :custom (rust-disable-format-on-save t) 
   (rust-rustfmt-bin "~/.cargo/bin/rustfmt")
   ;; (company-tooltip-align-annotations t)
-  :hook ((rust-mode-hook . racer-mode) 
-         (rust-mode-hook . cargo-minor-mode) 
-         (racer-mode-hook . eldoc-mode)
-         ;; this is too slow
-         ;; (racer-mode-hook . company-mode)
-         ;; TODO: figure out whether I want to use this or not
-         ;; (rust-mode-hook . yas-minor-mode)
-         ) 
-  :config
+  :config (add-hook 'rust-mode-hook 'racer-mode) 
+  (add-hook 'rust-mode-hook 'cargo-minor-mode) 
+  (add-hook 'rust-mode-hook 'eldoc-mode)
+  ;; this is too slow
+  ;; (add-hook 'racer-mode-hook 'company-mode)
+  ;; TODO: figure out whether I want to use this or not
+  ;; (add-hook 'rust-mode-hook 'yas-minor-mode)
   ;; TODO: replace this hack
   ;; Add commit-rs to compilation-search-path
   (add-to-list 'compilation-search-path "~/work/swap/")
