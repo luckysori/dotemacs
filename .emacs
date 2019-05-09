@@ -503,7 +503,7 @@
 
 (use-package 
   flycheck 
-  :hook( (typescript-mode-hook . flycheck-mode)))
+  :config (add-hook 'typescript-mode-hook 'flycheck-mode))
 
 ;;; helm-ls-git:
 
