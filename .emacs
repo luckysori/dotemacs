@@ -7,7 +7,7 @@
 
 ;; TODO: what version should be loaded?
 (eval-when-compile (add-to-list 'load-path
-                                "/home/luckysori/.emacs.d/elpa/use-package-20190405.2047") 
+                                "/home/luckysori/.emacs.d/elpa/use-package-20190405.2047")
                    (require 'use-package))
 (setq use-package-always-ensure t)
 
@@ -47,17 +47,17 @@
 
 ;;; org-mode:
 
-(use-package 
-  org 
-  :bind ("C-c a" . 'org-agenda) 
-  :custom (org-todo-keywords '((sequence "TODO" "IN-PROGRESS" "BLOCKED" "DONE" "CANCELLED"))) 
-  (org-todo-keyword-faces '(("TODO" . org-warning) 
-                            ("IN-PROGRESS" . "yellow") 
-                            ("BLOCKED" . "dim gray") 
-                            ("DONE" . org-done) 
-                            ("CANCELLED" . "blue"))) 
+(use-package
+  org
+  :bind ("C-c a" . 'org-agenda)
+  :custom (org-todo-keywords '((sequence "TODO" "IN-PROGRESS" "BLOCKED" "DONE" "CANCELLED")))
+  (org-todo-keyword-faces '(("TODO" . org-warning)
+                            ("IN-PROGRESS" . "yellow")
+                            ("BLOCKED" . "dim gray")
+                            ("DONE" . org-done)
+                            ("CANCELLED" . "blue")))
   :config (;; New org heading or list item doesn't generate new line
-           setf org-blank-before-new-entry '((heading . nil) 
+           setf org-blank-before-new-entry '((heading . nil)
                                              (plain-list-item . nil))))
 
 ;;; Back up files:
@@ -80,9 +80,9 @@
 
 ;;; Access emacs config quickly:
 
-(defun find-user-init-file () 
-  "Edit the `user-init-file', in another window." 
-  (interactive) 
+(defun find-user-init-file ()
+  "Edit the `user-init-file', in another window."
+  (interactive)
   (find-file-other-window user-init-file))
 
 (global-set-key (kbd "C-c I") 'find-user-init-file)
@@ -93,19 +93,19 @@
 
 ;;; magit:
 
-(use-package 
-  magit 
+(use-package
+  magit
   :bind ("C-c g" . 'magit-status))
 
 ;;; outline-mode for config file:
 
 ;; TODO: replace outline-mode with literate org-mode
 
-(add-hook 'emacs-lisp-mode-hook (lambda () 
-                                  (make-local-variable 'outline-regexp) 
-                                  (setq outline-regexp "^;;; ") 
-                                  (make-local-variable 'outline-heading-end-regexp) 
-                                  (setq outline-heading-end-regexp ":\n") 
+(add-hook 'emacs-lisp-mode-hook (lambda ()
+                                  (make-local-variable 'outline-regexp)
+                                  (setq outline-regexp "^;;; ")
+                                  (make-local-variable 'outline-heading-end-regexp)
+                                  (setq outline-heading-end-regexp ":\n")
                                   (outline-minor-mode 1)))
 
 ;;; Configuring AUCTeX:
@@ -113,11 +113,11 @@
 ;; TODO: update LaTeX support (this section was originally for Windows)
 
 ;; AUCTeX replaces latex-mode-hook with LaTeX-mode-hook
-(add-hook 'LaTeX-mode-hook (lambda () 
-                             (setq TeX-auto-save t) 
+(add-hook 'LaTeX-mode-hook (lambda ()
+                             (setq TeX-auto-save t)
                              (setq TeX-parse-self t)
                              ;; (setq-default TeX-master nil)
-                             (reftex-mode t) 
+                             (reftex-mode t)
                              (TeX-fold-mode t)))
 
 ;;(setq preview-image-type 'pnm)
@@ -128,26 +128,26 @@
 
 ;;; web-mode:
 
-(use-package 
-  web-mode 
-  :mode (("\\.html?\\'" . web-mode) 
-         ("\\.tsx\\'" . web-mode) 
-         ("\\.jsx\\'" . web-mode)) 
-  :custom (web-mode-markup-indent-offset 2) 
-  (web-mode-css-indent-offset 2) 
-  (web-mode-code-indent-offset 2) 
-  (web-mode-block-padding 2) 
-  (web-mode-comment-style 2) 
-  (web-mode-enable-css-colorization t) 
-  (web-mode-enable-auto-pairing t) 
-  (web-mode-enable-comment-keywords t) 
-  (web-mode-enable-current-element-highlight t) 
-  (web-mode-enable-auto-indentation t) 
-  (web-mode-enable-auto-quoting nil) 
-  :config (add-hook 'web-mode-hook 'web-mode-init-prettier-hook) 
-  (add-hook 'flycheck-mode-hook 'add-node-modules-path) 
-  (add-hook 'web-mode-hook (lambda () 
-                             (when (string-equal "tsx" (file-name-extension buffer-file-name)) 
+(use-package
+  web-mode
+  :mode (("\\.html?\\'" . web-mode)
+         ("\\.tsx\\'" . web-mode)
+         ("\\.jsx\\'" . web-mode))
+  :custom (web-mode-markup-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-code-indent-offset 2)
+  (web-mode-block-padding 2)
+  (web-mode-comment-style 2)
+  (web-mode-enable-css-colorization t)
+  (web-mode-enable-auto-pairing t)
+  (web-mode-enable-comment-keywords t)
+  (web-mode-enable-current-element-highlight t)
+  (web-mode-enable-auto-indentation t)
+  (web-mode-enable-auto-quoting nil)
+  :config (add-hook 'web-mode-hook 'web-mode-init-prettier-hook)
+  (add-hook 'flycheck-mode-hook 'add-node-modules-path)
+  (add-hook 'web-mode-hook (lambda ()
+                             (when (string-equal "tsx" (file-name-extension buffer-file-name))
                                (setup-tide-mode))))
   ;; disable default jslint
   (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint
@@ -155,8 +155,8 @@
   ;; enable typescript-tslint checker
   (flycheck-add-mode 'typescript-tslint 'web-mode))
 
-(defun web-mode-init-prettier-hook () 
-  (add-node-modules-path) 
+(defun web-mode-init-prettier-hook ()
+  (add-node-modules-path)
   (prettier-js-mode))
 
 ;;; Indent with spaces:
@@ -176,8 +176,8 @@
 
 ;;; avy:
 
-(use-package 
-  avy 
+(use-package
+  avy
   :bind ("M-s" . 'avy-goto-word-1))
 
 ;;; Haskell configs:
@@ -196,25 +196,25 @@
 (setq tags-revert-without-query 1)
 
 (eval-after-load 'haskell-mode '(progn (define-key haskell-mode-map (kbd "C-c C-l")
-                                         'haskell-process-load-file) 
+                                         'haskell-process-load-file)
                                        (define-key haskell-mode-map (kbd "C-c C-z")
-                                         'haskell-interactive-switch) 
+                                         'haskell-interactive-switch)
                                        (define-key haskell-mode-map (kbd "C-c C-n C-t")
-                                         'haskell-process-do-type) 
+                                         'haskell-process-do-type)
                                        (define-key haskell-mode-map (kbd "C-c C-n C-i")
-                                         'haskell-process-do-info) 
+                                         'haskell-process-do-info)
                                        (define-key haskell-mode-map (kbd "C-c C-n C-c")
-                                         'haskell-process-cabal-build) 
+                                         'haskell-process-cabal-build)
                                        (define-key haskell-mode-map (kbd "C-c C-n c")
-                                         'haskell-process-cabal) 
+                                         'haskell-process-cabal)
                                        (define-key haskell-mode-map (kbd "<f8>")
                                          'haskell-navigate-imports)))
 (eval-after-load 'haskell-cabal '(progn (define-key haskell-cabal-mode-map (kbd "C-c C-z")
-                                          'haskell-interactive-switch) 
+                                          'haskell-interactive-switch)
                                         (define-key haskell-cabal-mode-map (kbd "C-c C-k")
-                                          'haskell-interactive-mode-clear) 
+                                          'haskell-interactive-mode-clear)
                                         (define-key haskell-cabal-mode-map (kbd "C-c C-c")
-                                          'haskell-process-cabal-build) 
+                                          'haskell-process-cabal-build)
                                         (define-key haskell-cabal-mode-map (kbd "C-c c")
                                           'haskell-process-cabal)))
 
@@ -225,11 +225,11 @@
 ;;; ace-window:
 
 ;; TODO: buffer number is massive with spacemacs theme
-(use-package 
-  ace-window 
+(use-package
+  ace-window
   :custom
   ;; TODO: figure out if this is working
-  (aw-dispatch-always t) 
+  (aw-dispatch-always t)
   :bind ("M-o" . ace-window))
 
 ;;; emacs maximised on startup:
@@ -238,32 +238,32 @@
 
 ;;; expand-region:
 
-(use-package 
-  expand-region 
+(use-package
+  expand-region
   :bind ("C-=" . 'er/expand-region))
 
 ;;; multiple-cursors:
 
-(use-package 
-  multiple-cursors 
-  :bind ("C-c m c" .'mc/edit-lines) 
+(use-package
+  multiple-cursors
+  :bind ("C-c m c" .'mc/edit-lines)
   :config (define-key mc/keymap (kbd "<return>") nil))
 
 ;;; Copy to end of line:
 
-(global-set-key (kbd "C-c k") 
+(global-set-key (kbd "C-c k")
                 (kbd "C-SPC C-e M-w C-u C-SPC"))
 
 ;;; Remove ^L, ^M and ^D characters:
 
 ;; TODO: figure out if this is needed or can be done better
 
-(defun remove-dos-eol () 
-  "Do not show ^L, ^M, ^D in files containing mixed UNIX and DOS line endings." 
-  (interactive) 
-  (setq buffer-display-table (make-display-table)) 
-  (aset buffer-display-table ?\^L []) 
-  (aset buffer-display-table ?\^M []) 
+(defun remove-dos-eol ()
+  "Do not show ^L, ^M, ^D in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^L [])
+  (aset buffer-display-table ?\^M [])
   (aset buffer-display-table ?\^D []))
 
 (add-hook 'text-mode-hook 'remove-dos-eol)
@@ -281,13 +281,13 @@
 
 ;;; ERC:
 
-(use-package 
-  erc 
-  :init (add-to-list 'load-path (concat user-emacs-directory "lisp")) 
-  (and 
-   (require 'erc-highlight-nicknames) 
-   (add-to-list 'erc-modules 'highlight-nicknames) 
-   (erc-update-modules)) 
+(use-package
+  erc
+  :init (add-to-list 'load-path (concat user-emacs-directory "lisp"))
+  (and
+   (require 'erc-highlight-nicknames)
+   (add-to-list 'erc-modules 'highlight-nicknames)
+   (erc-update-modules))
   :config (setq erc-hide-list '("JOIN" "PART" "QUIT")))
 
 ;;; Theme:
@@ -296,13 +296,13 @@
 
 ;;; Rust:
 
-(use-package 
-  rust-mode 
-  :custom (rust-disable-format-on-save t) 
+(use-package
+  rust-mode
+  :custom (rust-disable-format-on-save t)
   (rust-rustfmt-bin "~/.cargo/bin/rustfmt")
   ;; (company-tooltip-align-annotations t)
-  :config (add-hook 'rust-mode-hook 'racer-mode) 
-  (add-hook 'rust-mode-hook 'cargo-minor-mode) 
+  :config (add-hook 'rust-mode-hook 'racer-mode)
+  (add-hook 'rust-mode-hook 'cargo-minor-mode)
   (add-hook 'rust-mode-hook 'eldoc-mode)
   ;; this is too slow
   ;; (add-hook 'racer-mode-hook 'company-mode)
@@ -322,28 +322,28 @@
 
 ;;; smartparens:
 
-(use-package 
-  smartparens 
+(use-package
+  smartparens
   :custom (smartparens-global-mode t)
   (show-smartparens-global-mode t)
-  :bind ("C-M-u" . sp-backward-up-sexp) 
-  ("C-M-d" . sp-down-sexp) 
-  ("C-M-f" . sp-forward-sexp) 
-  ("C-M-b" . sp-backward-sexp) 
+  :bind ("C-M-u" . sp-backward-up-sexp)
+  ("C-M-d" . sp-down-sexp)
+  ("C-M-f" . sp-forward-sexp)
+  ("C-M-b" . sp-backward-sexp)
   ("C-M-k" . sp-kill-sexp)
   ("C-M-<backspace>" . sp-backward-kill-sexp)
-  ("C-(" . sp-rewrap-sexp) 
-  ("M-D" . sp-splice-sexp) 
-  ("C-M-w" . sp-copy-sexp) 
-  ("C-M-<SPC>" . sp-mark-sexp) 
-  ("C-M-t" . sp-transpose-sexp) 
-  :config (require 'smartparens-config) 
+  ("C-(" . sp-rewrap-sexp)
+  ("M-D" . sp-splice-sexp)
+  ("C-M-w" . sp-copy-sexp)
+  ("C-M-<SPC>" . sp-mark-sexp)
+  ("C-M-t" . sp-transpose-sexp)
+  :config (require 'smartparens-config)
   (global-set-key (kbd "C-M-<backspace>") 'sp-backward-kill-sexp))
 
 ;;; expand-region:
 
-(use-package 
-  expand-region 
+(use-package
+  expand-region
   :bind ("C-=" . 'er/expand-region))
 
 ;;; dired:
@@ -354,10 +354,10 @@
 ;;; global-diff-hl-mode:
 
 ;; TODO: figure out what this does
-(use-package 
-  diff-hl 
-  :hook ((after-init . global-diff-hl-mode) 
-         (dired-mode . diff-hl-dired-mode)) 
+(use-package
+  diff-hl
+  :hook ((after-init . global-diff-hl-mode)
+         (dired-mode . diff-hl-dired-mode))
   :config (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
 ;;; global-subword-mode:
@@ -379,76 +379,76 @@
 
 ;;; helm:
 
-(use-package 
-  helm 
-  :bind (( "C-x C-f" . 'helm-find-files) 
-         ( "C-x c b" . 'helm-resume) 
-         ( "C-x b" . 'helm-mini) 
-         ( "C-x C-r" . 'helm-recentf) 
-         ( "M-x" . 'helm-M-x)) 
+(use-package
+  helm
+  :bind (( "C-x C-f" . 'helm-find-files)
+         ( "C-x c b" . 'helm-resume)
+         ( "C-x b" . 'helm-mini)
+         ( "C-x C-r" . 'helm-recentf)
+         ( "M-x" . 'helm-M-x))
   :custom (helm-mode 1)
-  (helm-autoresize-mode t) 
-  (helm-split-window-in-side-p t) 
-  (helm-autoresize-max-height 30) 
-  (helm-autoresize-min-height 30) 
-  (helm-display-header-line nil) 
-  (helm-echo-input-in-header-line t) 
-  (set-face-attribute 'helm-source-header nil 
+  (helm-autoresize-mode t)
+  (helm-split-window-in-side-p t)
+  (helm-autoresize-max-height 30)
+  (helm-autoresize-min-height 30)
+  (helm-display-header-line nil)
+  (helm-echo-input-in-header-line t)
+  (set-face-attribute 'helm-source-header nil
                       :height 0.1)
-  (helm-flx-mode t) 
-  (helm-mode-fuzzy-match t) 
-  (helm-buffers-fuzzy-matching t) 
-  (helm-recentf-fuzzy-match t) 
-  (helm-M-x-fuzzy-match t) 
-  (helm-flx-for-helm-find-files t) 
-  (helm-flx-for-helm-locate t) 
-  (helm-flx-for-helm-M-x t) 
+  (helm-flx-mode t)
+  (helm-mode-fuzzy-match t)
+  (helm-buffers-fuzzy-matching t)
+  (helm-recentf-fuzzy-match t)
+  (helm-M-x-fuzzy-match t)
+  (helm-flx-for-helm-find-files t)
+  (helm-flx-for-helm-locate t)
+  (helm-flx-for-helm-M-x t)
   (helm-completion-in-region-fuzzy-match t)
   :config (require 'helm-config))
 
-(use-package 
-  helm-swoop 
-  :ensure helm 
-  :bind (( "M-i" . 'helm-swoop) 
-         ( "M-I" . 'helm-swoop-back-to-last-point) 
-         ( "C-c M-i" . 'helm-multi-swoop) 
-         ( "C-x M-i" . 'helm-multi-swoop-all) 
-         :map isearch-mode-map 
-         ( "M-i" . 'helm-swoop-from-isearch) 
-         :map helm-swoop-map ( "M-i" . 'helm-multi-swoop-all-from-helm-swoop) 
-         ( "M-m" . 'helm-multi-swoop-current-mode-from-helm-swoop) 
-         ( "C-r" . 'helm-previous-line) 
-         ( "C-s" . 'helm-next-line) 
-         :map helm-multi-swoop-map ( "C-r" . 'helm-previous-line) 
-         ( "C-s" . 'helm-next-line)) 
-  :custom (helm-multi-swoop-edit-save t) 
-  (helm-swoop-split-with-multiple-windows nil) 
-  (helm-swoop-split-direction 'split-window-vertically) 
-  (helm-swoop-speed-or-color t) 
-  (helm-swoop-move-to-line-cycle t) 
-  (helm-swoop-use-line-number-face nil) 
+(use-package
+  helm-swoop
+  :ensure helm
+  :bind (( "M-i" . 'helm-swoop)
+         ( "M-I" . 'helm-swoop-back-to-last-point)
+         ( "C-c M-i" . 'helm-multi-swoop)
+         ( "C-x M-i" . 'helm-multi-swoop-all)
+         :map isearch-mode-map
+         ( "M-i" . 'helm-swoop-from-isearch)
+         :map helm-swoop-map ( "M-i" . 'helm-multi-swoop-all-from-helm-swoop)
+         ( "M-m" . 'helm-multi-swoop-current-mode-from-helm-swoop)
+         ( "C-r" . 'helm-previous-line)
+         ( "C-s" . 'helm-next-line)
+         :map helm-multi-swoop-map ( "C-r" . 'helm-previous-line)
+         ( "C-s" . 'helm-next-line))
+  :custom (helm-multi-swoop-edit-save t)
+  (helm-swoop-split-with-multiple-windows nil)
+  (helm-swoop-split-direction 'split-window-vertically)
+  (helm-swoop-speed-or-color t)
+  (helm-swoop-move-to-line-cycle t)
+  (helm-swoop-use-line-number-face nil)
   (helm-swoop-use-fuzzy-match nil))
 
 ;;; wgrep:
 
-(use-package 
+(use-package
   wgrep-helm)
 
 ;;; exec-path-from-shell:
 
 ;; TODO: does not load path when using emacsclient
-(use-package 
-  exec-path-from-shell 
+(use-package
+  exec-path-from-shell
   :config
   ;; TODO: figure out if this is needed
-  (when (memq window-system '(mac ns x)) 
+  (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
 ;;; Markdown:
 
 ;; TODO: generalise this for all text modes
-(use-package 
-  markdown-mode 
+(use-package
+  markdown-mode
   :config (add-hook 'markdown-mode-hook 'visual-line-mode))
 
 ;; Set markdown-command to pandoc
@@ -456,9 +456,9 @@
 
 ;;; Typescript:
 
-(use-package 
-  typescript-mode 
-  :config (add-hook 'typescript-mode-hook 'add-node-modules-path) 
+(use-package
+  typescript-mode
+  :config (add-hook 'typescript-mode-hook 'add-node-modules-path)
   (add-hook 'typescript-mode-hook 'setup-tide-mode))
 
 ;; TODO: delete if above works
@@ -467,45 +467,45 @@
 
 ;;; Tide:
 
-(use-package 
-  tide 
-  :after (exec-path-from-shell typescript-mode company flycheck) 
-  :config (add-hook 'typescript-mode-hook 'tide-setup) 
+(use-package
+  tide
+  :after (exec-path-from-shell typescript-mode company flycheck)
+  :config (add-hook 'typescript-mode-hook 'tide-setup)
   (add-hook 'typescript-mode-hook 'tide-hl-identifier-mode))
 
-(defun setup-tide-mode () 
-  (interactive) 
-  (tide-setup) 
-  (eldoc-mode) 
-  (flycheck-mode) 
-  (company-mode) 
-  (tide-hl-identifier-mode) 
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (eldoc-mode)
+  (flycheck-mode)
+  (company-mode)
+  (tide-hl-identifier-mode)
   (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
 ;;; company-mode:
 
-(use-package 
-  company 
-  :config (setq company-show-numbers t) 
+(use-package
+  company
+  :config (setq company-show-numbers t)
   (setq company-tooltip-align-annotations t))
 
 ;; TODO: figure out why this is useful
-(use-package 
-  company-quickhelp 
-  :init (company-quickhelp-mode 1) 
-  (use-package 
+(use-package
+  company-quickhelp
+  :init (company-quickhelp-mode 1)
+  (use-package
     pos-tip))
 
 ;;; flycheck:
 
-(use-package 
-  flycheck 
+(use-package
+  flycheck
   :config (add-hook 'typescript-mode-hook 'flycheck-mode))
 
 ;;; helm-ls-git:
 
-(use-package 
-  helm-ls-git 
+(use-package
+  helm-ls-git
   :bind ("C-c f g" . 'helm-ls-git-ls))
 
 ;;; Trying exwm:
@@ -516,15 +516,15 @@
 
 ;;; winner-mode:
 
-(use-package 
-  winner 
-  :config (when (fboundp 'winner-mode) 
+(use-package
+  winner
+  :config (when (fboundp 'winner-mode)
             (winner-mode 1)))
 
 ;;; ibuffer:
 
-(use-package 
-  ibuffer 
+(use-package
+  ibuffer
   :bind ("C-x C-b" . ibuffer))
 
 ;;; hippie-expand:
