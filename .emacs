@@ -439,6 +439,7 @@
 
 ;;; exec-path-from-shell:
 
+;; TODO: does not load path when using emacsclient
 (use-package 
   exec-path-from-shell 
   :config
