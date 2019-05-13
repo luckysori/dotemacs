@@ -544,3 +544,8 @@
 ;;; Close emacs client and server:
 
 (global-set-key (kbd "C-c C-x C-c") 'save-buffers-kill-emacs)
+
+;;; Smooth cursor scrolling:
+
+(use-package smooth-scrolling
+  :config (smooth-scrolling-mode))
