@@ -95,7 +95,8 @@
 
 (use-package
   magit
-  :bind ("C-c g" . 'magit-status))
+  :bind (("C-c g" . 'magit-status)
+  :map magit-mode-map ("<RET>" . 'magit-diff-visit-file-other-window)))
 
 ;;; outline-mode for config file:
 
