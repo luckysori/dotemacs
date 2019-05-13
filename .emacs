@@ -459,6 +459,7 @@
 
 (use-package
   typescript-mode
+  :custom (typescript-indent-level 2)
   :config (add-hook 'typescript-mode-hook 'add-node-modules-path)
   (add-hook 'typescript-mode-hook 'setup-tide-mode))
 
