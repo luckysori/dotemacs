@@ -388,9 +388,9 @@
 
 ;; JS formatter
 
-;; TODO: express this using use-package if possible
-(require 'prettier-js)
-(add-hook 'js2-mode-hook 'prettier-js-mode)
+(use-package prettier-js
+  :config
+  (add-hook 'js2-mode-hook 'prettier-js-mode))
 
 ;; JSON:
 
