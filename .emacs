@@ -571,3 +571,8 @@
 ;;; Confirm using y and n:
 
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;;; Always kill this buffer:
+
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
+
