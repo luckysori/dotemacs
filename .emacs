@@ -329,6 +329,7 @@
 
 (use-package
   smartparens
+  :diminish smartparens-mode
   :custom (smartparens-global-mode t)
   (show-smartparens-global-mode t)
   :bind ("C-M-u" . sp-backward-up-sexp)
