@@ -13,7 +13,8 @@
 
 ;;; diminish:
 
-(use-package diminish)
+(use-package
+  diminish)
 
 ;;; utf-8 as default coding system:
 
@@ -358,10 +359,11 @@
 (put 'dired-find-alternate-file 'disabled nil)
 
 ;; moving up to parent directory doesn't open another buffer
-(add-hook 'dired-mode-hook
-          (lambda ()
-            (define-key dired-mode-map (kbd "^")
-                        (lambda () (interactive) (find-alternate-file "..")))))
+(add-hook 'dired-mode-hook (lambda ()
+                             (define-key dired-mode-map (kbd "^")
+                               (lambda ()
+                                 (interactive)
+                                 (find-alternate-file "..")))))
 
 ;;; global-diff-hl-mode:
 
@@ -391,7 +393,8 @@
 
 ;; JSON:
 
-(use-package json-mode)
+(use-package
+  json-mode)
 
 ;;; helm:
 
@@ -425,18 +428,18 @@
 (use-package
   helm-swoop
   :ensure helm
-  :bind (( "M-i" . 'helm-swoop)
-         ( "M-I" . 'helm-swoop-back-to-last-point)
-         ( "C-c M-i" . 'helm-multi-swoop)
-         ( "C-x M-i" . 'helm-multi-swoop-all)
+  :bind (("M-i" . 'helm-swoop-without-pre-input)
+         ("M-I" . 'helm-swoop-back-to-last-point)
+         ("C-c M-i" . 'helm-multi-swoop)
+         ("C-x M-i" . 'helm-multi-swoop-all)
          :map isearch-mode-map
-         ( "M-i" . 'helm-swoop-from-isearch)
-         :map helm-swoop-map ( "M-i" . 'helm-multi-swoop-all-from-helm-swoop)
-         ( "M-m" . 'helm-multi-swoop-current-mode-from-helm-swoop)
-         ( "C-r" . 'helm-previous-line)
-         ( "C-s" . 'helm-next-line)
-         :map helm-multi-swoop-map ( "C-r" . 'helm-previous-line)
-         ( "C-s" . 'helm-next-line))
+         ("M-i" . 'helm-swoop-from-isearch)
+         :map helm-swoop-map ("M-i" . 'helm-multi-swoop-all-from-helm-swoop)
+         ("M-m" . 'helm-multi-swoop-current-mode-from-helm-swoop)
+         ("C-r" . 'helm-previous-line)
+         ("C-s" . 'helm-next-line)
+         :map helm-multi-swoop-map ("C-r" . 'helm-previous-line)
+         ("C-s" . 'helm-next-line))
   :custom (helm-multi-swoop-edit-save t)
   (helm-swoop-split-with-multiple-windows nil)
   (helm-swoop-split-direction 'split-window-vertically)
@@ -566,8 +569,10 @@
 
 ;;; Smooth cursor scrolling:
 
-(use-package smooth-scrolling
+(use-package
+  smooth-scrolling
   :config (smooth-scrolling-mode))
+
 ;;; Confirm using y and n:
 
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -582,7 +587,17 @@
 
 ;;; Projectile:
 
-(use-package projectile
+(use-package
+  projectile
   :diminish projectile-mode
   :custom (projectile-mode 1)
-  :bind (:map projectile-mode-map ("C-c p" . 'projectile-command-map)))
+  :bind (:map projectile-mode-map
+              ("C-c p" . 'projectile-command-map)))
+
+;;; Emacs lisp:
+
+(defun elisp-before-save-hook ()
+  (when (eq major-mode 'emacs-lisp-mode)
+    (elisp-format-buffer)))
+
+(add-hook 'before-save-hook #'elisp-before-save-hook)
