@@ -389,6 +389,10 @@
 (require 'prettier-js)
 (add-hook 'js2-mode-hook 'prettier-js-mode)
 
+;; JSON:
+
+(use-package json-mode)
+
 ;;; helm:
 
 (use-package
