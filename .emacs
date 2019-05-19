@@ -568,3 +568,6 @@
 
 (use-package smooth-scrolling
   :config (smooth-scrolling-mode))
+;;; Confirm using y and n:
+
+(fset 'yes-or-no-p 'y-or-n-p)
