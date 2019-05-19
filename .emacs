@@ -580,3 +580,9 @@
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
+;;; Projectile:
+
+(use-package projectile
+  :diminish projectile-mode
+  :custom (projectile-mode 1)
+  :bind (:map projectile-mode-map ("C-c p" . 'projectile-command-map)))
