@@ -475,8 +475,12 @@
 (use-package
   typescript-mode
   :custom (typescript-indent-level 2)
-  :config (add-hook 'typescript-mode-hook 'add-node-modules-path)
+  :config (add-hook 'typescript-mode-hook 'typescript-init-prettier-hook)
   (add-hook 'typescript-mode-hook 'setup-tide-mode))
+
+(defun typescript-init-prettier-hook ()
+  (add-node-modules-path)
+  (prettier-js-mode))
 
 ;; TODO: delete if above works
 ;; (eval-after-load 'typescript-mode '(add-hook 'typescript-mode-hook
