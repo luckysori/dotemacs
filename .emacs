@@ -299,6 +299,7 @@
 
 ;;; Theme:
 
+(setq custom-safe-themes t)
 (load-theme 'spacemacs-dark)
 
 ;;; Rust:
