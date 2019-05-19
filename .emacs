@@ -55,6 +55,7 @@
   org
   :bind ("C-c a" . 'org-agenda)
   :custom (org-todo-keywords '((sequence "TODO" "IN-PROGRESS" "BLOCKED" "DONE" "CANCELLED")))
+  (org-indent-mode 1)
   (org-todo-keyword-faces '(("TODO" . org-warning)
                             ("IN-PROGRESS" . "yellow")
                             ("BLOCKED" . "dim gray")
