@@ -38,7 +38,8 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 ;; (menu-bar-mode -1)
-(when (eq system-type 'windows-nt) (toggle-frame-fullscreen))
+(when (eq system-type 'windows-nt)
+  (toggle-frame-fullscreen))
 
 ;;; Enable transient mark mode:
 
@@ -385,9 +386,9 @@
 
 ;; JS formatter
 
-(use-package prettier-js
-  :config
-  (add-hook 'js2-mode-hook 'prettier-js-mode))
+(use-package
+  prettier-js
+  :config (add-hook 'js2-mode-hook 'prettier-js-mode))
 
 ;; JSON:
 
@@ -398,11 +399,11 @@
 
 (use-package
   helm
-  :bind (( "C-x C-f" . 'helm-find-files)
-         ( "C-x c b" . 'helm-resume)
-         ( "C-x b" . 'helm-mini)
-         ( "C-x C-r" . 'helm-recentf)
-         ( "M-x" . 'helm-M-x))
+  :bind (("C-x C-f" . 'helm-find-files)
+         ("C-x c b" . 'helm-resume)
+         ("C-x b" . 'helm-mini)
+         ("C-x C-r" . 'helm-recentf)
+         ("M-x" . 'helm-M-x))
   :custom (helm-mode 1)
   (helm-autoresize-mode t)
   (helm-split-window-in-side-p t)
@@ -444,7 +445,7 @@
   (helm-swoop-speed-or-color t)
   (helm-swoop-move-to-line-cycle t)
   (helm-swoop-use-line-number-face nil)
-  (helm-swoop-use-fuzzy-match nil)))
+  (helm-swoop-use-fuzzy-match nil))
 
 ;;; wgrep:
 
@@ -465,8 +466,8 @@
 
 ;; TODO: generalise this for all text modes
 (use-package
-  :custom (typescript-indent-level 2)
-  :config (add-hook 'typescript-mode-hook 'typescript-init-prettier-hook)
+  markdown-mode
+  :config (add-hook 'markdown-mode-hook 'visual-line-mode))
 
 ;; Set markdown-command to pandoc
 ;; TODO: something is missing here
@@ -602,7 +603,8 @@
 
 ;;; RSS feeds:
 
-(use-package elfeed
+(use-package
+  elfeed
   :bind ("C-x w" . elfeed)
   :custom (elfeed-feeds '("https://irreal.org/blog/?feed=rss2"
                           "https://www.youtube.com/feeds/videos.xml?channel_id=UCI6keWArpxmfeiuAATv7jZw"
