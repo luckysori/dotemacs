@@ -38,6 +38,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 ;; (menu-bar-mode -1)
+(when (eq system-type 'windows-nt) (toggle-frame-fullscreen))
 
 ;;; Enable transient mark mode:
 
