@@ -239,10 +239,6 @@
   (aw-dispatch-always t)
   :bind ("M-o" . ace-window))
 
-;;; emacs maximised on startup:
-
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
 ;;; expand-region:
 
 (use-package
