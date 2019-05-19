@@ -426,7 +426,7 @@
 (use-package
   helm-swoop
   :ensure helm
-  :bind (("M-i" . 'helm-swoop-without-pre-input)
+  :bind (("M-i" . 'helm-swoop)
          ("M-I" . 'helm-swoop-back-to-last-point)
          ("C-c M-i" . 'helm-multi-swoop)
          ("C-x M-i" . 'helm-multi-swoop-all)
@@ -444,7 +444,7 @@
   (helm-swoop-speed-or-color t)
   (helm-swoop-move-to-line-cycle t)
   (helm-swoop-use-line-number-face nil)
-  (helm-swoop-use-fuzzy-match nil))
+  (helm-swoop-use-fuzzy-match nil)))
 
 ;;; wgrep:
 
@@ -465,8 +465,8 @@
 
 ;; TODO: generalise this for all text modes
 (use-package
-  markdown-mode
-  :config (add-hook 'markdown-mode-hook 'visual-line-mode))
+  :custom (typescript-indent-level 2)
+  :config (add-hook 'typescript-mode-hook 'typescript-init-prettier-hook)
 
 ;; Set markdown-command to pandoc
 ;; TODO: something is missing here
