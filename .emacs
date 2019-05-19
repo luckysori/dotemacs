@@ -11,6 +11,10 @@
                    (require 'use-package))
 (setq use-package-always-ensure t)
 
+;;; diminish:
+
+(use-package diminish)
+
 ;;; utf-8 as default coding system:
 
 (prefer-coding-system 'utf-8)
