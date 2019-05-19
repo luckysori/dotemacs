@@ -599,3 +599,11 @@
     (elisp-format-buffer)))
 
 (add-hook 'before-save-hook #'elisp-before-save-hook)
+
+;;; RSS feeds:
+
+(use-package elfeed
+  :bind ("C-x w" . elfeed)
+  :custom (elfeed-feeds '("https://irreal.org/blog/?feed=rss2"
+                          "https://www.youtube.com/feeds/videos.xml?channel_id=UCI6keWArpxmfeiuAATv7jZw"
+                          "https://bitcoinops.org/feed.xml")))
