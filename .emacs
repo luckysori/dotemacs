@@ -357,6 +357,12 @@
 ;; press a to access file/directory in same buffer in dired-mode
 (put 'dired-find-alternate-file 'disabled nil)
 
+;; moving up to parent directory doesn't open another buffer
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (define-key dired-mode-map (kbd "^")
+                        (lambda () (interactive) (find-alternate-file "..")))))
+
 ;;; global-diff-hl-mode:
 
 ;; TODO: figure out what this does
