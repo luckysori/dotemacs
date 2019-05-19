@@ -576,3 +576,7 @@
 
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 
+;;; Clean up whitespace before saving a file:
+
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
