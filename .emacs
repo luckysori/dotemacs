@@ -341,7 +341,9 @@
   ("C-M-d" . sp-down-sexp)
   ("C-M-f" . sp-forward-sexp)
   ("C-M-b" . sp-backward-sexp)
-  ("C-M-k" . sp-kill-sexp)
+  ;; sp-kill-sexp doesn't play nice with web-mode and
+  ;; I don't like how hungry sp-kill-sexp is anyway
+  ("C-M-k" . kill-sexp)
   ("C-M-<backspace>" . sp-backward-kill-sexp)
   ("C-(" . sp-rewrap-sexp)
   ("M-D" . sp-splice-sexp)
