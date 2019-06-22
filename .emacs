@@ -468,6 +468,13 @@
 (use-package
   wgrep-helm)
 
+;;; helm-projectile:
+
+(use-package
+  helm-projectile
+  :ensure helm
+  :bind ("C-x p g" . 'helm-projectile-grep))
+
 ;;; exec-path-from-shell:
 
 ;; TODO: does not load path when using emacsclient
