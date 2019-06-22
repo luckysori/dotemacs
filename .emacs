@@ -103,7 +103,8 @@
 
 (use-package
   magit
-  :bind ("C-c g" . 'magit-status))
+  :bind ("C-c g" . 'magit-status)
+  ("C-c m b" . 'magit-blame-addition))
 
 ;;; outline-mode for config file:
 
