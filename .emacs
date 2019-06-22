@@ -494,10 +494,6 @@
   (add-node-modules-path)
   (prettier-js-mode))
 
-;; TODO: delete if above works
-;; (eval-after-load 'typescript-mode '(add-hook 'typescript-mode-hook
-;;                                                        #'add-node-modules-path))
-
 ;;; Tide:
 
 (use-package
