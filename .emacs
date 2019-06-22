@@ -253,6 +253,9 @@
   multiple-cursors
   :custom (mc/always-run-for-all 1)
   :bind ("C-c m c" .'mc/edit-lines)
+  ("C->" . 'mc/mark-next-like-this)
+  ("C-<" . 'mc/mark-previous-like-this)
+  ("C-c C-<" . 'mc/mark-all-like-this)
   :config (define-key mc/keymap (kbd "<return>") nil))
 
 ;;; Copy to end of line:
