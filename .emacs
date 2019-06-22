@@ -400,7 +400,10 @@
 ;; JSON:
 
 (use-package
-  json-mode)
+  json-mode
+  :custom (json-reformat:indent-width 2))
+
+(setq js-indent-level 2)
 
 ;;; helm:
 
