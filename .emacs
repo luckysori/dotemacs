@@ -548,6 +548,11 @@
   flycheck
   :config (add-hook 'typescript-mode-hook 'flycheck-mode))
 
+(use-package
+  flycheck-color-mode-line
+  :after (flycheck)
+  :config (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
+
 ;;; helm-ls-git:
 
 (use-package
