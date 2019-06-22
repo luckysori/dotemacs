@@ -443,7 +443,7 @@
 (use-package
   helm-swoop
   :ensure helm
-  :bind (("M-i" . 'helm-swoop)
+  :bind (("M-i" . 'helm-swoop-without-pre-input)
          ("M-I" . 'helm-swoop-back-to-last-point)
          ("C-c M-i" . 'helm-multi-swoop)
          ("C-x M-i" . 'helm-multi-swoop-all)
