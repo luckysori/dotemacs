@@ -251,6 +251,7 @@
 
 (use-package
   multiple-cursors
+  :custom (mc/always-run-for-all 1)
   :bind ("C-c m c" .'mc/edit-lines)
   :config (define-key mc/keymap (kbd "<return>") nil))
 
