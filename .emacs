@@ -457,7 +457,7 @@
          ("C-s" . 'helm-next-line))
   :custom (helm-multi-swoop-edit-save t)
   (helm-swoop-split-with-multiple-windows nil)
-  (helm-swoop-split-direction 'split-window-vertically)
+  (helm-swoop-split-direction 'split-window-below)
   (helm-swoop-speed-or-color t)
   (helm-swoop-move-to-line-cycle t)
   (helm-swoop-use-line-number-face nil)
