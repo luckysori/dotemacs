@@ -642,3 +642,9 @@
 
 (global-set-key (kbd "C-c r b") 'revert-buffer)
 
+;;; Narrowing:
+
+(put 'narrow-to-region 'disabled nil)
+(put 'widen-to-region 'disabled nil)
+
+(require 'narrow-indirect)
