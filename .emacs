@@ -328,7 +328,7 @@
   ("C-M-d" . sp-down-sexp)
   ("C-M-f" . sp-forward-sexp)
   ("C-M-b" . sp-backward-sexp)
-  ;; sp-kill-sexp doesn't play nice with web-mode and
+  ;; sp-kill-sexp doesn't play nice with self-closing html tags and
   ;; I don't like how hungry sp-kill-sexp is anyway
   ("C-M-k" . kill-sexp)
   ("C-M-<backspace>" . sp-backward-kill-sexp)
