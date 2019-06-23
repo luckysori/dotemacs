@@ -135,23 +135,36 @@
 
 ;;(setq preview-gs-command "gs/gs9.09/bin/gswin32c.exe")
 
+;;; web-mode:
+
 (use-package
-  rjsx-mode
-  :mode (("\\.tsx\\'" . rjsx-mode))
-  :custom (js2-mode-show-parse-errors nil)
-  (js2-mode-show-strict-warnings nil)
-  :config (define-key rjsx-mode-map (kbd "C-d") nil)
-  (add-hook 'rjsx-mode-hook 'rjsx-mode-init-prettier-hook)
-  (add-hook 'rjsx-mode-hook (lambda ()
-                              (when (string-equal "tsx" (file-name-extension buffer-file-name))
-                                (setup-tide-mode))))
+  web-mode
+  :mode (("\\.html?\\'" . web-mode)
+         ("\\.tsx\\'" . web-mode)
+         ("\\.jsx\\'" . web-mode))
+  :custom (web-mode-markup-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-code-indent-offset 2)
+  (web-mode-block-padding 2)
+  (web-mode-comment-style 2)
+  (web-mode-enable-css-colorization t)
+  (web-mode-enable-auto-pairing t)
+  (web-mode-enable-comment-keywords t)
+  (web-mode-enable-current-element-highlight t)
+  (web-mode-enable-auto-indentation t)
+  (web-mode-enable-auto-quoting nil)
+  :config (add-hook 'web-mode-hook 'web-mode-init-prettier-hook)
+  (add-hook 'flycheck-mode-hook 'add-node-modules-path)
+  (add-hook 'web-mode-hook (lambda ()
+                             (when (string-equal "tsx" (file-name-extension buffer-file-name))
+                               (setup-tide-mode))))
   ;; disable default jslint
   (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint
                                                                                 json-jsonlist)))
   ;; enable typescript-tslint checker
-  (flycheck-add-mode 'typescript-tslint 'rjsx-mode))
+  (flycheck-add-mode 'typescript-tslint 'web-mode))
 
-(defun rjsx-mode-init-prettier-hook ()
+(defun web-mode-init-prettier-hook ()
   (add-node-modules-path)
   (prettier-js-mode))
 
