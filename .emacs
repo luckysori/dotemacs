@@ -624,6 +624,7 @@
     (elisp-format-buffer)))
 
 (add-hook 'before-save-hook #'elisp-before-save-hook)
+(add-hook 'emacs-lisp-mode-hook 'company-mode)
 
 ;;; RSS feeds:
 
