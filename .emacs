@@ -515,6 +515,7 @@
   :config (add-hook 'typescript-mode-hook 'tide-setup)
   (add-hook 'typescript-mode-hook 'tide-hl-identifier-mode))
 
+;; TODO: Delete this and declare all this with use-package
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
