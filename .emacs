@@ -473,7 +473,7 @@
 (use-package
   helm-projectile
   :ensure helm
-  :bind ("C-x p g" . 'helm-projectile-grep))
+  :config  (helm-projectile-on))
 
 ;;; exec-path-from-shell:
 
