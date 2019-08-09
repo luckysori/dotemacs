@@ -259,8 +259,8 @@
   ace-window
   :custom
   ;; TODO: figure out if this is working
-  (aw-dispatch-always t)
-  :bind ("M-o" . ace-window))
+  (aw-dispatch-always nil)
+  :bind ("C-c M-o" . ace-window))
 
 ;;; expand-region:
 
