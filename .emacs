@@ -16,6 +16,32 @@
                    (require 'use-package))
 (setq use-package-always-ensure t)
 
+;;; General rebinds:
+
+;; other-window
+(global-set-key (kbd "M-o") 'other-window)
+
+;; jump to beginning and end of buffer
+(global-set-key (kbd "M-<up>") 'beginning-of-buffer)
+(global-set-key (kbd "M-<down>") 'end-of-buffer)
+(global-set-key (kbd "M-[") 'beginning-of-buffer)
+(global-set-key (kbd "M-]") 'end-of-buffer)
+
+;; disable suspend-frame command
+(global-unset-key (kbd "C-z"))
+
+;; hippie-expand
+(global-set-key (kbd "M-/") 'hippie-expand)
+
+;; revert-buffer
+(global-set-key (kbd "C-c r b") 'revert-buffer)
+
+;; kill-this-buffer
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
+
+;; close emacs client and server
+(global-set-key (kbd "C-c C-x C-c") 'save-buffers-kill-emacs)
+
 ;;; diminish:
 
 (use-package
@@ -181,13 +207,6 @@
 
 (setq sentence-end-double-space nil)
 
-;;; Beginning/end of buffer:
-
-(global-set-key (kbd "M-<up>") 'beginning-of-buffer)
-(global-set-key (kbd "M-<down>") 'end-of-buffer)
-(global-set-key (kbd "M-[") 'beginning-of-buffer)
-(global-set-key (kbd "M-]") 'end-of-buffer)
-
 ;;; avy:
 
 (use-package
@@ -231,10 +250,6 @@
                                           'haskell-process-cabal-build)
                                         (define-key haskell-cabal-mode-map (kbd "C-c c")
                                           'haskell-process-cabal)))
-
-;;; Disable suspend-frame command:
-
-(global-unset-key (kbd "C-z"))
 
 ;;; ace-window:
 
@@ -580,10 +595,6 @@
   ibuffer
   :bind ("C-x C-b" . ibuffer))
 
-;;; hippie-expand:
-
-(global-set-key (kbd "M-/") 'hippie-expand)
-
 ;;; Always add copied text to kill ring, even if it's not yanked:
 
 (setq save-interprogram-paste-before-kill t)
@@ -591,10 +602,6 @@
 ;;; Follow link to vc'd file:
 
 (setq vc-follow-symlinks t)
-
-;;; Close emacs client and server:
-
-(global-set-key (kbd "C-c C-x C-c") 'save-buffers-kill-emacs)
 
 ;;; Smooth cursor scrolling:
 
@@ -605,10 +612,6 @@
 ;;; Confirm using y and n:
 
 (fset 'yes-or-no-p 'y-or-n-p)
-
-;;; Always kill this buffer:
-
-(global-set-key (kbd "C-x k") 'kill-this-buffer)
 
 ;;; Clean up whitespace before saving a file:
 
@@ -641,13 +644,13 @@
                           "https://www.youtube.com/feeds/videos.xml?channel_id=UCI6keWArpxmfeiuAATv7jZw"
                           "https://bitcoinops.org/feed.xml")))
 
-;;; Revert buffer:
-
-(global-set-key (kbd "C-c r b") 'revert-buffer)
-
 ;;; Narrowing:
 
 (put 'narrow-to-region 'disabled nil)
 (put 'widen-to-region 'disabled nil)
 
 (require 'narrow-indirect)
+
+;;; nmcli-wifi:
+
+(require 'nmcli-wifi)
