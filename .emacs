@@ -81,7 +81,7 @@
 ;;(use-package unicode-fonts)
 ;;(unicode-fonts-setup)
 
-(add-to-list 'default-frame-alist '(font . "Hack-14"))
+(add-to-list 'default-frame-alist '(font . "Hack-20"))
 
 ;;; org-mode:
 
