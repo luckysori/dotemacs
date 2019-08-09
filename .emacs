@@ -416,6 +416,11 @@
                                  (interactive)
                                  (find-alternate-file "..")))))
 
+;; hide details and sort
+(add-hook 'dired-mode-hook (lambda ()
+                             (dired-hide-details-mode)
+                             (dired-sort-toggle-or-edit)))
+
 ;;; global-diff-hl-mode:
 
 ;; TODO: figure out what this does
