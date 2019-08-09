@@ -313,11 +313,10 @@
 
 (use-package
   erc
-  :init (add-to-list 'load-path (concat user-emacs-directory "lisp"))
-  (and
-   (require 'erc-highlight-nicknames)
-   (add-to-list 'erc-modules 'highlight-nicknames)
-   (erc-update-modules))
+  :init (and
+         (require 'erc-highlight-nicknames)
+         (add-to-list 'erc-modules 'highlight-nicknames)
+         (erc-update-modules))
   :config (setq erc-hide-list '("JOIN" "PART" "QUIT")))
 
 ;;; Theme:
