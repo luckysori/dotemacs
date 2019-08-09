@@ -328,27 +328,52 @@
 
 (use-package
   rust-mode
-  :custom (rust-disable-format-on-save t)
-  (rust-rustfmt-bin "~/.cargo/bin/rustfmt")
-  ;; (company-tooltip-align-annotations t)
-  :config (add-hook 'rust-mode-hook 'racer-mode)
-  (add-hook 'rust-mode-hook 'cargo-minor-mode)
-  (add-hook 'rust-mode-hook 'eldoc-mode)
-  ;; this is too slow
-  ;; (add-hook 'racer-mode-hook 'company-mode)
-  ;; TODO: figure out whether I want to use this or not
-  ;; (add-hook 'rust-mode-hook 'yas-minor-mode)
+  :hook (rust-mode . cargo-minor-mode)
+  (rust-mode . eldoc-mode)
+  :custom (rust-format-on-save t)
+  (rust-rustfmt-bin "~/.rustup/toolchains/nightly-2019-04-30-x86_64-unknown-linux-gnu/bin/rustfmt")
+  :config
   ;; TODO: replace this hack
   ;; Add commit-rs to compilation-search-path
-  (add-to-list 'compilation-search-path "~/work/swap/")
+  (add-to-list 'compilation-search-path "~/work/swap/"))
 
-  ;; (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+;;; lsp-mode:
 
-  ;; (add-to-list 'load-path (concat user-emacs-directory "lisp/rust-snippets"))
-  ;; (autoload 'rust-snippets/initialize "rust-snippets")
-  ;; (eval-after-load 'yasnippet
-  ;;   '(rust-snippets/initialize))
-  )
+(use-package
+  lsp-mode
+  :hook (rust-mode . lsp)
+  :commands lsp
+  :custom (lsp-prefer-flymake nil)
+  (lsp-enable-snippet nil))
+
+(use-package
+  lsp-ui
+  :after (lsp-mode flycheck)
+  :commands lsp-ui-mode
+  :custom (lsp-ui-doc-enable t)
+  (lsp-ui-doc-use-childframe t)
+  (lsp-ui-doc-position 'top)
+  (lsp-ui-doc-include-signature nil)
+  (lsp-ui-sideline-enable t)
+  (lsp-ui-sideline-show-hover nil)
+  (lsp-ui-sideline-ignore-duplicate t)
+  (lsp-ui-flycheck-enable t)
+  (lsp-ui-flycheck-list-position 'right)
+  (lsp-ui-flycheck-live-reporting t)
+  (lsp-ui-peek-enable t)
+  (lsp-ui-peek-list-width 60)
+  (lsp-ui-peek-peek-height 25))
+
+(use-package
+  company-lsp
+  :commands company-lsp)
+
+(use-package
+  helm-lsp
+  :commands helm-lsp-workspace-symbol)
+
+(use-package
+  dap-mode)
 
 ;;; smartparens:
 
