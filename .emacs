@@ -3,6 +3,11 @@
 (package-initialize)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
+;;; Add lisp folder to load-path:
+
+(let ((default-directory (concat user-emacs-directory "lisp")))
+  (normal-top-level-add-to-load-path '("erc" "narrow" "nmcli" "prettier")))
+
 ;;; use-package:
 
 ;; TODO: what version should be loaded?
