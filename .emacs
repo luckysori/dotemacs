@@ -54,7 +54,7 @@
 ;;; custom-set-variables and custom-set-faces:
 
 (setq custom-file (concat user-emacs-directory "custom.el"))
-(load-file custom-file)
+(load custom-file 'noerror)
 
 ;;; Line wrapping:
 
