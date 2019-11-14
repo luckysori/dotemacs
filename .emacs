@@ -717,3 +717,7 @@
 ;;; nmcli-wifi:
 
 (require 'nmcli-wifi)
+
+;;; Line numbers on margin:
+
+(global-display-line-numbers-mode 0)
