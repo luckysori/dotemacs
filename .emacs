@@ -53,6 +53,9 @@
 (global-set-key (kbd "M-n") 'next-error)
 (global-set-key (kbd "M-p") 'previous-error)
 
+;;; General variable setting:
+(setq set-mark-command-repeat-pop t)
+
 ;;; diminish:
 
 (use-package
