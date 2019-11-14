@@ -279,9 +279,7 @@
 ;; TODO: buffer number is massive with spacemacs theme
 (use-package
   ace-window
-  :custom
-  ;; TODO: figure out if this is working
-  (aw-dispatch-always nil)
+  :custom (aw-dispatch-always t)
   :bind ("C-c M-o" . ace-window))
 
 ;;; expand-region:
