@@ -13,7 +13,7 @@
 ;;; Add lisp folder to load-path:
 
 (let ((default-directory (concat user-emacs-directory "lisp")))
-  (normal-top-level-add-to-load-path '("erc" "narrow" "nmcli" "prettier")))
+  (normal-top-level-add-to-load-path '("erc" "narrow" "nmcli" "prettier" "org-asciidoc")))
 
 ;;; use-package:
 
@@ -106,6 +106,8 @@
   :config (;; New org heading or list item doesn't generate new line
            setf org-blank-before-new-entry '((heading . nil)
                                              (plain-list-item . nil))))
+
+(require 'ox-asciidoc)
 
 ;;; Back up files:
 
