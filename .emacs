@@ -695,6 +695,9 @@
 (add-hook 'before-save-hook #'elisp-before-save-hook)
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
 
+;; do not try to find Emacs C source code
+(setq find-function-C-source-directory nil)
+
 ;;; RSS feeds:
 
 (use-package
