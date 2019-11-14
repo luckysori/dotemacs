@@ -726,3 +726,8 @@
 
 (use-package
   yaml-mode)
+
+;;; restclient-mode:
+
+(use-package
+  restclient)
