@@ -343,7 +343,11 @@
 ;;; Theme:
 
 (setq custom-safe-themes t)
-(load-theme 'spacemacs-dark)
+(if (daemonp)
+    (add-hook 'after-make-frame-functions (lambda (frame)
+                                            (with-selected-frame frame (load-theme 'spacemacs-dark
+                                                                                   t))))
+  (load-theme 'spacemacs-dark t))
 
 ;;; Rust:
 
