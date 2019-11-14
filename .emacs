@@ -353,14 +353,20 @@
 
 (use-package
   rust-mode
-  :hook (rust-mode . cargo-minor-mode)
-  (rust-mode . eldoc-mode)
+  :hook (rust-mode . eldoc-mode)
   :custom (rust-format-on-save t)
-  (rust-rustfmt-bin "~/.rustup/toolchains/nightly-2019-04-30-x86_64-unknown-linux-gnu/bin/rustfmt")
+  (rust-rustfmt-bin "~/.rustup/toolchains/nightly-2019-07-31-x86_64-unknown-linux-gnu/bin/rustfmt")
   :config
   ;; TODO: replace this hack
-  ;; Add commit-rs to compilation-search-path
-  (add-to-list 'compilation-search-path "~/work/swap/"))
+  ;; Add specific projects to compilation-search-path
+  (add-to-list 'compilation-search-path "~/work/comit-rs/")
+  (add-to-list 'compilation-search-path "~/work/create-comit-app/"))
+
+;; TODO: enable cargo-minor-mode when the file is Cargo.toml
+;; TODO: enable cargo-minor-mode when on magit-status for a Rust project?
+(use-package
+  cargo
+  :hook (rust-mode . cargo-minor-mode))
 
 ;;; lsp-mode:
 
