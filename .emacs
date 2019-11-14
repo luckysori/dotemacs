@@ -49,6 +49,10 @@
 ;; close emacs client and server
 (global-set-key (kbd "C-c C-x C-c") 'save-buffers-kill-emacs)
 
+;; next-error and previous-error
+(global-set-key (kbd "M-n") 'next-error)
+(global-set-key (kbd "M-p") 'previous-error)
+
 ;;; diminish:
 
 (use-package
