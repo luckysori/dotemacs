@@ -496,7 +496,7 @@
   helm
   :bind (("C-x C-f" . 'helm-find-files)
          ("C-x c b" . 'helm-resume)
-         ("C-x b" . 'helm-mini)
+         ("M-O" . 'helm-mini)
          ("C-x C-r" . 'helm-recentf)
          ("M-x" . 'helm-M-x))
   :custom (helm-mode 1)
