@@ -385,6 +385,7 @@
   (lsp-ui-doc-use-childframe t)
   (lsp-ui-doc-position 'top)
   (lsp-ui-doc-include-signature nil)
+  (lsp-ui-doc-max-height 10)
   (lsp-ui-sideline-enable t)
   (lsp-ui-sideline-show-hover nil)
   (lsp-ui-sideline-ignore-duplicate t)
