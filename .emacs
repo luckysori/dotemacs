@@ -518,12 +518,7 @@
   (helm-flx-for-helm-M-x t)
   (helm-completion-in-region-fuzzy-match t)
   (helm-show-completion-display-function #'helm-show-completion-default-display-function)
-  :config (require 'helm-config)
-  (add-hook 'eshell-mode-hook (lambda ()
-                                (eshell-cmpl-initialize)
-                                (define-key eshell-mode-map [remap eshell-pcomplete]
-                                  'helm-esh-pcomplete)
-                                (define-key eshell-mode-map (kbd "M-p") 'helm-eshell-history))))
+  :config (require 'helm-config))
 
 (use-package
   helm-swoop
