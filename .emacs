@@ -117,6 +117,9 @@
            setf org-blank-before-new-entry '((heading . nil)
                                              (plain-list-item . nil))))
 
+(use-package
+  org-download)
+
 (require 'ox-asciidoc)
 
 ;;; Back up files:
