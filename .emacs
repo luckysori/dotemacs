@@ -721,3 +721,8 @@
 ;;; Line numbers on margin:
 
 (global-display-line-numbers-mode 0)
+
+;;; yaml-mode:
+
+(use-package
+  yaml-mode)
