@@ -438,20 +438,22 @@
 
 ;;; dired:
 
-;; press a to access file/directory in same buffer in dired-mode
-(put 'dired-find-alternate-file 'disabled nil)
-
-;; moving up to parent directory doesn't open another buffer
-(add-hook 'dired-mode-hook (lambda ()
-                             (define-key dired-mode-map (kbd "^")
-                               (lambda ()
-                                 (interactive)
-                                 (find-alternate-file "..")))))
-
-;; hide details and sort
-(add-hook 'dired-mode-hook (lambda ()
-                             (dired-hide-details-mode)
-                             (dired-sort-toggle-or-edit)))
+(use-package
+  dired
+  :ensure nil
+  :hook (dired-mode . dired-hide-details-mode)
+  (dired-mode . dired-sort-toggle-or-edit)
+  ;; moving up to parent directory doesn't open another buffer
+  :bind (:map dired-mode-map
+              ("^" . (lambda ()
+                       (interactive)
+                       (find-alternate-file ".."))))
+  :config
+  ;; press a to access file/directory in same buffer in dired-mode
+  (put 'dired-find-alternate-file 'disabled nil)
+  (use-package
+    diredfl
+    :custom (diredfl-global-mode t)))
 
 ;;; global-diff-hl-mode:
 
