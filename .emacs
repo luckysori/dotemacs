@@ -95,7 +95,9 @@
 ;;(use-package unicode-fonts)
 ;;(unicode-fonts-setup)
 
-(add-to-list 'default-frame-alist '(font . "Hack-20"))
+;; TODO: Dynamic font size depending on monitor resolution and size using
+;; using display-monitor-attributes-list
+(add-to-list 'default-frame-alist '(font . "Hack-22"))
 
 ;;; org-mode:
 
