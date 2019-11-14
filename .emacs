@@ -579,7 +579,7 @@
 
 (use-package
   typescript-mode
-  :custom (typescript-indent-level 2)
+  :custom (typescript-indent-level 4)
   :config (add-hook 'typescript-mode-hook 'typescript-init-prettier-hook)
   (add-hook 'typescript-mode-hook 'setup-tide-mode))
 
