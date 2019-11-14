@@ -479,6 +479,7 @@
 
 (use-package
   prettier-js
+  :custom (prettier-js-show-errors 'echo)
   :config (add-hook 'js2-mode-hook 'prettier-js-mode))
 
 ;; JSON:
