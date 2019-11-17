@@ -97,7 +97,7 @@
 
 ;; TODO: Dynamic font size depending on monitor resolution and size using
 ;; using display-monitor-attributes-list
-(add-to-list 'default-frame-alist '(font . "Hack-22"))
+(add-to-list 'default-frame-alist '(font . "Hack-12"))
 
 ;;; org-mode:
 
