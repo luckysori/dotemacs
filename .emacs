@@ -13,7 +13,7 @@
 ;;; Add lisp folder to load-path:
 
 (let ((default-directory (concat user-emacs-directory "lisp")))
-  (normal-top-level-add-to-load-path '("erc" "narrow" "nmcli" "org-asciidoc")))
+  (normal-top-level-add-to-load-path '("narrow" "nmcli" "org-asciidoc")))
 
 ;;; use-package:
 
@@ -330,10 +330,6 @@
 
 (use-package
   erc
-  :init (and
-         (require 'erc-highlight-nicknames)
-         (add-to-list 'erc-modules 'highlight-nicknames)
-         (erc-update-modules))
   :config (setq erc-hide-list '("JOIN" "PART" "QUIT")))
 
 ;;; Theme:
