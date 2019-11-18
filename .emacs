@@ -171,23 +171,18 @@
                                   (setq outline-heading-end-regexp ":\n")
                                   (outline-minor-mode 1)))
 
-;;; Configuring AUCTeX:
+;;; LaTeX mode:
 
-;; TODO: update LaTeX support (this section was originally for Windows)
-
-;; AUCTeX replaces latex-mode-hook with LaTeX-mode-hook
-(add-hook 'LaTeX-mode-hook (lambda ()
-                             (setq TeX-auto-save t)
-                             (setq TeX-parse-self t)
-                             ;; (setq-default TeX-master nil)
-                             (reftex-mode t)
-                             (TeX-fold-mode t)))
-
-;;(setq preview-image-type 'pnm)
-
-;;; Configuring LaTeX preview:
-
-;;(setq preview-gs-command "gs/gs9.09/bin/gswin32c.exe")
+(use-package
+  tex
+  :ensure auctex
+  :custom (TeX-auto-save t)
+  (TeX-parse-self t)
+  (preview-image-type 'pnm)
+  (preview-gs-command "/usr/bin/gs")
+  (reftex-mode t)
+  (TeX-fold-mode t)
+  :config (setq-default TeX-master nil))
 
 ;;; web-mode:
 
