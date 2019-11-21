@@ -182,7 +182,15 @@
   (preview-gs-command "/usr/bin/gs")
   (reftex-mode t)
   (TeX-fold-mode t)
-  :config (setq-default TeX-master nil))
+  :config (setq-default TeX-master nil)
+  (use-package
+    latex-preview-pane
+    :bind ("M-U" . 'latex-preview-pane-update)
+    :hook (LaTeX-mode . latex-preview-pane-mode))
+  (use-package
+    company-auctex
+    :hook (LaTeX-mode . company-mode)
+    :init (company-auctex-init)))
 
 ;;; web-mode:
 
