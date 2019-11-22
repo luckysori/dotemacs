@@ -546,6 +546,10 @@
   (helm-swoop-use-line-number-face nil)
   (helm-swoop-use-fuzzy-match nil))
 
+(use-package
+  helm-ag
+  :bind (("C-x g" . 'helm-ag)))
+
 ;;; wgrep:
 
 (use-package
