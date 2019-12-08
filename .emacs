@@ -112,7 +112,8 @@
                                              (plain-list-item . nil))))
 
 (use-package
-  org-download)
+  org-download
+  :custom (org-download-display-inline-images nil))
 
 (require 'ox-asciidoc)
 
