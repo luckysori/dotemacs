@@ -575,9 +575,6 @@
   markdown-mode
   :config (add-hook 'markdown-mode-hook 'visual-line-mode))
 
-;; Set markdown-command to pandoc
-;; TODO: something is missing here
-
 ;;; Typescript:
 
 (use-package
