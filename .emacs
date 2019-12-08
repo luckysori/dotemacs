@@ -106,6 +106,7 @@
                             ("DONE" . org-done)
                             ("CANCELLED" . "blue")))
   (org-tags-column 0)
+  (org-export-with-tasks 'done)
   :config (;; New org heading or list item doesn't generate new line
            setf org-blank-before-new-entry '((heading . nil)
                                              (plain-list-item . nil))))
