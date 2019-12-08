@@ -1,13 +1,6 @@
 ;;; Package initialization:
 
 (package-initialize)
-;; FIXME:
-;; Failed to verify signature archive-contents.sig:Failed to verify signature archive-contents.sig:
-;; No public key for 066DAFCB81E42C40 created at 2019-10-15T08:10:02+1100 using RSA
-;; Command output:
-;; gpg: Signature made mar 15 oct 2019 08:10:02 AEDT
-;; gpg:                using RSA key C433554766D3DDC64221BFAA066DAFCB81E42C40
-;; gpg: Can't check signature: No public key
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 ;;; Add lisp folder to load-path:
