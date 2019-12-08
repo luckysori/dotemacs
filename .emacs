@@ -510,6 +510,7 @@
   (helm-mode-fuzzy-match t)
   (helm-buffers-fuzzy-matching t)
   (helm-recentf-fuzzy-match t)
+  (helm-M-x-use-completion-styles nil)
   (helm-M-x-fuzzy-match t)
   (helm-flx-for-helm-find-files t)
   (helm-flx-for-helm-locate t)
