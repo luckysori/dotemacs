@@ -111,8 +111,20 @@
                                              (plain-list-item . nil))))
 
 (use-package
+  org-capture
+  :ensure nil
+  :bind ("C-c c" . 'org-capture)
+  :config (setq org-capture-templates '(("t" "Todo" entry (file+headline "~/org/tasks.org" "Tasks")
+                                         "* TODO %?\n  %i\n  %a")
+                                        ("l" "Link" plain (file "~/org/links.org") "- %?\n %x\n"))))
+
+(use-package
   org-download
   :custom (org-download-display-inline-images nil))
+
+;; TODO: Use it for research and configure accordingly
+(use-package
+  org-noter)
 
 (require 'ox-asciidoc)
 
