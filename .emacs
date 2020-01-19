@@ -178,6 +178,18 @@
                                   (setq outline-heading-end-regexp ":\n")
                                   (outline-minor-mode 1)))
 
+;;; smerge:
+
+(use-package
+  smerge-mode
+  :ensure nil
+  :bind ("C-c C-n" . 'smerge-next)
+  ("C-c C-p" . 'smerge-prev)
+  ("C-c C-u" . 'smerge-keep-upper)
+  ("C-c C-l" . 'smerge-keep-lower)
+  ("C-c C-RET" . 'smerge-keep-current)
+  ("C-c C-a" . 'smerge-keep-all))
+
 ;;; LaTeX mode:
 
 (use-package
