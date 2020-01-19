@@ -163,10 +163,9 @@
 
 (use-package
   magit
-  :bind ("C-c g" . 'magit-status)
+  :bind ("C-c C-g" . 'magit-status)
   ("C-c m b" . 'magit-blame-addition)
-  :config
-  (unbind-key "C-x g" magit-file-mode-map))
+  :config (unbind-key "C-x g" magit-file-mode-map))
 
 ;;; outline-mode for config file:
 
