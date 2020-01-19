@@ -751,7 +751,10 @@
 (use-package
   restclient)
 
-;;; volume:
+;;; yasnippet:
 
+;; TODO: Set up yasnippet properly
 (use-package
-  volume)
+  yasnippet
+  :config (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (yas-global-mode 1))
