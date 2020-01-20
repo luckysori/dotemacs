@@ -211,6 +211,12 @@
     :hook (LaTeX-mode . company-mode)
     :init (company-auctex-init)))
 
+;;; pdf-tools
+
+(use-package
+  pdf-tools
+  :config (pdf-tools-install))
+
 ;;; web-mode:
 
 (use-package
