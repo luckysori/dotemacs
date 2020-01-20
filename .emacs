@@ -758,3 +758,10 @@
   yasnippet
   :config (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   (yas-global-mode 1))
+
+;;; dumb-jump:
+
+;; TODO: Use ripgrep or ag instead of grep
+(use-package
+  dumb-jump
+  :custom (dumb-jump-selector 'helm))
