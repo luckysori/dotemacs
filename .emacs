@@ -164,6 +164,7 @@
 (use-package
   magit
   :bind ("C-c C-g" . 'magit-status)
+  ("C-c C-j" . 'magit-status-here)
   ("C-c m b" . 'magit-blame-addition)
   :config (unbind-key "C-x g" magit-file-mode-map))
 
