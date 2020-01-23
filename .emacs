@@ -771,4 +771,5 @@
 ;; TODO: Use ripgrep or ag instead of grep
 (use-package
   dumb-jump
-  :custom (dumb-jump-selector 'helm))
+  :custom (dumb-jump-mode 1)
+  (dumb-jump-selector 'helm))
