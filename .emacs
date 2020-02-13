@@ -791,3 +791,8 @@
   dumb-jump
   :custom (dumb-jump-mode 1)
   (dumb-jump-selector 'helm))
+
+;;; vterm:
+
+(use-package
+  vterm)
