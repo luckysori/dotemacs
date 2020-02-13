@@ -76,7 +76,7 @@
  '(input-method-highlight-flag nil)
  '(magit-diff-use-overlays nil)
  '(mc/always-run-for-all 1)
- '(org-agenda-files '("~/org/general.org" "~/work/org/tasks.org"))
+ '(org-agenda-files '("~/Sync/org/work-tasks.org" "~/Sync/org/tasks.org"))
  '(org-download-display-inline-images nil)
  '(org-export-with-tasks 'done)
  '(org-tags-column 0)
