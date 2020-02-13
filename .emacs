@@ -404,7 +404,7 @@
   ;; Add specific projects to compilation-search-path
   (add-to-list 'compilation-search-path "~/work/comit-network/comit-rs/")
   (add-to-list 'compilation-search-path "~/work/comit-network/create-comit-app/")
-  (add-to-list 'compilation-search-path "~/work/research/grin-btc-poc/grin-wallet-test"))
+  (add-to-list 'compilation-search-path "~/work/comit-network/grin-btc-poc/"))
 
 ;; TODO: enable cargo-minor-mode when the file is Cargo.toml
 ;; TODO: enable cargo-minor-mode when on magit-status for a Rust project?
