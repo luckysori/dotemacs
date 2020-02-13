@@ -162,6 +162,16 @@
 
 (setq visible-bell 1)
 
+;;; isearch:
+
+(use-package
+  isearch
+  :ensure nil
+  :config (setq search-highlight t)
+  (setq isearch-lazy-highlight t)
+  (setq isearch-lazy-count t)
+  (setq isearch-allow-scroll t))
+
 ;;; magit:
 
 (use-package
