@@ -179,7 +179,8 @@
   :bind ("C-c C-g" . 'magit-status)
   ("C-c C-j" . 'magit-status-here)
   ("C-c m b" . 'magit-blame-addition)
-  :config (unbind-key "C-x g" magit-file-mode-map))
+  :config (unbind-key "C-x g" magit-file-mode-map)
+  (setq magit-repository-directories '(("~/work" . 2))))
 
 ;;; outline-mode for config file:
 
