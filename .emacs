@@ -21,6 +21,9 @@
 ;; other-window
 (global-set-key (kbd "M-o") 'other-window)
 
+;; other-frame
+(global-set-key (kbd "C-M-o") 'other-frame)
+
 ;; jump to beginning and end of buffer
 (global-set-key (kbd "M-<up>") 'beginning-of-buffer)
 (global-set-key (kbd "M-<down>") 'end-of-buffer)
