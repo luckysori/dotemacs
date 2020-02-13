@@ -418,8 +418,9 @@
   lsp-mode
   :hook (rust-mode . lsp)
   :commands lsp
+  :bind ("C-x C-a" . lsp-execute-code-action)
   :custom (lsp-prefer-flymake nil)
-  (lsp-enable-snippet nil))
+  (lsp-enable-snippet t))
 
 (use-package
   lsp-ui
