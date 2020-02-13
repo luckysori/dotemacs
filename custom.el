@@ -3,10 +3,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-auto-save t)
+ '(TeX-fold-mode t t)
+ '(TeX-parse-self t)
  '(ansi-color-faces-vector [default default default italic underline success warning error])
  '(ansi-color-names-vector ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0"
                             "#b2b2b2"])
  '(auth-source-save-behavior nil)
+ '(aw-dispatch-always t t)
  '(comint-process-echoes t)
  '(compilation-message-face 'default)
  '(compilation-search-path '("nil"))
@@ -86,22 +90,26 @@
                             ("DONE" . org-done)
                             ("CANCELLED" . "blue")))
  '(org-todo-keywords '((sequence "TODO" "IN-PROGRESS" "BLOCKED" "DONE" "CANCELLED")))
- '(package-selected-packages '(org-noter helm-fuzzier tide typescript-mode lsp-ui helm-ag latex-mode
-                                         LaTeX-mode company-latex latex-preview-pane company-auctex
-                                         async forge dired-git-info dired diredfl restclient indium
-                                         yaml-mode helm-org helm-projectile projectile adoc-mode
-                                         dap-rust dap-mode helm-lsp company-lsp docker-tramp
-                                         rjsx-mode flycheck-color-mode-line elfeed helm-rg json-mode
-                                         avy smart-parens hippie-expand electric-pair-mode
-                                         electric-pair erc-highlight-nicknames comint-mode comint
-                                         visible-bell-mode visible-bell ibuffer-mode prettier
-                                         prettier-js helm-swoop elisp-format helm-flx try
-                                         winner-mode helm-ls-git wgrep-helm add-node-modules-path
-                                         company-quickhelp flymd exec-path-from-shell wget js2-mode
-                                         diff-hl browse-kill-ring cargo company rust-mode
-                                         haskell-mode which-key cl-lib multiple-cursors
-                                         expand-region ace-window intero hindent emojify auctex
-                                         pdf-tools geiser))
+ '(package-selected-packages '(yasnippet-snippets vterm dumb-jump org-noter helm-fuzzier tide
+                                                  typescript-mode lsp-ui helm-ag latex-mode
+                                                  LaTeX-mode company-latex latex-preview-pane
+                                                  company-auctex async forge dired-git-info dired
+                                                  diredfl restclient indium yaml-mode helm-org
+                                                  helm-projectile projectile adoc-mode dap-rust
+                                                  dap-mode helm-lsp company-lsp docker-tramp
+                                                  rjsx-mode flycheck-color-mode-line elfeed helm-rg
+                                                  json-mode avy smart-parens hippie-expand
+                                                  electric-pair-mode electric-pair
+                                                  erc-highlight-nicknames comint-mode comint
+                                                  visible-bell-mode visible-bell ibuffer-mode
+                                                  prettier prettier-js helm-swoop elisp-format
+                                                  helm-flx try winner-mode helm-ls-git wgrep-helm
+                                                  add-node-modules-path company-quickhelp flymd
+                                                  exec-path-from-shell wget js2-mode diff-hl
+                                                  browse-kill-ring cargo company rust-mode
+                                                  haskell-mode which-key cl-lib multiple-cursors
+                                                  expand-region ace-window intero hindent emojify
+                                                  auctex pdf-tools geiser))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(preview-gs-command "/usr/bin/gs" t)
