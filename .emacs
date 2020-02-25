@@ -114,6 +114,12 @@
                                              (plain-list-item . nil))))
 
 (use-package
+  org-clock
+  :ensure nil
+  :bind ("C-c C-x C-i" . 'org-clock-in)
+  ("C-c C-x C-o" . 'org-clock-out))
+
+(use-package
   org-capture
   :ensure nil
   :bind ("C-c c" . 'org-capture)
