@@ -123,9 +123,18 @@
   org-capture
   :ensure nil
   :bind ("C-c c" . 'org-capture)
-  :config (setq org-capture-templates '(("t" "Todo" entry (file+headline "~/org/tasks.org" "Tasks")
-                                         "* TODO %?\n  %i\n  %a")
-                                        ("l" "Link" plain (file "~/org/links.org") "- %?\n %x\n"))))
+  :config (defun my/org-daily-work-buffer ()
+            "Set org-capture-target-buffer as Org buffer with today's date as name"
+            (interactive)
+            (let* ((file-name (format-time-string "%F.org"))
+                   (file-path (expand-file-name file-name "~/work/org/daily/")))
+              (set-buffer (org-capture-target-buffer file-path))
+              (goto-char (point-max))))
+  (setq org-capture-templates '(("t" "Todo" entry (file+headline "~/org/tasks.org" "Tasks")
+                                 "* TODO %?\n  %i\n  %a")
+                                ("l" "Link" plain (file "~/org/links.org") "- %?\n %x\n")
+                                ("d" "Daily work task" plain (function my/org-daily-work-buffer)
+                                 "* %?"))))
 
 (use-package
   org-download
