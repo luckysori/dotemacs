@@ -823,3 +823,7 @@
   vterm
   :bind ("C-c C-s" . vterm))
 
+;;; scheme:
+
+(use-package
+  geiser)
