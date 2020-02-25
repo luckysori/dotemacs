@@ -612,20 +612,22 @@
   (helm-swoop-use-line-number-face nil)
   (helm-swoop-use-fuzzy-match nil))
 
-(use-package
-  helm-ag
-  :bind (("C-x g" . 'helm-ag)))
-
 ;;; wgrep:
 
 (use-package
   wgrep-helm)
+
+;;; helm-rg:
+
+(use-package
+  helm-rg)
 
 ;;; helm-projectile:
 
 (use-package
   helm-projectile
   :ensure helm
+  :bind (("C-x g" . helm-projectile-rg))
   :config  (helm-projectile-on))
 
 ;;; exec-path-from-shell:
