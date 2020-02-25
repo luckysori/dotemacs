@@ -436,7 +436,10 @@
   :commands lsp
   :bind ("C-x C-a" . lsp-execute-code-action)
   :custom (lsp-prefer-flymake nil)
-  (lsp-enable-snippet t))
+  (lsp-enable-snippet t)
+  :config (setq lsp-rust-server 'rust-analyzer)
+  )
+
 
 (use-package
   lsp-ui
