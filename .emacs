@@ -820,4 +820,6 @@
 ;;; vterm:
 
 (use-package
-  vterm)
+  vterm
+  :bind ("C-c C-s" . vterm))
+
