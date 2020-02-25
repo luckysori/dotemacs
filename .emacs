@@ -194,8 +194,9 @@
   :bind ("C-c C-g" . 'magit-status)
   ("C-c C-j" . 'magit-status-here)
   ("C-c m b" . 'magit-blame-addition)
+  ("C-c l r" . 'magit-list-repositories)
   :config (unbind-key "C-x g" magit-file-mode-map)
-  (setq magit-repository-directories '(("~/work" . 2))))
+  (setq magit-repository-directories '(("~/work" . 3))))
 
 ;;; outline-mode for config file:
 
