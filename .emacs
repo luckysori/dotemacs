@@ -439,7 +439,8 @@
   lsp-mode
   :hook (rust-mode . lsp)
   :commands lsp
-  :bind ("C-x C-a" . lsp-execute-code-action)
+  :bind ("C-x C-a" . lsp-execute-code-action )
+  ("C-x C-." . lsp-find-type-definition)
   :custom (lsp-prefer-flymake nil)
   (lsp-enable-snippet t)
   :config (setq lsp-rust-server 'rust-analyzer)
