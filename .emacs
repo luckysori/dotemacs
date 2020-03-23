@@ -417,9 +417,10 @@
 (use-package
   rust-mode
   :hook (rust-mode . eldoc-mode)
+  :bind ("C-c C-f" . rust-format-goto-problem)
   :custom (rust-format-on-save t)
   (rust-rustfmt-bin "~/.rustup/toolchains/nightly-2019-07-31-x86_64-unknown-linux-gnu/bin/rustfmt")
-  :config
+  :config (unbind-key "C-c C-n" rust-mode-map)
   ;; TODO: replace this hack
   ;; Add specific projects to compilation-search-path
   (add-to-list 'compilation-search-path "~/work/comit-network/comit-rs/")
@@ -699,7 +700,9 @@
 
 (use-package
   flycheck
-  :config (add-hook 'typescript-mode-hook 'flycheck-mode))
+  :config (add-hook 'typescript-mode-hook 'flycheck-mode)
+  :bind ("C-c C-n" . 'flycheck-next-error)
+  ("C-c C-p" . 'flycheck-previous-error))
 
 (use-package
   flycheck-color-mode-line
