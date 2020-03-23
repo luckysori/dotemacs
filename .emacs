@@ -81,6 +81,10 @@
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 
+;;; Edit scratch message:
+
+(setq initial-scratch-message ";; Wash your hands!")
+
 ;;; Enable transient mark mode:
 
 (transient-mark-mode 1)
