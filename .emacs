@@ -828,7 +828,8 @@
 
 (use-package
   vterm
-  :bind ("C-c C-s" . vterm))
+  :bind ("C-c C-s" . vterm)
+  ("C-c p C-s" . projectile-run-vterm))
 
 ;;; scheme:
 
