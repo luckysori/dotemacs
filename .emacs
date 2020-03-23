@@ -38,7 +38,7 @@
 
 ;; revert-buffer
 (global-set-key (kbd "C-c C-r") 'revert-buffer)
-(setq revert-without-query t)
+(setq revert-without-query '(".*"))
 
 ;; kill-this-buffer
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
