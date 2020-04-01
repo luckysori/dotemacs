@@ -50,7 +50,11 @@
 (global-set-key (kbd "M-n") 'next-error)
 (global-set-key (kbd "M-p") 'previous-error)
 
+;; kill-whole-line
+(global-set-key (kbd "C-S-k") 'kill-whole-line)
+
 ;;; General variable setting:
+
 (setq set-mark-command-repeat-pop t)
 
 ;;; diminish:
