@@ -53,6 +53,11 @@
 ;; kill-whole-line
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 
+;; modify case
+(bind-key "M-c" 'capitalize-dwim)
+(bind-key "M-l" 'downcase-dwim)
+(bind-key "M-u" 'upcase-dwim)
+
 ;;; General variable setting:
 
 (setq set-mark-command-repeat-pop t)
