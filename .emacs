@@ -822,9 +822,6 @@
   yasnippet
   :config (use-package
             yasnippet-snippets)
-  ;; TODO: Do not hardcode path to yasnippet-snippets directory
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets"
-                           "~/.emacs.d/elpa/yasnippet-snippets-20200122.1140/snippets"))
   (yas-global-mode 1))
 
 ;;; dumb-jump:
