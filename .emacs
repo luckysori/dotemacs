@@ -840,7 +840,9 @@
 (use-package
   vterm
   :bind ("C-c C-s" . vterm)
-  ("C-c p C-s" . projectile-run-vterm))
+  ("C-c p C-s" . projectile-run-vterm)
+  ("C-c g" . vterm-send-C-g)
+  :config (unbind-key "C-c C-g" vterm-mode-map))
 
 ;;; scheme:
 
