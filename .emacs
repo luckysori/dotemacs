@@ -802,9 +802,13 @@
 
 (require 'nmcli-wifi)
 
-;;; Line numbers on margin:
+;;; display-line-numbers for pair-programming:
 
-(global-display-line-numbers-mode 0)
+;; (use-package
+;;   display-line-numbers-mode
+;;   :ensure nil
+;;   :hook  (rust-mode . display-line-numbers-mode)
+;;   )
 
 ;;; yaml-mode:
 
