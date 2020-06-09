@@ -8,6 +8,14 @@
 (let ((default-directory (concat user-emacs-directory "lisp")))
   (normal-top-level-add-to-load-path '("erc" "narrow" "nmcli" "prettier" "org-asciidoc")))
 
+;;; Add priv folder to load-path:
+
+(defvar private-dir (concat user-emacs-directory "priv")
+  "Private elisp directory")
+
+(if (file-exists-p private-dir)
+    (add-to-list 'load-path private-dir))
+
 ;;; use-package:
 
 ;; TODO: what version should be loaded?
@@ -795,9 +803,7 @@
 (use-package
   elfeed
   :bind ("C-x w" . elfeed)
-  :custom (elfeed-feeds '("https://irreal.org/blog/?feed=rss2"
-                          "https://www.youtube.com/feeds/videos.xml?channel_id=UCI6keWArpxmfeiuAATv7jZw"
-                          "https://bitcoinops.org/feed.xml")))
+  :config (require 'elfeeds nil 'noerror))
 
 ;;; Narrowing:
 
