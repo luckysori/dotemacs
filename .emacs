@@ -534,7 +534,7 @@
               ("^" . (lambda ()
                        (interactive)
                        (find-alternate-file ".."))))
-  :config
+  :config (global-set-key (kbd "C-x C-j") 'dired-jump)
   ;; press a to access file/directory in same buffer in dired-mode
   (put 'dired-find-alternate-file 'disabled nil)
   (use-package
