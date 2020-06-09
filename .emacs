@@ -124,7 +124,8 @@
   (org-export-with-tasks 'done)
   :config (;; New org heading or list item doesn't generate new line
            setf org-blank-before-new-entry '((heading . nil)
-                                             (plain-list-item . nil))))
+                                             (plain-list-item . nil)))
+  (setq org-export-backends '(ascii html icalendar latex md odt)))
 
 (use-package
   org-clock
