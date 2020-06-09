@@ -431,12 +431,7 @@
   :bind ("C-c C-f" . rust-format-goto-problem)
   :custom (rust-format-on-save t)
   (rust-rustfmt-bin "~/.rustup/toolchains/nightly-2020-01-15-x86_64-unknown-linux-gnu/bin/rustfmt")
-  :config (unbind-key "C-c C-n" rust-mode-map)
-  ;; TODO: replace this hack
-  ;; Add specific projects to compilation-search-path
-  (add-to-list 'compilation-search-path "~/work/comit-network/comit-rs/")
-  (add-to-list 'compilation-search-path "~/work/comit-network/create-comit-app/")
-  (add-to-list 'compilation-search-path "~/work/comit-network/grin-btc-poc/"))
+  :config (unbind-key "C-c C-n" rust-mode-map))
 
 ;; TODO: enable cargo-minor-mode when the file is Cargo.toml
 ;; TODO: enable cargo-minor-mode when on magit-status for a Rust project?
