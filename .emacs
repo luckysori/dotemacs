@@ -212,6 +212,8 @@
   :config (unbind-key "C-x g" magit-file-mode-map)
   (setq magit-repository-directories '(("~/work" . 3))))
 
+;; TODO: create function to stage a region. Probably would only work by line
+
 ;;; outline-mode for config file:
 
 ;; TODO: replace outline-mode with literate org-mode
