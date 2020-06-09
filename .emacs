@@ -428,7 +428,6 @@
 
 (use-package
   rust-mode
-  :hook (rust-mode . eldoc-mode)
   :bind ("C-c C-f" . rust-format-goto-problem)
   :custom (rust-format-on-save t)
   (rust-rustfmt-bin "~/.rustup/toolchains/nightly-2020-01-15-x86_64-unknown-linux-gnu/bin/rustfmt")
