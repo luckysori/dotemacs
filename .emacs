@@ -539,7 +539,11 @@
   (put 'dired-find-alternate-file 'disabled nil)
   (use-package
     diredfl
-    :custom (diredfl-global-mode t)))
+    :custom (diredfl-global-mode t))
+  (use-package
+    dired-narrow
+    :bind (:map dired-mode-map
+                ("/" . dired-narrow))))
 
 ;;; global-diff-hl-mode:
 
