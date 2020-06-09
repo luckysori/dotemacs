@@ -639,17 +639,19 @@
 (use-package
   wgrep-helm)
 
-;;; helm-rg:
+;;; helm-ag:
 
 (use-package
-  helm-rg)
+  helm-ag
+  :bind ("C-x g" . helm-do-ag-project-root)
+  :config (setq helm-ag-base-command "rg --no-heading")
+  (setq helm-ag-success-exit-status '(0 2)))
 
 ;;; helm-projectile:
 
 (use-package
   helm-projectile
   :ensure helm
-  :bind (("C-x g" . helm-projectile-rg))
   :config  (helm-projectile-on))
 
 ;;; exec-path-from-shell:
