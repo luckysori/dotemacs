@@ -446,7 +446,8 @@
 (use-package
   cargo
   :hook (rust-mode . cargo-minor-mode)
-  :config (setq cargo-process--command-check "clippy --all-targets"))
+  :config (setq cargo-process--command-check "clippy --all-targets")
+  (require 'add-rust-projects-to-compilation-path nil 'noerror))
 
 ;;; lsp-mode:
 
