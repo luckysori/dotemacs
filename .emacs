@@ -245,6 +245,13 @@
   ("C-c C-RET" . 'smerge-keep-current)
   ("C-c C-a" . 'smerge-keep-all))
 
+;;; ediff
+
+(use-package
+  ediff
+  :ensure nil
+  :config (setq ediff-window-setup-function 'ediff-setup-windows-plain))
+
 ;;; LaTeX mode:
 
 (use-package
