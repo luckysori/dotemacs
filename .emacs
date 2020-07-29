@@ -20,9 +20,12 @@
 ;;; use-package:
 
 ;; TODO: what version should be loaded?
-(eval-when-compile (add-to-list 'load-path
-                                "/home/luckysori/.emacs.d/elpa/use-package-20190405.2047")
-                   (require 'use-package))
+
+(eval-when-compile
+  (require 'use-package)
+  (require 'diminish)
+  (require 'bind-key))
+
 (setq use-package-always-ensure t)
 
 ;;; General rebinds:
