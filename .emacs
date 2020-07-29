@@ -475,13 +475,14 @@
   :custom (lsp-prefer-flymake nil)
   (lsp-enable-snippet t)
   :config (setq lsp-rust-server 'rust-analyzer)
+  (setq lsp-prefer-capf t)
   (setq lsp-rust-clippy-preference "on")
   (setq lsp-rust-analyzer-cargo-override-command "clippy --all-targets --message-format=json")
-  ;; To improve performance:
+  ;; To improve performance
   (setq gc-cons-threshold 100000000)
   (setq read-process-output-max (* 1024 1024))
   (setq lsp-idle-delay 0.500)
-  ;; flycheck:
+  ;; flycheck
   (lsp-flycheck-enable t))
 
 (use-package
@@ -505,10 +506,6 @@
   (lsp-ui-peek-peek-height 25)
   :config (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references))
-
-(use-package
-  company-lsp
-  :commands company-lsp)
 
 (use-package
   helm-lsp
