@@ -535,6 +535,7 @@
   ("C-M-<SPC>" . sp-mark-sexp)
   ("C-M-t" . sp-transpose-sexp)
   :config (require 'smartparens-config)
+  ;; TODO: Figure out why this is repeated?
   (global-set-key (kbd "C-M-<backspace>") 'sp-backward-kill-sexp))
 
 ;;; expand-region:
