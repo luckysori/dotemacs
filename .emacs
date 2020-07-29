@@ -841,8 +841,26 @@
 ;; (use-package
 ;;   display-line-numbers-mode
 ;;   :ensure nil
-;;   :hook  (rust-mode . display-line-numbers-mode)
-;;   )
+;;   :hook  (rust-mode . display-line-numbers-mode))
+
+;;; prot's display-line-numbers mode:
+
+(use-package
+  display-line-numbers
+  :defer
+  :config
+  ;; Set absolute line numbers.  A value of "relative" is also useful.
+  (setq display-line-numbers-type t)
+  (define-minor-mode prot/display-line-numbers-mode
+    "Toggle `display-line-numbers-mode' and `hl-line-mode'."
+    :init-value nil
+    :global nil
+    (if prot/display-line-numbers-mode (progn (display-line-numbers-mode 1)
+                                              (hl-line-mode 1))
+      (display-line-numbers-mode -1)
+      (hl-line-mode -1)))
+  :bind ("<f7>" . prot/display-line-numbers-mode))
+
 
 ;;; yaml-mode:
 
