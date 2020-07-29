@@ -610,13 +610,15 @@
 
 (use-package
   helm
+  :diminish helm-mode
+  helm-ff-cache-mode
   :bind (("C-x C-f" . 'helm-find-files)
          ("C-x c b" . 'helm-resume)
          ("M-O" . 'helm-mini)
          ("C-x C-r" . 'helm-recentf)
          ("M-x" . 'helm-M-x))
-  :custom (helm-mode 1)
-  (helm-autoresize-mode t)
+  :init (helm-mode 1)
+  :custom (helm-autoresize-mode t)
   (helm-split-window-in-side-p t)
   (helm-autoresize-max-height 30)
   (helm-autoresize-min-height 30)
