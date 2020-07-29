@@ -10,6 +10,7 @@
 
 ;;; Add priv folder to load-path:
 
+;; TODO: Consider using use-package's :load-path instead
 (defvar private-dir (concat user-emacs-directory "priv")
   "Private elisp directory")
 
