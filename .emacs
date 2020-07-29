@@ -876,6 +876,7 @@
 
 (use-package
   yasnippet
+  :diminish yas-minor-mode
   :config (use-package
             yasnippet-snippets)
   (yas-global-mode 1))
