@@ -262,12 +262,12 @@
 (use-package
   tex
   :ensure auctex
+  :init (reftex-mode t)
+  (TeX-fold-mode t)
   :custom (TeX-auto-save t)
   (TeX-parse-self t)
   (preview-image-type 'pnm)
   (preview-gs-command "/usr/bin/gs")
-  (reftex-mode t)
-  (TeX-fold-mode t)
   :config (setq-default TeX-master nil)
   (use-package
     latex-preview-pane
