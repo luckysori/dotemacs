@@ -519,8 +519,8 @@
 (use-package
   smartparens
   :diminish smartparens-mode
-  :custom (smartparens-global-mode t)
-  (show-smartparens-global-mode t)
+  :init (smartparens-global-mode)
+  (show-smartparens-global-mode)
   :bind ("C-M-u" . sp-backward-up-sexp)
   ("C-M-d" . sp-down-sexp)
   ("C-M-f" . sp-forward-sexp)
