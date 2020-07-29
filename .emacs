@@ -911,3 +911,8 @@
   :ensure nil
   :diminish eldoc-mode)
 
+;;; smart-mode-line:
+
+(use-package
+  smart-mode-line
+  :config (sml/setup))
