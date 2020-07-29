@@ -903,3 +903,11 @@
 
 (use-package
   geiser)
+
+;;; eldoc:
+
+(use-package
+  eldoc
+  :ensure nil
+  :diminish eldoc-mode)
+
