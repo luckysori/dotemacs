@@ -578,7 +578,11 @@
 
 ;;; global-subword-mode:
 
-(global-subword-mode 1)
+(use-package
+  subword
+  :ensure nil
+  :diminish
+  :config (global-subword-mode 1))
 
 ;;; JavaScript:
 
