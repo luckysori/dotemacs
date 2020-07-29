@@ -886,8 +886,8 @@
 ;; TODO: Use ripgrep or ag instead of grep
 (use-package
   dumb-jump
-  :custom (dumb-jump-mode 1)
-  (dumb-jump-selector 'helm))
+  :init (dumb-jump-mode 1)
+  :config (setq dumb-jump-selector 'helm))
 
 ;;; vterm:
 
