@@ -887,6 +887,7 @@
 (use-package
   dumb-jump
   :init (dumb-jump-mode 1)
+  :disabled
   :config (setq dumb-jump-selector 'helm))
 
 ;;; vterm:
