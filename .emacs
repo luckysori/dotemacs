@@ -278,8 +278,8 @@
 (use-package smerge-mode
   :straight (smerge-mode :type built-in)
   :bind
-  (("C-c C-n" . 'smerge-next)
-    ("C-c C-p" . 'smerge-prev)
+  (("C-c C-x C-n" . 'smerge-next)
+    ("C-c C-x C-p" . 'smerge-prev)
     ("C-c C-u" . 'smerge-keep-upper)
     ("C-c C-l" . 'smerge-keep-lower)
     ("C-c C-RET" . 'smerge-keep-current)
