@@ -106,7 +106,15 @@
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 
-;;; Edit scratch message:
+;;; Scratch buffer:
+
+(defun immortal-scratch ()
+  (if (eq (current-buffer) (get-buffer "*scratch*"))
+    (progn
+      (bury-buffer)
+      nil)
+    t))
+(add-hook 'kill-buffer-query-functions 'immortal-scratch)
 
 (setq initial-scratch-message ";; Wash your hands!")
 
