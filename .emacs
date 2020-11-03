@@ -367,7 +367,7 @@
 ;;; avy:
 
 (use-package avy
-  :bind ("M-s" . 'avy-goto-word-1))
+  :bind ("M-s" . 'avy-goto-char-timer))
 
 ;;; Haskell configs:
 
