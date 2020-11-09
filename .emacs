@@ -567,7 +567,6 @@
 (advice-add 'lsp-code-actions-at-point
   :filter-return 'my/hide-rust-analyzer-flip-comma)
 
-
 (use-package helm-lsp
   :commands helm-lsp-workspace-symbol)
 
@@ -613,7 +612,9 @@
   (:map
     dired-mode-map
     ("^" . (lambda () (interactive) (find-alternate-file ".."))))
-  :config (global-set-key (kbd "C-x C-j") 'dired-jump)
+  :config
+  (global-set-key (kbd "C-x C-j") 'dired-jump)
+  (setq dired-dwim-target t)
   ;; press a to access file/directory in same buffer in dired-mode
   (put 'dired-find-alternate-file 'disabled nil)
   (use-package diredfl
