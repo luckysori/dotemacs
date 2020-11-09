@@ -921,7 +921,14 @@
 
 ;;; restclient-mode:
 
-(use-package restclient)
+(use-package restclient
+  :config
+  ;; From https://github.com/purcell/emacs.d/blob/a97dc5a44242f7f78c70335a9532bc657ea0a8d8/lisp/init-http.el#L9
+  (defun my/restclient ()
+    (interactive)
+    (with-current-buffer (get-buffer-create "*restclient*")
+      (restclient-mode)
+      (pop-to-buffer (current-buffer)))))
 
 ;;; yasnippet:
 
