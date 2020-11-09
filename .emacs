@@ -994,3 +994,8 @@
       (minibuffer . t)
       (menu-bar-lines . t)
       (window-system . x))))
+
+;;; clojure:
+
+(use-package cider)
+
