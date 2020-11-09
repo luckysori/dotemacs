@@ -900,7 +900,7 @@
   :straight nil
   :config
   ;; Set absolute line numbers.  A value of "relative" is also useful.
-  (setq display-line-numbers-type t)
+  (setq display-line-numbers-type 'relative)
   (define-minor-mode prot/display-line-numbers-mode
     "Toggle `display-line-numbers-mode' and `hl-line-mode'."
     :init-value nil
