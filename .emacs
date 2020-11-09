@@ -748,8 +748,9 @@
 
 ;;; Markdown:
 
-;; TODO: Generalise this for all text modes
+
 (use-package markdown-mode
+  ;; TODO: Generalise this for all text modes
   :config (add-hook 'markdown-mode-hook 'visual-line-mode))
 
 ;;; Typescript:
