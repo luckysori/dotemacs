@@ -729,7 +729,7 @@
 (use-package helm-ag
   :bind ("C-x g" . helm-do-ag-project-root)
   :config
-  (setq helm-ag-base-command "rg --ignore-case --no-heading")
+  (setq helm-ag-base-command "rg --ignore-case --no-heading --trim")
   (setq helm-ag-success-exit-status '(0 2)))
 
 ;;; helm-projectile:
