@@ -786,14 +786,20 @@
 ;;; company-mode:
 
 (use-package company
+  :hook (after-init . global-company-mode)
+  :bind ("C-." . company-complete)
   :config
   (setq company-show-numbers t)
-  (setq company-tooltip-align-annotations t))
+  (setq company-tooltip-align-annotations t)
 
-(use-package company-quickhelp
-  :init
-  (company-quickhelp-mode 1)
-  (use-package pos-tip))
+  (use-package company-quickhelp
+    :init
+    (company-quickhelp-mode 1)
+    (use-package pos-tip))
+
+  (use-package helm-company
+    :config (define-key company-active-map (kbd "C-/") 'helm-company)))
+
 
 ;;; flycheck:
 
