@@ -1011,3 +1011,7 @@
 
 (use-package docker)
 
+;;; Dictionary client:
+
+(use-package dictionary)
+
