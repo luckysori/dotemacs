@@ -81,6 +81,10 @@
 
 (setq scroll-preserve-screen-position t)
 
+;; speed up next-line
+;; (see https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag)
+(setq auto-window-vscroll nil)
+
 ;;; diminish:
 
 (use-package diminish)
