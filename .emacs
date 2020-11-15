@@ -1005,10 +1005,6 @@
   (global-set-key (kbd "C-h v") 'helpful-variable)
   (global-set-key (kbd "C-h k") 'helpful-key))
 
-;;; docker:
-
-(use-package docker)
-
 ;;; Dictionary client:
 
 (use-package dictionary)
