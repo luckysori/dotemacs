@@ -510,45 +510,50 @@
   :init
   ;; prevent warnings caused by lsp-execute-code-action keybinding
   (setq gud-key-prefix (kbd "C-c C-x C-a"))
-  (setq lsp-modeline-code-actions-enable nil)
   :hook (rust-mode . lsp)
   :commands lsp
   :bind
   ("C-x C-a" . lsp-execute-code-action)
   ("C-x C-." . lsp-find-type-definition)
   :custom
-  (lsp-prefer-flymake nil)
   (lsp-enable-snippet t)
-  :config
-  (setq lsp-rust-server 'rust-analyzer)
-  (setq lsp-prefer-capf t)
-  (setq lsp-rust-clippy-preference "on")
-  (setq lsp-rust-analyzer-cargo-override-command
+  (lsp-prefer-capf t)
+  ;;rust
+  (lsp-rust-server 'rust-analyzer)
+  (lsp-rust-analyzer-cargo-override-command
     "clippy --all-targets --all-features --message-format=json")
   ;; To improve performance
-  (setq gc-cons-threshold 100000000)
-  (setq read-process-output-max (* 1024 1024))
-  (setq lsp-idle-delay 0.500)
-  ;; flycheck
-  (setq lsp-flycheck-enable t))
+  (gc-cons-threshold 100000000)
+  (read-process-output-max (* 1024 1024))
+  (lsp-idle-delay 0.500))
 
 (use-package lsp-ui
   :after (lsp-mode flycheck)
   :commands lsp-ui-mode
   :custom
+  ;; doc
   (lsp-ui-doc-enable t)
   (lsp-ui-doc-use-childframe t)
   (lsp-ui-doc-position 'top)
   (lsp-ui-doc-include-signature nil)
   (lsp-ui-doc-max-height 10)
+  (lsp-ui-doc-delay 0.5)
+  ;; sideline
   (lsp-ui-sideline-enable t)
   (lsp-ui-sideline-show-hover nil)
   (lsp-ui-sideline-ignore-duplicate t)
-  (lsp-ui-sideline-show-code-actions t)
-  (lsp-ui-sideline-actions-kind-regex ".*")
+  (lsp-ui-sideline-show-code-actions nil)
   (lsp-ui-sideline-update_mode 'line)
+  ;; modeline
+  (lsp-modeline-code-actions-mode t)
+  (lsp-modeline-code-actions-kind-regex ".*")
+  (lsp-modeline-code-actions-segments '(count))
+  (lsp-modeline-workspace-status-mode t)
+  (lsp-modeline-diagnostics-mode nil)
+  ;;flycheck
   (lsp-ui-flycheck-list-position 'right)
   (lsp-ui-flycheck-live-reporting t)
+  ;;peek
   (lsp-ui-peek-enable t)
   (lsp-ui-peek-list-width 60)
   (lsp-ui-peek-peek-height 25)
@@ -557,7 +562,6 @@
     #'lsp-ui-peek-find-definitions)
   (define-key lsp-ui-mode-map [remap xref-find-references]
     #'lsp-ui-peek-find-references))
-
 
 (defun my/hide-rust-analyzer-flip-comma (actions)
   "Filter flip-comma code action from the list of possible code actions returned by rust-analyzer"
@@ -573,8 +577,6 @@
 
 (use-package helm-lsp
   :commands helm-lsp-workspace-symbol)
-
-(use-package dap-mode)
 
 ;;; smartparens:
 
