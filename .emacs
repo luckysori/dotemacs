@@ -79,6 +79,8 @@
 
 (setq set-mark-command-repeat-pop t)
 
+(setq scroll-preserve-screen-position t)
+
 ;;; diminish:
 
 (use-package diminish)
