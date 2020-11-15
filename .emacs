@@ -93,10 +93,11 @@
 
 (prefer-coding-system 'utf-8)
 
-;;; custom-set-variables and custom-set-faces:
+;;; Don't store customizations:
 
-(setq custom-file (concat user-emacs-directory "custom.el"))
-(load custom-file 'noerror)
+(use-package cus-edit+
+  :defer t
+  :custom (custom-file null-device))
 
 ;;; Line wrapping:
 
