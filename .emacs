@@ -123,7 +123,7 @@
     t))
 (add-hook 'kill-buffer-query-functions 'immortal-scratch)
 
-(setq initial-scratch-message ";; Wash your hands!")
+(setq initial-scratch-message ";; scratch")
 
 ;;; Enable transient mark mode:
 
