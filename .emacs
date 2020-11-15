@@ -24,6 +24,12 @@
 
 (straight-use-package 'use-package)
 
+;;; Garbage Collector Magic Hack:
+
+(use-package gcmh
+  :diminish
+  :init (gcmh-mode 1))
+
 ;;; Add priv folder to load-path:
 
 ;; TODO: Consider using use-package's :load-path instead
@@ -1008,4 +1014,3 @@
 ;;; Dictionary client:
 
 (use-package dictionary)
-
