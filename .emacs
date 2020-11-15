@@ -260,7 +260,8 @@
 
 (use-package magit
   :bind
-  (("C-c C-g" . 'magit-status)
+  (("C-M-m" . 'magit-status)
+    ("C-x C-m" . 'magit-dispatch)
     ("C-c C-j" . 'magit-status-here)
     ("C-c m b" . 'magit-blame-addition)
     ("C-c l r" . 'magit-list-repositories))
