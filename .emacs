@@ -490,11 +490,7 @@
 ;;; Rust:
 
 (use-package rust-mode
-  :bind ("C-c C-f" . rust-format-goto-problem)
-  :custom
-  (rust-format-on-save t)
-  (rust-rustfmt-bin
-    "~/.rustup/toolchains/nightly-2020-01-15-x86_64-unknown-linux-gnu/bin/rustfmt")
+  :custom (rust-format-on-save t)
   :config (unbind-key "C-c C-n" rust-mode-map))
 
 ;; TODO: Enable cargo-minor-mode when the file is Cargo.toml
