@@ -521,6 +521,7 @@
   :bind
   ("C-x C-a" . lsp-execute-code-action)
   ("C-x C-." . lsp-find-type-definition)
+  ("C-x C-r" . lsp-rename)
   :custom
   (lsp-enable-snippet t)
   (lsp-prefer-capf t)
@@ -679,7 +680,6 @@
   (("C-x C-f" . 'helm-find-files)
     ("C-x c b" . 'helm-resume)
     ("M-O" . 'helm-mini)
-    ("C-x C-r" . 'helm-recentf)
     ("M-x" . 'helm-M-x))
   :init (helm-mode 1)
   :custom
