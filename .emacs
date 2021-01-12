@@ -355,7 +355,6 @@
   (web-mode-enable-auto-indentation t)
   (web-mode-enable-auto-quoting nil)
   :config
-  (add-hook 'web-mode-hook 'web-mode-init-prettier-hook)
   (add-hook 'flycheck-mode-hook 'add-node-modules-path)
   (add-hook 'web-mode-hook
     (lambda ()
@@ -369,10 +368,6 @@
       '(javascript-jshint json-jsonlist)))
   ;; enable typescript-tslint checker
   (flycheck-add-mode 'typescript-tslint 'web-mode))
-
-(defun web-mode-init-prettier-hook ()
-  (add-node-modules-path)
-  (prettier-js-mode))
 
 ;;; Indent with spaces:
 
@@ -662,11 +657,6 @@
 (use-package js2-mode
   :config (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
 
-;; JS formatter
-(use-package prettier-js
-  :custom (prettier-js-show-errors 'echo)
-  :config (add-hook 'js2-mode-hook 'prettier-js-mode))
-
 ;;; JSON:
 
 (use-package json-mode
@@ -773,13 +763,7 @@
 
 (use-package typescript-mode
   :custom (typescript-indent-level 2)
-  :config
-  (add-hook 'typescript-mode-hook 'typescript-init-prettier-hook)
-  (add-hook 'typescript-mode-hook 'setup-tide-mode))
-
-(defun typescript-init-prettier-hook ()
-  (add-node-modules-path)
-  (prettier-js-mode))
+  :config (add-hook 'typescript-mode-hook 'setup-tide-mode))
 
 ;;; Tide:
 
