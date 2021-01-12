@@ -119,6 +119,10 @@
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 
+;;; Disable lockfiles:
+
+(setq create-lockfiles nil)
+
 ;;; Scratch buffer:
 
 (defun immortal-scratch ()
