@@ -276,7 +276,7 @@
     ("C-c m b" . 'magit-blame-addition)
     ("C-c l r" . 'magit-list-repositories))
   :config
-  (unbind-key "C-x g" magit-file-mode-map)
+  (unbind-key "C-x g" magit-section-mode-map)
   (setq magit-repository-directories '(("~/work" . 3))))
 
 ;; TODO: Create function to stage a region. Would probably only work by line
@@ -303,7 +303,7 @@
     ("C-c C-RET" . 'smerge-keep-current)
     ("C-c C-a" . 'smerge-keep-all)))
 
-;;; ediff
+;;; ediff:
 
 (use-package ediff
   :straight (ediff :type built-in)
@@ -524,6 +524,7 @@
   :custom
   (lsp-enable-snippet t)
   (lsp-prefer-capf t)
+  (lsp-headerline-breadcrumb-enable nil)
   ;;rust
   (lsp-rust-server 'rust-analyzer)
   (lsp-rust-analyzer-cargo-override-command
