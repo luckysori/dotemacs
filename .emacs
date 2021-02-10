@@ -675,7 +675,8 @@
   (("C-x C-f" . 'helm-find-files)
     ("C-x c b" . 'helm-resume)
     ("M-O" . 'helm-mini)
-    ("M-x" . 'helm-M-x))
+    ("M-x" . 'helm-M-x)
+    (:map helm-find-files-map ("C-c C-s" . my/helm-vterm)))
   :init (helm-mode 1)
   :custom
   (helm-autoresize-mode t)
@@ -697,7 +698,20 @@
   (helm-completion-in-region-fuzzy-match t)
   (helm-show-completion-display-function
     #'helm-show-completion-default-display-function)
-  :config (require 'helm-config))
+  :config
+  (require 'helm-config)
+  (defun my/helm-vterm ()
+    "Open vterm in helm directory"
+    (interactive)
+    (with-helm-alive-p
+      (helm-exit-and-execute-action
+        (lambda (candidate)
+          (progn
+            (let
+              ;; TODO: this action doesn't always open the vterm
+              ;; buffer in the expected directory
+              ((default-directory (file-name-directory candidate)))
+              (vterm))))))))
 
 (use-package helm-swoop
   :bind
