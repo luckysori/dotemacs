@@ -946,7 +946,9 @@
   ("C-c C-s" . vterm)
   ("C-c p C-s" . projectile-run-vterm)
   ("C-c g" . vterm-send-C-g)
-  :config (unbind-key "C-c C-g" vterm-mode-map))
+  :config
+  (unbind-key "C-c C-g" vterm-mode-map)
+  (unbind-key "M-O" vterm-mode-map))
 
 ;;; scheme:
 
