@@ -64,6 +64,7 @@
  ("parseedn" . "90cfe3df51b96f85e346f336c0a0ee6bf7fee508")
  ("pdf-tools" . "c510442ab89c8a9e9881230eeb364f4663f59e76")
  ("pkg-info" . "76ba7415480687d05a4353b27fea2ae02b8d9d61")
+ ("plantuml-mode" . "ea45a13707abd2a70df183f1aec6447197fc9ccc")
  ("popup-el" . "bd5a0df7e5bc68af46eef37afe9e80764a1d4fd8")
  ("pos-tip" . "179cc126b363f72ca12fab1e0dc462ce0ee79742")
  ("projectile" . "c31bd41c0b9d6fba8837ebfd3a31dec0b3cd73c6")

@@ -1005,3 +1005,11 @@
 ;;; Dictionary client:
 
 (use-package dictionary)
+
+;;; PlantUML:
+
+(use-package plantuml-mode
+  :custom
+  (plantuml-jar-path "~/plantuml.jar")
+  (plantuml-default-exec-mode 'jar)
+  (plantuml-output-type "svg"))
