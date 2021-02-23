@@ -1034,3 +1034,5 @@
   (plantuml-jar-path "~/plantuml.jar")
   (plantuml-default-exec-mode 'jar)
   (plantuml-output-type "svg"))
+
+(use-package olivetti)

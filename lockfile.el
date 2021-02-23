@@ -56,6 +56,7 @@
  ("multiple-cursors.el" . "a9d7764f80b241978f3d4e76bc981ef10bab5d70")
  ("narrow-indirect" . "5a7fffffb8278ee01574b9317873aaa371c60142")
  ("nmcli-wifi" . "1fc3b21653dc34c340dd6372be1dea8bcacbab9d")
+ ("olivetti" . "61d26644fd9dd2d45b80b9b82f5f930ed17530d0")
  ("org" . "9ea7ff5e2f8f9f280f8022cade62c1a3bba1478c")
  ("org-asciidoc" . "e931362e641f97d17dc738d22bb461e54045786d")
  ("org-download" . "97bec7412e1a4d6e9031c7a0568d0f065cd9fd00")
