@@ -144,6 +144,13 @@
 ;; TODO: Dynamic font size depending on monitor resolution and size using
 ;; using display-monitor-attributes-list
 (add-to-list 'default-frame-alist '(font . "Hack-14"))
+(set-face-attribute 'default nil :family "Hack")
+(set-face-attribute
+  'italic
+  nil
+  :slant 'italic
+  :underline nil
+  :family "Hack")
 
 ;;; org-mode:
 
