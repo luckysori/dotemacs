@@ -527,7 +527,9 @@
   :init
   ;; prevent warnings caused by lsp-execute-code-action keybinding
   (setq gud-key-prefix (kbd "C-c C-x C-a"))
-  :hook (rust-mode . lsp)
+  :hook
+  (rust-mode . lsp)
+  (c++-mode .lsp)
   :commands lsp
   :bind
   ("C-x C-a" . lsp-execute-code-action)
