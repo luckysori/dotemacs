@@ -284,7 +284,8 @@
     ("C-c l r" . 'magit-list-repositories))
   :config
   (unbind-key "C-x g" magit-section-mode-map)
-  (setq magit-repository-directories '(("~/work" . 3))))
+  (setq magit-repository-directories
+    '(("~/work" . 3) ("~/github" . 2))))
 
 ;; TODO: Create function to stage a region. Would probably only work by line
 
