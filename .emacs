@@ -1044,3 +1044,7 @@
   (plantuml-output-type "svg"))
 
 (use-package olivetti)
+
+(use-package conf-mode
+  :straight (conf-mode :type built-in)
+  :config (unbind-key "C-c C-p" conf-mode-map))
