@@ -783,10 +783,11 @@
 
 ;;; Markdown:
 
-
 (use-package markdown-mode
   ;; TODO: Generalise this for all text modes
-  :config (add-hook 'markdown-mode-hook 'visual-line-mode))
+  :config
+  (add-hook 'markdown-mode-hook 'visual-line-mode)
+  (unbind-key "M-RET" markdown-mode-map))
 
 ;;; Typescript:
 
