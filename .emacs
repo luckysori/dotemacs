@@ -690,6 +690,7 @@
     ("C-x c b" . 'helm-resume)
     ("M-O" . 'helm-mini)
     ("M-x" . 'helm-M-x)
+    ("C-c C-y" . 'helm-show-kill-ring)
     (:map helm-find-files-map ("C-c C-s" . my/helm-vterm)))
   :init (helm-mode 1)
   :custom
