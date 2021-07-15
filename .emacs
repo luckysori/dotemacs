@@ -710,16 +710,9 @@
   (helm-display-header-line nil)
   (helm-echo-input-in-header-line t)
   (set-face-attribute 'helm-source-header nil :height 0.1)
-  (helm-flx-mode t)
   (helm-mode-fuzzy-match t)
-  (helm-buffers-fuzzy-matching t)
-  (helm-recentf-fuzzy-match t)
-  (helm-M-x-use-completion-styles nil)
-  (helm-M-x-fuzzy-match t)
-  (helm-flx-for-helm-find-files t)
-  (helm-flx-for-helm-locate t)
-  (helm-flx-for-helm-M-x t)
   (helm-completion-in-region-fuzzy-match t)
+  (helm-M-x-use-completion-styles nil)
   (helm-show-completion-display-function
     #'helm-show-completion-default-display-function)
   :config
