@@ -179,7 +179,8 @@
 
 (use-package org-clock
   :straight (org-clock :type built-in)
-  :bind (("C-c C-x C-i" . 'org-clock-in) ("C-c C-x C-o" . 'org-clock-out)))
+  :bind
+  (("C-c C-x C-i" . 'org-clock-in) ("C-c C-x C-o" . 'org-clock-out)))
 
 (use-package org-capture
   :straight (org-capture :type built-in)
@@ -217,7 +218,8 @@
 ;;; nmcli-mode:
 
 (use-package ox-asciidoc
-  :straight (ox-asciidoc :type git :host github :repo "yashi/org-asciidoc"))
+  :straight
+  (ox-asciidoc :type git :host github :repo "yashi/org-asciidoc"))
 
 ;;; Back up files:
 
@@ -315,7 +317,8 @@
 
 (use-package ediff
   :straight (ediff :type built-in)
-  :config (setq ediff-window-setup-function 'ediff-setup-windows-plain))
+  :config
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
 ;;; LaTeX mode:
 
@@ -848,7 +851,8 @@
 
 (use-package flycheck-color-mode-line
   :after (flycheck)
-  :config (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
+  :config
+  (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
 
 ;;; helm-ls-git:
 
@@ -888,7 +892,8 @@
 (use-package projectile
   :diminish projectile-mode
   :init (projectile-mode 1)
-  :bind (:map projectile-mode-map ("C-c p" . 'projectile-command-map)))
+  :bind
+  (:map projectile-mode-map ("C-c p" . 'projectile-command-map)))
 
 ;;; Emacs lisp:
 
@@ -1006,7 +1011,8 @@
 ;;; nmcli-mode:
 
 (use-package nmcli-wifi
-  :straight (nmcli-wifi :type git :host github :repo "luckysori/nmcli-wifi"))
+  :straight
+  (nmcli-wifi :type git :host github :repo "luckysori/nmcli-wifi"))
 
 ;;; edit-server to edit with Emacs in the browser:
 
