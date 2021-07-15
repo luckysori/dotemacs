@@ -1048,4 +1048,9 @@
 
 (use-package conf-mode
   :straight (conf-mode :type built-in)
-  :config (unbind-key "C-c C-p" conf-mode-map))
+  :config
+  (unbind-key "C-c C-u" conf-mode-map)
+  (unbind-key "C-c C-p" conf-mode-map)
+  (unbind-key "C-c C-j" conf-mode-map)
+  (unbind-key "C-c C-s" conf-mode-map))
+
