@@ -928,6 +928,8 @@
 
 (use-package display-line-numbers
   :straight nil
+  ;; TODO: Allow to enable and disable this mode via a command
+  ;; :hook (prog-mode . prot/display-line-numbers-mode)
   :config
   ;; Set absolute line numbers.  A value of "relative" is also useful.
   (setq display-line-numbers-type 't)
