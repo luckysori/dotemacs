@@ -179,7 +179,9 @@
     '((heading . nil) (plain-list-item . nil)))
   (setq org-export-backends '(ascii html icalendar latex md odt))
   (setq org-highlight-latex-and-related
-    `(latex script entities native)))
+    `(latex script entities native))
+  (require 'agenda-files nil 'noerror))
+
 
 (use-package org-clock
   :straight (org-clock :type built-in)
