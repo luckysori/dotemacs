@@ -83,6 +83,10 @@
 
 ;;; General variable setting:
 
+(setq undo-limit 800000)
+(setq undo-strong-limit 12000000)
+(setq undo-outer-limit 120000000)
+
 (setq set-mark-command-repeat-pop t)
 
 (setq scroll-preserve-screen-position t)
