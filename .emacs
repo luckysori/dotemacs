@@ -1068,3 +1068,5 @@
   (unbind-key "C-c C-j" conf-mode-map)
   (unbind-key "C-c C-s" conf-mode-map))
 
+(use-package git-link)
+
