@@ -204,17 +204,18 @@
   (setq org-capture-templates
     '
     (
-      ("t"
-        "Todo"
+      ("w"
+        "Work TODO"
         entry
-        (file+headline "~/org/tasks.org" "Tasks")
-        "* TODO %?\n  %i\n  %a")
-      ("l" "Link" plain (file "~/org/links.org") "- %?\n %x\n")
-      ("d"
-        "Daily work task"
-        plain
-        (function my/org-daily-work-buffer)
-        "* %?"))))
+        (file+olp "~/Sync/org/work-tasks.org" "Work tasks")
+        "* TODO %? :work:\n  %i\n  %a")
+      ("t"
+        "TODO"
+        entry
+        (file+olp "~/Sync/org/tasks.org" "Tasks")
+        "* TODO %? :home:\n  %i\n  %a")
+      ("l"
+        "Link" plain (file "~/Sync/org/links.org") "- %?\n %x\n"))))
 
 (use-package org-download
   :custom (org-download-display-inline-images nil))
