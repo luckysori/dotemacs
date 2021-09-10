@@ -159,7 +159,9 @@
 ;;; org-mode:
 
 (use-package org
-  :bind ("C-c a" . 'org-agenda)
+  :bind
+  ("C-c a" . 'org-agenda)
+  ("C-M-<return>" . 'org-insert-subheading)
   :hook ((org-mode . visual-line-mode) (org-mode . org-indent-mode))
   :custom
   (org-todo-keywords
