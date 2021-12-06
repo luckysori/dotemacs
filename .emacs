@@ -389,9 +389,9 @@
     ("\\.tsx\\'" . web-mode)
     ("\\.jsx\\'" . web-mode))
   :custom
-  (web-mode-markup-indent-offset 2)
-  (web-mode-css-indent-offset 2)
-  (web-mode-code-indent-offset 2)
+  (web-mode-markup-indent-offset 4)
+  (web-mode-css-indent-offset 4)
+  (web-mode-code-indent-offset 4)
   (web-mode-block-padding 2)
   (web-mode-comment-style 2)
   (web-mode-enable-css-colorization t)
@@ -721,8 +721,6 @@
 (use-package json-mode
   :custom (json-reformat:indent-width 2))
 
-(setq js-indent-level 2)
-
 ;;; helm:
 
 (use-package helm
@@ -830,7 +828,7 @@
 ;;; Typescript:
 
 (use-package typescript-mode
-  :custom (typescript-indent-level 2)
+  :custom (typescript-indent-level 4)
   :config (add-hook 'typescript-mode-hook 'setup-tide-mode))
 
 ;;; Tide:
