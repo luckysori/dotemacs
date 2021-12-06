@@ -1121,3 +1121,20 @@
     (kill-ring
       search-ring regexp-search-ring shell-command-history)))
 
+(use-package browse-url
+  :straight (browse-url :type built-in)
+  :config
+  (defun my/browse (text)
+    (interactive "sSearch: ")
+    (let*
+      (
+        ;; TODO: a string such as "google.com" should be parsed as
+        ;; the host but is instead identified as the filename
+        (candidate (url-generic-parse-url text))
+        (is-url (not (null (url-type candidate))))
+        url)
+      (if is-url
+        (setq url text)
+        (setq url (concat "https://www.google.com/search?q=" text)))
+      (browse-url-xdg-open url))))
+
