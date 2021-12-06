@@ -244,6 +244,8 @@
 
 (use-package org-noter)
 
+(use-package org-tree-slide)
+
 ;;; nmcli-mode:
 
 (use-package ox-asciidoc
