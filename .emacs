@@ -1110,3 +1110,14 @@
 
 (use-package git-link)
 
+(use-package savehist
+  :straight (savehist :type built-in)
+  :init (savehist-mode 1)
+  :config
+  (setq savehist-file (concat user-emacs-directory "savehist"))
+  (setq savehist-autosave-interval nil) ; save on kill only
+  (setq savehist-additional-variables
+    '
+    (kill-ring
+      search-ring regexp-search-ring shell-command-history)))
+
