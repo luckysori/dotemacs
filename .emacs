@@ -322,6 +322,10 @@
 
 ;; TODO: Create function to stage a region. Would probably only work by line
 
+;;; git-timemachine:
+
+(use-package git-timemachine)
+
 ;;; outline-mode for files using emacs-lisp-mode such as .emacs:
 
 (add-hook 'emacs-lisp-mode-hook
