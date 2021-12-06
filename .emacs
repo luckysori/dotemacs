@@ -1138,3 +1138,6 @@
         (setq url (concat "https://www.google.com/search?q=" text)))
       (browse-url-xdg-open url))))
 
+(use-package dash
+  :config
+  (with-eval-after-load 'info-look (dash-register-info-lookup)))
