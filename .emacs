@@ -1030,7 +1030,8 @@
   ("C-c g" . vterm-send-C-g)
   :config
   (unbind-key "C-c C-g" vterm-mode-map)
-  (unbind-key "M-O" vterm-mode-map))
+  (unbind-key "M-O" vterm-mode-map)
+  (unbind-key "C-M-m" vterm-mode-map))
 
 ;;; scheme:
 
