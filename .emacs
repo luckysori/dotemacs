@@ -1025,13 +1025,21 @@
 
 (use-package vterm
   :bind
-  ("C-c C-s" . vterm)
   ("C-c p C-s" . projectile-run-vterm)
   ("C-c g" . vterm-send-C-g)
   :config
   (unbind-key "C-c C-g" vterm-mode-map)
   (unbind-key "M-O" vterm-mode-map)
   (unbind-key "C-M-m" vterm-mode-map))
+
+(use-package vterm-toggle
+  :straight
+  (vterm-toggle :type git :host github :repo "jixiuf/vterm-toggle")
+  :after (projectile vterm)
+  :bind ("C-c C-s" . vterm-toggle)
+  :custom
+  (vterm-toggle-fullscreen-p nil)
+  (vterm-toggle-scope 'project))
 
 ;;; scheme:
 
