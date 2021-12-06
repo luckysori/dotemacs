@@ -76,6 +76,24 @@
 ;; kill-whole-line
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 
+;; horizontal-recenter
+;; grabbed from https://stackoverflow.com/a/1249665
+(defun my/horizontal-recenter ()
+  "make the point horizontally centered in the window"
+  (interactive)
+  (let
+    (
+      (mid (/ (window-width) 2))
+      (line-len
+        (save-excursion
+          (end-of-line)
+          (current-column)))
+      (cur (current-column)))
+    (if (< mid cur)
+      (set-window-hscroll (selected-window) (- cur mid)))))
+
+(global-set-key (kbd "C-S-l") 'my/horizontal-recenter)
+
 ;; modify case
 (bind-key "M-c" 'capitalize-dwim)
 (bind-key "M-l" 'downcase-dwim)
