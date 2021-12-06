@@ -981,6 +981,15 @@
       (hl-line-mode -1)))
   :bind ("<f7>" . prot/display-line-numbers-mode))
 
+;; (define-globalized-minor-mode
+;;   my/pair-programming-mode
+;;   prot/display-line-numbers-mode
+;;   :init-value nil
+;;   (lambda ()
+;;     (when derived-mode-p
+;;       'prog-mode)
+;;     (prot/display-line-numbers-mode 1)))
+
 ;;; yaml-mode:
 
 (use-package yaml-mode)
