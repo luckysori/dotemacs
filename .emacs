@@ -194,6 +194,8 @@
   (org-tags-column 0)
   (org-export-with-tasks 'done)
   :config
+  ;; TODO: Make this work
+  (define-key org-mode-map (kbd "<M-return>") nil)
   ;; New org heading or list item doesn't generate new line
   (setf org-blank-before-new-entry
     '((heading . nil) (plain-list-item . nil)))
