@@ -1141,3 +1141,12 @@
 (use-package dash
   :config
   (with-eval-after-load 'info-look (dash-register-info-lookup)))
+
+;;; magit forge:
+
+(use-package forge
+  :after magit)
+
+(use-package auth-source
+  :straight (auth-source :type built-in)
+  :custom (auth-sources '("~/.authinfo.gpg")))
