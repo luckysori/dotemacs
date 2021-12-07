@@ -165,7 +165,7 @@
 
 ;; TODO: Dynamic font size depending on monitor resolution and size using
 ;; using display-monitor-attributes-list
-(add-to-list 'default-frame-alist '(font . "Hack-14"))
+(add-to-list 'default-frame-alist '(font . "Hack-18"))
 (set-face-attribute 'default nil :family "Hack")
 (set-face-attribute
   'italic
@@ -477,7 +477,7 @@
 
 ;;; ace-window:
 
-;; TODO: Buffer number is massive with spacemacs theme
+;; TODO: Buffer number is massive
 (use-package ace-window
   :custom (aw-dispatch-always t)
   :bind ("C-c M-o" . ace-window))
@@ -533,16 +533,7 @@
 
 (setq custom-safe-themes t)
 
-(use-package spacemacs-common
-  :straight spacemacs-theme
-  :demand t
-  :init
-  (if (daemonp)
-    (add-hook 'after-make-frame-functions
-      (lambda (frame)
-        (select-frame frame)
-        (load-theme 'spacemacs-dark t)))
-    (load-theme 'spacemacs-dark t)))
+(load-theme 'modus-vivendi t)
 
 ;; Set the face of region selection to a dark blue, so that it's
 ;; different to the colour used for semantic highlighting
