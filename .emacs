@@ -1131,3 +1131,8 @@
 (use-package dash
   :config
   (with-eval-after-load 'info-look (dash-register-info-lookup)))
+
+;;; nix:
+
+(use-package nix-mode)
+
