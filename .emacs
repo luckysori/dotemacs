@@ -1136,3 +1136,59 @@
 
 (use-package nix-mode)
 
+;;; mu4e:
+
+(use-package mu4e
+  :straight
+  (:local-repo
+    "~/.nix-profile/share/emacs/site-lisp/mu4e"
+    :pre-build ())
+  :bind
+  (:map
+    mu4e-headers-mode-map
+    ("d" . 'my/move-to-trash)
+    :map
+    mu4e-view-mode-map
+    ("d" . 'my/move-to-trash))
+  :custom
+  (user-mail-address "lucas_soriano@fastmail.com")
+  (user-full-name "Lucas Soriano del Pino")
+  (mail-host-address "wsl.org")
+  (mu4e-headers-skip-duplicates t)
+  (mu4e-view-show-images t)
+  (mu4e-view-show-addresses t)
+  (mu4e-compose-format-flowed nil)
+  (mu4e-date-format "%y/%m/%d")
+  (mu4e-headers-date-format "%Y/%m/%d")
+  (mu4e-change-filenames-when-moving t)
+  (mu4e-attachments-dir "~/Downloads")
+  ;; top-level
+  (mu4e-maildir "~/Maildir")
+  ;; rest of dirs are relative to top-level
+  (mu4e-refile-folder "/Archive")
+  (mu4e-sent-folder "/Sent")
+  (mu4e-drafts-folder "/Drafts")
+  (mu4e-trash-folder "/Trash")
+  ;; re-sync and re-index pressing U
+  (mu4e-get-mail-command "mbsync -a")
+  ;; sending mail
+  (sendmail-program "~/.nix-profile/bin/msmtp")
+  (send-mail-function 'smtpmail-send-it)
+  (message-send-mail-function 'message-send-mail-with-sendmail)
+  (smtpmail-default-smtp-server "smtp.fastmail.com")
+  (smtpmail-smtp-server "smtp.fastmail.com")
+  :config
+  (fset 'my/move-to-trash "mTrash")
+  (setq mu4e-contexts
+    `
+    (
+      ,
+      (make-mu4e-context
+        :name "Work"
+        :enter-func (lambda () (mu4e-message "Work context"))
+        :match-func
+        (lambda (msg)
+          (when msg
+            (mu4e-message-contact-field-matches
+              msg
+              :to "lucas@coblox.tech")))))))
