@@ -310,15 +310,14 @@
 
 (use-package magit
   :bind
-  (("C-M-m" . 'magit-status)
+  (("C-c C-m" . 'magit-status)
     ("C-x C-m" . 'magit-dispatch)
     ("C-c C-j" . 'magit-status-here)
     ("C-c m b" . 'magit-blame-addition)
     ("C-c l r" . 'magit-list-repositories))
   :config
   (unbind-key "C-x g" magit-section-mode-map)
-  (setq magit-repository-directories
-    '(("~/work" . 3) ("~/github" . 2))))
+  (setq magit-repository-directories '(("~/github" . 2))))
 
 ;; TODO: Create function to stage a region. Would probably only work by line
 
