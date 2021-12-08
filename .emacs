@@ -1015,7 +1015,7 @@
 
 (use-package vterm
   :bind
-  ("C-c C-s" . vterm)
+  ("C-c C-s" . vterm-other-window)
   ("C-c p C-s" . projectile-run-vterm)
   ("C-c g" . vterm-send-C-g)
   :config
