@@ -1177,18 +1177,4 @@
   (message-send-mail-function 'message-send-mail-with-sendmail)
   (smtpmail-default-smtp-server "smtp.fastmail.com")
   (smtpmail-smtp-server "smtp.fastmail.com")
-  :config
-  (fset 'my/move-to-trash "mTrash")
-  (setq mu4e-contexts
-    `
-    (
-      ,
-      (make-mu4e-context
-        :name "Work"
-        :enter-func (lambda () (mu4e-message "Work context"))
-        :match-func
-        (lambda (msg)
-          (when msg
-            (mu4e-message-contact-field-matches
-              msg
-              :to "lucas@coblox.tech")))))))
+  :config (fset 'my/move-to-trash "mTrash"))
