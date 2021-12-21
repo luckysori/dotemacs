@@ -319,6 +319,15 @@
   (unbind-key "C-x g" magit-section-mode-map)
   (setq magit-repository-directories '(("~/github" . 2))))
 
+;;; forge
+
+(use-package forge
+  :after magit)
+
+(use-package auth-source
+  :straight (auth-source :type built-in)
+  :custom (auth-sources '("~/.authinfo")))
+
 ;; TODO: Create function to stage a region. Would probably only work by line
 
 ;;; git-timemachine:
