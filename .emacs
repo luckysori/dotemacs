@@ -1052,6 +1052,13 @@
   :straight
   (nmcli-wifi :type git :host github :repo "luckysori/nmcli-wifi"))
 
+;;; dprint-mode:
+
+(use-package dprint-mode
+  :straight
+  (dprint-mode :type git :host github :repo "luckysori/dprint-mode")
+  :custom (dprint-fmt-on-save t))
+
 ;;; edit-server to edit with Emacs in the browser:
 
 (use-package edit-server
