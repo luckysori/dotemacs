@@ -561,8 +561,7 @@
   (setq cargo-process--command-check
     "clippy --all-targets --all-features")
   (setq cargo-process--command-test "test --all-features")
-  (setq cargo-process--command-current-test "test --all-features")
-  (require 'add-rust-projects-to-compilation-path nil 'noerror))
+  (setq cargo-process--command-current-test "test --all-features"))
 
 ;;; lsp-mode:
 
@@ -583,11 +582,11 @@
   (lsp-prefer-capf t)
   (lsp-headerline-breadcrumb-enable nil)
   ;;rust
-  (lsp-rust-server 'rust-analyzer)
-  ;; (lsp-rust-analyzer-cargo-watch-command
-  ;;   "clippy --all-targets --all-features --message-format=json")
-  (lsp-rust-analyzer-cargo-override-command
-    "clippy --all-targets --all-features --message-format=json")
+  (lsp-rust-clippy-preference "on")
+  ;; Allow rust-analyzer and regular cargo check to run in parallel
+  ;; (lsp-rust-analyzer-cargo-watch-args
+  ;;   "--target-dir"
+  ;;   "/tmp/rust-analyzer-check")
   (lsp-rust-analyzer-proc-macro-enable t)
   (lsp-rust-all-features t)
   ;; To improve performance
