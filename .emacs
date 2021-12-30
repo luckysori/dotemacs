@@ -1151,6 +1151,13 @@
 
 (use-package nix-mode)
 
+;;; sdcv-mode:
+
+(use-package sdcv-mode
+  :straight
+  (sdcv-mode :type git :host github :repo "gucong/emacs-sdcv")
+  :custom (sdcv-dictionary-path "/home/luckysori/.stardict/"))
+
 ;;; mu4e:
 
 ;; (use-package mu4e

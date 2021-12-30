@@ -24,6 +24,7 @@
  ("emacs-elisp-autofmt" . "44498231d0f4d4ddb7284c9a4d4a528a0fd85251")
  ("emacs-libvterm" . "ed6e867cfab77c5a311a516d20af44f57526cfdc")
  ("emacs-reformatter" . "b57f5d480003ab7b0880e0059dcc51747fb2e088")
+ ("emacs-sdcv" . "c51569ebf3fd1f8c02c33c289d229996bf2ff186")
  ("emacs_chrome" . "1632acab5624637031326bd902e2ad7ccb6b4c90")
  ("emacsmirror-mirror" . "482c86b64ed225212475c7e65102b2c860a949cf")
  ("emacsql" . "9dca5996168c4963eb67e61c7f17fdcb8228e314")
