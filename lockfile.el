@@ -99,6 +99,7 @@
  ("use-package" . "a7422fb8ab1baee19adb2717b5b47b9c3812a84c")
  ("web-mode" . "61f057a6baeba6b3595e412ba79b3080dca17dcc")
  ("with-editor" . "53a6b8ad8a6aabea3749366fb11f12a7dabcb11f")
+ ("xterm-color" . "1a4012854c69a5cdaeb5a73d2ad705011892fca3")
  ("yaml-mode" . "63b637f846411806ae47e63adc06fe9427be1131")
  ("yaml.el" . "84b88c9ed178af16da18b230c1f61c57cefedf28")
  ("yasnippet" . "5cbdbf0d2015540c59ed8ee0fcf4788effdf75b6")

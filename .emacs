@@ -1103,6 +1103,23 @@
   (plantuml-default-exec-mode 'jar)
   (plantuml-output-type "svg"))
 
+;;; compilation-mode:
+
+(use-package compile
+  :straight (compile :type built-in)
+  :custom (compilation-environment '("TERM=xterm-256color"))
+  :config
+  (defun my/advice-compilation-filter (f proc string)
+    (funcall f proc (xterm-color-filter string)))
+  (advice-add 'compilation-filter
+    :around #'my/advice-compilation-filter))
+
+;;; xterm-color:
+
+(use-package xterm-color)
+
+;;; olivetti:
+
 (use-package olivetti)
 
 (use-package conf-mode
