@@ -577,6 +577,7 @@
   ("C-x C-a" . lsp-execute-code-action)
   ("C-x C-." . lsp-find-type-definition)
   ("C-x C-r" . lsp-rename)
+  ("C-x C-," . helm-lsp-workspace-symbol)
   :custom
   (lsp-enable-snippet t)
   (lsp-prefer-capf t)
