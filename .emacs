@@ -1185,6 +1185,15 @@
   (sdcv-mode :type git :host github :repo "gucong/emacs-sdcv")
   :custom (sdcv-dictionary-path "/home/luckysori/.stardict/"))
 
+;;; hide modeline:
+
+(defun my/toggle-local-modeline ()
+  (interactive)
+  (if (null mode-line-format)
+    (kill-local-variable 'mode-line-format)
+    (setq-local mode-line-format nil)
+    (force-mode-line-update)))
+
 ;;; mu4e:
 
 ;; (use-package mu4e
