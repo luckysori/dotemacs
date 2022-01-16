@@ -430,6 +430,8 @@
   ;; enable typescript-tslint checker
   (flycheck-add-mode 'typescript-tslint 'web-mode))
 
+(use-package add-node-modules-path)
+
 ;;; Indent with spaces:
 
 (setq-default indent-tabs-mode nil)

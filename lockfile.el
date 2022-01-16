@@ -1,5 +1,6 @@
 (("Emacs-wgrep" . "f9687c28bbc2e84f87a479b6ce04407bb97cfb23")
  ("ace-window" . "c7cb315c14e36fded5ac4096e158497ae974bec9")
+ ("add-node-modules-path" . "7d9be65b3be062842b7ead862dec15d6f25db4a2")
  ("auctex" . "bd37a366b26d1c44e0d6729e61bae50775092de3")
  ("avy" . "e92cb37457b43336b765630dbfbea8ba4be601fa")
  ("cargo.el" . "c5e66a31eff5bdc0cc89e946e6cbf16af91602ec")
