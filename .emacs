@@ -238,8 +238,13 @@
         entry
         (file+olp "~/Sync/org/tasks.org" "Tasks")
         "* TODO %? :home:\n  %i\n  %a")
-      ("l"
-        "Link" plain (file "~/Sync/org/links.org") "- %?\n %x\n"))))
+      ("r" "Retro" plain (file "~/Sync/org/retro.org") "* %? :work:")
+      ("l" "Link" plain (file "~/Sync/org/links.org") "- %?\n %x\n")
+      ("d"
+        "Daily work task"
+        plain
+        (function my/org-daily-work-buffer)
+        "* %?"))))
 
 (use-package org-download
   :custom (org-download-display-inline-images nil))
