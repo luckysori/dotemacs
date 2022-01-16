@@ -101,6 +101,8 @@
 
 ;;; General variable setting:
 
+(setq warning-minimum-level :error)
+
 (setq undo-limit 800000)
 (setq undo-strong-limit 12000000)
 (setq undo-outer-limit 120000000)
