@@ -895,7 +895,8 @@
 ;;; helm-ls-git:
 
 (use-package helm-ls-git
-  :bind ("C-c f g" . 'helm-ls-git-ls))
+  :bind ("C-c f g" . 'helm-browse-project)
+  :custom (helm-ls-git-status-command 'magit-status-setup-buffer))
 
 ;;; winner-mode:
 
