@@ -927,6 +927,7 @@
 
 ;;; Projectile:
 
+;; TODO: Configure projectile-commander to look for cargo aliases
 (use-package projectile
   :diminish projectile-mode
   :init (projectile-mode 1)
