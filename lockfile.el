@@ -17,7 +17,7 @@
  ("diminish.el" . "6ec6ebc391371418efc6c98d70b013f34af5a2ee")
  ("dired-hacks" . "7c0ef09d57a80068a11edc74c3568e5ead5cc15a")
  ("diredfl" . "4ca32658aebaf2335f0368a0fd08f52eb1aee960")
- ("dprint-mode" . "a5466a679b51c50df3cd1dee26d05f7e428b4e6b")
+ ("dprint-fmt" . "16ac30962439fd5de9b85ff8d8d8e4293276b39c")
  ("el-get" . "960f3fb962c35d3196bab20b2a3f6d6228119277")
  ("elfeed" . "162d7d545ed41c27967d108c04aa31f5a61c8e16")
  ("elisp-refs" . "c06aec4486c034d0d4efae98cb7054749f9cc0ec")

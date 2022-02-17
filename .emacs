@@ -1064,12 +1064,15 @@
   :straight
   (nmcli-wifi :type git :host github :repo "luckysori/nmcli-wifi"))
 
-;;; dprint-mode:
+;;; dprint-fmt:
 
-(use-package dprint-mode
+(use-package dprint-fmt
   :straight
-  (dprint-mode :type git :host github :repo "luckysori/dprint-mode")
-  :custom (dprint-fmt-on-save t))
+  (dprint-fmt :type git :host github :repo "luckysori/dprint-fmt")
+  :config
+  (add-to-list 'safe-local-variable-values
+    '(rust-format-on-save . nil))
+  (add-to-list 'safe-local-eval-forms '(dprint-fmt-on-save-mode)))
 
 ;;; edit-server to edit with Emacs in the browser:
 
