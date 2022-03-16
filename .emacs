@@ -1034,6 +1034,12 @@
 ;;; vterm:
 
 (use-package vterm
+  :straight `(
+             :pre-build (
+                         ("rm" "-fr" "build")
+                         ("mkdir" "build")
+                         ("bash" "-c" "cd \"$1\" && cmake .. && make" "--"  ,(concat (straight--repos-dir "emacs-libvterm") "build"))
+                         )))
   :bind
   ("C-c C-s" . vterm-other-window)
   ("C-c p C-s" . projectile-run-vterm)
