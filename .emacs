@@ -194,7 +194,7 @@
       ("DONE" . org-done)
       ("CANCELLED" . "blue")))
   (org-tags-column 0)
-  (org-export-with-tasks 'done)
+  (org-export-with-tasks t)
   :config
   ;; TODO: Make this work
   (define-key org-mode-map (kbd "<M-return>") nil)
