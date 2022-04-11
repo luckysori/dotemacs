@@ -1246,3 +1246,19 @@
 ;;   (smtpmail-default-smtp-server "smtp.fastmail.com")
 ;;   (smtpmail-smtp-server "smtp.fastmail.com")
 ;;   :config (fset 'my/move-to-trash "mTrash"))
+
+(defun my/toggle-window-split ()
+  (interactive)
+  (unless (= (count-windows) 2)
+    (error ("Can only toggle window split for exactly 2 windows")))
+  (let
+    (
+      (is-horizontal
+        (or (window-in-direction 'right) (window-in-direction 'left)))
+      (original (current-buffer)))
+    (other-window 1)
+    (delete-other-windows)
+    (if is-horizontal
+      (split-window-below)
+      (split-window-right))
+    (switch-to-buffer original)))
