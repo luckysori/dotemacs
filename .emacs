@@ -937,21 +937,16 @@
 
 ;;; Emacs lisp:
 
-(use-package lisp-mode
-  :straight (lisp-mode :type built-in)
-  :commands (emacs-lisp-mode)
-  :hook (emacs-lisp-mode . elisp-autofmt-save-hook-for-this-buffer))
-
 (use-package elisp-autofmt
+  :commands (elisp-autofmt-save-hook-for-this-buffer)
+  :hook (emacs-lisp-mode . elisp-autofmt-save-hook-for-this-buffer)
+
   :straight
   (elisp-autofmt
     :type git
     :host gitlab
-    :repo "ideasman42/emacs-elisp-autofmt"
-    :files ("*.el" "elisp-autofmt")))
-
-(add-hook 'emacs-lisp-mode-hook
-  'elisp-autofmt-save-hook-for-this-buffer)
+    :files (:defaults "elisp-autofmt")
+    :repo "ideasman42/emacs-elisp-autofmt"))
 
 ;; do not try to find Emacs C source code
 (setq find-function-C-source-directory nil)
