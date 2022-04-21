@@ -117,7 +117,8 @@
 
 ;;; diminish:
 
-(use-package diminish)
+(use-package diminish
+  :config (diminish 'auto-revert-mode))
 
 ;;; utf-8 as default coding system:
 
