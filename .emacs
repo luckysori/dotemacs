@@ -611,6 +611,8 @@
   :commands lsp-ui-mode
   :custom
   ;; doc
+  (lsp-ui-doc-show-with-mouse nil)
+  (lsp-ui-doc-show-with-cursor t)
   (lsp-ui-doc-enable t)
   (lsp-ui-doc-use-childframe t)
   (lsp-ui-doc-position 'top)
