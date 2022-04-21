@@ -27,7 +27,7 @@
 ;;; Garbage Collector Magic Hack:
 
 (use-package gcmh
-  :diminish
+  :diminish gcmh-mode
   :init (gcmh-mode 1))
 
 ;;; Add priv folder to load-path:
