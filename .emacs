@@ -579,6 +579,7 @@
   :init
   ;; prevent warnings caused by lsp-execute-code-action keybinding
   (setq gud-key-prefix (kbd "C-c C-x C-a"))
+  :diminish lsp-lens-mode
   :hook
   (rust-mode . lsp)
   (c++-mode .lsp)
