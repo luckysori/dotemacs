@@ -866,6 +866,7 @@
 ;;; company-mode:
 
 (use-package company
+  :diminish company-mode
   :hook (after-init . global-company-mode)
   :bind ("C-." . company-complete)
   :config
