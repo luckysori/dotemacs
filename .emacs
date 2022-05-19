@@ -1201,6 +1201,11 @@
   (sdcv-mode :type git :host github :repo "gucong/emacs-sdcv")
   :custom (sdcv-dictionary-path "/home/luckysori/.stardict/"))
 
+;;; vundo:
+
+(use-package vundo
+  :straight (vundo :type git :host github :repo "casouri/vundo"))
+
 ;;; hide modeline:
 
 (defun my/toggle-local-modeline ()
