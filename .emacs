@@ -196,6 +196,7 @@
       ("CANCELLED" . "blue")))
   (org-tags-column 0)
   (org-export-with-tasks t)
+  (org-md-headline-style 'setext)
   :config
   ;; TODO: Make this work
   (define-key org-mode-map (kbd "<M-return>") nil)
