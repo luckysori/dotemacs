@@ -1155,7 +1155,8 @@
   (unbind-key "C-c C-j" conf-mode-map)
   (unbind-key "C-c C-s" conf-mode-map))
 
-(use-package git-link)
+(use-package git-link
+  :custom (git-link-use-commit t))
 
 (use-package savehist
   :straight (savehist :type built-in)
