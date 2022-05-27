@@ -1054,10 +1054,6 @@
   (unbind-key "M-O" vterm-mode-map)
   (unbind-key "C-M-m" vterm-mode-map))
 
-;;; scheme:
-
-(use-package geiser)
-
 ;;; eldoc:
 
 (use-package eldoc
