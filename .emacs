@@ -208,7 +208,6 @@
     `(latex script entities native))
   (require 'agenda-files nil 'noerror))
 
-
 (use-package org-clock
   :straight (org-clock :type built-in)
   :bind
