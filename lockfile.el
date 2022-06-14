@@ -50,7 +50,7 @@
  ("helm-lsp" . "c2c6974dadfac459b1a69a1217441283874cea92")
  ("helm-projectile" . "58123f14c392021714fc5d23b9f95c7f95ce07f1")
  ("helm-swoop" . "1b3285791f1dc1fde548fe67aec07214d698fd57")
- ("helpful" . "67cdd1030b3022d3dc4da2297f55349da57cde01")
+ ("helpful" . "209971ba9f576ba080352642cfbf25df5692b1d7")
  ("ht.el" . "c4c1be487d6ecb353d07881526db05d7fc90ea87")
  ("hydra" . "9e9e00cb240ea1903ffd36a54956b3902c379d29")
  ("js2-mode" . "997cac4c80a03062145b541b006c51cc91ee0c24")
