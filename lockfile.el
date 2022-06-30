@@ -34,7 +34,7 @@
  ("erc-highlight-nicknames" . "d3cd7f87074bafc11ade8594e626b16932a478f5")
  ("exec-path-from-shell" . "3a8d97c096c2c5714b667130fd8a80d5622ee067")
  ("expand-region.el" . "7e5bbe2763c12bae3e77fe0c49bcad05ff91dbfe")
- ("f.el" . "d2019d4f9625bcc44349c69fe46d6645fd9ff4ff")
+ ("f.el" . "32e5b6fca8f347ad8e9b9c757484b4df8ac12d1f")
  ("flycheck" . "278d0810f05eb03600d835c2bdd67d6b55a58034")
  ("flycheck-color-mode-line" . "575b604cfe21f65fb07c134392c382c163c87739")
  ("forge" . "bc99603b5a0cd5b3a5f209772b7f818d205b8a3f")
