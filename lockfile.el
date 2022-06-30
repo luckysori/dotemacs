@@ -23,7 +23,7 @@
  ("elfeed" . "162d7d545ed41c27967d108c04aa31f5a61c8e16")
  ("elisp-refs" . "8f84280997d8b233d66fb9958a34b46078c58b03")
  ("emacs-async" . "c78bab7506a70a735d2c3deab13fa87bf44a83d3")
- ("emacs-elisp-autofmt" . "7acabb0e91bb2cbbf818bbde6901de8dedc20c1b")
+ ("emacs-elisp-autofmt" . "9fd2826f55843fb67dbe3884ff83dbc20616d7b4")
  ("emacs-libvterm" . "a940dd2ee8a82684860e320c0f6d5e15d31d916f")
  ("emacs-reformatter" . "b57f5d480003ab7b0880e0059dcc51747fb2e088")
  ("emacs-sdcv" . "c51569ebf3fd1f8c02c33c289d229996bf2ff186")
