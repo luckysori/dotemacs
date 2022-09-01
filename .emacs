@@ -1217,6 +1217,13 @@
     (setq-local mode-line-format nil)
     (force-mode-line-update)))
 
+;;; edbi:
+
+(use-package edbi)
+
+(use-package edbi-sqlite
+  :after edbi)
+
 ;;; mu4e:
 
 ;; (use-package mu4e
