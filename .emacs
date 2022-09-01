@@ -605,6 +605,8 @@
   ;;   "/tmp/rust-analyzer-check")
   (lsp-rust-analyzer-proc-macro-enable t)
   (lsp-rust-all-features t)
+  (lsp-rust-analyzer-import-granularity "item")
+  (lsp-rust-analyzer-import-merge-behaviour "none")
   (lsp-rust-all-features nil)
   ;; To improve performance
   (gc-cons-threshold 100000000)
