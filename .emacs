@@ -575,11 +575,7 @@
 ;; TODO: Enable cargo-minor-mode when on magit-status for a Rust project?
 (use-package cargo
   :hook (rust-mode . cargo-minor-mode)
-  :config
-  (setq cargo-process--command-check
-    "clippy --all-targets --all-features")
-  (setq cargo-process--command-test "test --all-features")
-  (setq cargo-process--command-current-test "test --all-features"))
+  :config (setq cargo-process--command-check "clippy --all-targets"))
 
 ;;; lsp-mode:
 
