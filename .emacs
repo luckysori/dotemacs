@@ -558,7 +558,8 @@
 
 (setq custom-safe-themes t)
 
-(load-theme 'modus-operandi t)
+(use-package ef-themes
+  :config (load-theme 'ef-autumn t))
 
 ;; Set the face of region selection to a dark blue, so that it's
 ;; different to the colour used for semantic highlighting
