@@ -1072,7 +1072,9 @@
 ;;; smart-mode-line:
 
 (use-package smart-mode-line
-  :config (sml/setup))
+  :config
+  (setq sml/theme 'respectful)
+  (sml/setup))
 
 ;;; nmcli-mode:
 
