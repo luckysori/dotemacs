@@ -99,6 +99,12 @@
 (bind-key "M-l" 'downcase-dwim)
 (bind-key "M-u" 'upcase-dwim)
 
+;;; Make it easier to work with .dir-locals.el:
+
+;; TODO: Replace with sidecar-locals by ideasman42!
+(setq enable-local-variables :all)
+(setq enable-local-eval :all)
+
 ;;; General variable setting:
 
 (setq warning-minimum-level :error)
@@ -1075,11 +1081,7 @@
 
 (use-package dprint-fmt
   :straight
-  (dprint-fmt :type git :host github :repo "luckysori/dprint-fmt")
-  :config
-  (add-to-list 'safe-local-variable-values
-    '(rust-format-on-save . nil))
-  (add-to-list 'safe-local-eval-forms '(dprint-fmt-on-save-mode)))
+  (dprint-fmt :type git :host github :repo "luckysori/dprint-fmt"))
 
 ;;; edit-server to edit with Emacs in the browser:
 
