@@ -953,8 +953,9 @@
 
 (use-package elisp-autofmt
   :commands (elisp-autofmt-mode)
-  :hook (emacs-lisp-mode . elisp-autofmt-mode)
-
+  :hook
+  (emacs-lisp-mode . elisp-autofmt-mode)
+  (lisp-data-mode . elisp-autofmt-mode)
   :straight
   (elisp-autofmt
     :type git
