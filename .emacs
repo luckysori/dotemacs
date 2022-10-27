@@ -1195,6 +1195,10 @@
 
 (use-package nix-mode)
 
+;;; go:
+
+(use-package go-mode)
+
 ;;; sdcv-mode:
 
 (use-package sdcv-mode
