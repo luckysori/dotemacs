@@ -561,10 +561,6 @@
 (use-package ef-themes
   :config (load-theme 'ef-autumn t))
 
-;; Set the face of region selection to a dark blue, so that it's
-;; different to the colour used for semantic highlighting
-(set-face-attribute 'region nil :background "#0000A0")
-
 ;;; Rust:
 
 (use-package rust-mode
