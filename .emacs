@@ -583,6 +583,7 @@
   :hook
   (rust-mode . lsp)
   (c++-mode .lsp)
+  (go-mode . lsp)
   :commands lsp
   :bind
   ("C-x C-a" . lsp-execute-code-action)
