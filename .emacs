@@ -578,6 +578,11 @@
   :hook (rust-mode . cargo-minor-mode)
   :config (setq cargo-process--command-check "clippy --all-targets"))
 
+;;; Dart:
+
+(use-package dart-mode)
+(use-package lsp-dart)
+
 ;;; lsp-mode:
 
 (use-package lsp-mode
@@ -589,6 +594,7 @@
   (rust-mode . lsp)
   (c++-mode .lsp)
   (go-mode . lsp)
+  (dart-mode . lsp)
   :commands lsp
   :bind
   ("C-x C-a" . lsp-execute-code-action)
@@ -599,7 +605,7 @@
   (lsp-enable-snippet t)
   (lsp-prefer-capf t)
   (lsp-headerline-breadcrumb-enable nil)
-  ;;rust
+  ;; rust
   (lsp-rust-clippy-preference "on")
   ;; Allow rust-analyzer and regular cargo check to run in parallel
   ;; (lsp-rust-analyzer-cargo-watch-args
