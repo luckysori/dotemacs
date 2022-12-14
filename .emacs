@@ -558,8 +558,13 @@
 
 (setq custom-safe-themes t)
 
-(use-package ef-themes
-  :config (load-theme 'ef-autumn t))
+(use-package ef-themes)
+
+(use-package circadian
+  :config
+  (setq circadian-themes
+    '(("8:00" . modus-operandi) ("17:30" . ef-night)))
+  (circadian-setup))
 
 ;;; Rust:
 
