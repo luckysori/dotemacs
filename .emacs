@@ -1238,6 +1238,14 @@
 (use-package edbi-sqlite
   :after edbi)
 
+;;; sidecar-locals:
+
+;; TODO: Make it work
+;; (use-package sidecar-locals
+;;   :config
+;;   (sidecar-locals-mode)
+;;   (setq sidecar-locals-paths-allow (list "~/" "~/github/*")))
+
 ;;; mu4e:
 
 ;; (use-package mu4e
