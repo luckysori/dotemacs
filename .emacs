@@ -554,7 +554,7 @@
     (erc-update-modules))
   :config (setq erc-hide-list '("JOIN" "PART" "QUIT")))
 
-;;; Theme:
+;;; Themes:
 
 (setq custom-safe-themes t)
 
