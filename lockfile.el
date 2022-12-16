@@ -1,6 +1,7 @@
 (("Emacs-wgrep" . "f9687c28bbc2e84f87a479b6ce04407bb97cfb23")
  ("ace-window" . "77115afc1b0b9f633084cf7479c767988106c196")
  ("add-node-modules-path" . "63f047fd84b825876152743f66de7ee6f9ed203b")
+ ("advent" . "cb76a0c13a3bb78974d11a99ef04e03d068a23f7")
  ("auctex" . "ae16c19a599e6bf4507c167e3c8d34870668710f")
  ("avy" . "955c8dedd68c74f3cf692c1249513f048518c4c9")
  ("bui.el" . "f3a137628e112a91910fd33c0cff0948fa58d470")

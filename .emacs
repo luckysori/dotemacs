@@ -1382,3 +1382,12 @@
     (delete-other-windows)
     (if is-horizontal (split-window-below) (split-window-right))
     (switch-to-buffer original)))
+
+(use-package
+  advent
+  :straight
+  (advent
+    :type git
+    :host github
+    :repo "luckysori/advent"
+    :files ("advent.el")))
