@@ -780,7 +780,6 @@
   (helm-show-completion-display-function
     #'helm-show-completion-default-display-function)
   :config
-  (require 'helm-config)
   (defun my/helm-vterm ()
     "Open vterm in helm directory"
     (interactive)
