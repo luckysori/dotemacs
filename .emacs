@@ -1387,3 +1387,6 @@
     :host github
     :repo "luckysori/advent"
     :files ("advent.el")))
+
+(use-package prolog :straight (prolog :type built-in)
+  :config (add-to-list 'auto-mode-alist '("\\.pl$" . prolog-mode)))
