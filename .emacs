@@ -4,12 +4,10 @@
 (let
   (
     (bootstrap-file
-      (expand-file-name
-        "straight/repos/straight.el/bootstrap.el"
+      (expand-file-name "straight/repos/straight.el/bootstrap.el"
         user-emacs-directory))
     (bootstrap-version 5))
-  (unless
-    (file-exists-p bootstrap-file)
+  (unless (file-exists-p bootstrap-file)
     (with-current-buffer
       (url-retrieve-synchronously
         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
@@ -32,12 +30,11 @@
 ;;; Add priv folder to load-path:
 
 ;; TODO: Consider using use-package's :load-path instead
-(defvar
-  private-dir
-  (concat user-emacs-directory "priv")
+(defvar private-dir (concat user-emacs-directory "priv")
   "Private elisp directory")
 
-(if (file-exists-p private-dir) (add-to-list 'load-path private-dir))
+(if (file-exists-p private-dir)
+  (add-to-list 'load-path private-dir))
 
 ;;; General rebinds:
 
@@ -84,10 +81,12 @@
   (let
     (
       (mid (/ (window-width) 2))
-      (line-len (save-excursion (end-of-line) (current-column)))
+      (line-len
+        (save-excursion
+          (end-of-line)
+          (current-column)))
       (cur (current-column)))
-    (if
-      (< mid cur)
+    (if (< mid cur)
       (set-window-hscroll (selected-window) (- cur mid)))))
 
 (global-set-key (kbd "C-S-l") 'my/horizontal-recenter)
@@ -152,9 +151,10 @@
 ;;; Scratch buffer:
 
 (defun immortal-scratch ()
-  (if
-    (eq (current-buffer) (get-buffer "*scratch*"))
-    (progn (bury-buffer) nil)
+  (if (eq (current-buffer) (get-buffer "*scratch*"))
+    (progn
+      (bury-buffer)
+      nil)
     t))
 (add-hook 'kill-buffer-query-functions 'immortal-scratch)
 
@@ -170,9 +170,7 @@
 ;; using display-monitor-attributes-list
 (add-to-list 'default-frame-alist '(font . "Hack-16"))
 (set-face-attribute 'default nil :family "Hack")
-(set-face-attribute
-  'italic
-  nil
+(set-face-attribute 'italic nil
   :slant 'italic
   :underline nil
   :family "Hack")
@@ -892,8 +890,7 @@
   exec-path-from-shell
   :config
   ;; TODO: Figure out if this is needed
-  (when
-    (memq window-system '(mac ns x))
+  (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
 ;;; Markdown:
@@ -980,7 +977,9 @@
 
 (use-package
   winner
-  :config (when (fboundp 'winner-mode) (winner-mode 1)))
+  :config
+  (when (fboundp 'winner-mode)
+    (winner-mode 1)))
 
 ;;; ibuffer:
 
@@ -1024,7 +1023,7 @@
   (elisp-autofmt
     :type git
     :host nil
-    :files (:defaults "elisp-autofmt")
+    :files (:defaults "elisp-autofmt" "elisp-autofmt.overrides.json")
     :repo "https://codeberg.org/ideasman42/emacs-elisp-autofmt.git"))
 
 ;; do not try to find Emacs C source code
@@ -1054,15 +1053,15 @@
   :config
   ;; Set absolute line numbers.  A value of "relative" is also useful.
   (setq display-line-numbers-type 't)
-  (define-minor-mode
-    prot/display-line-numbers-mode
+  (define-minor-mode prot/display-line-numbers-mode
     "Toggle `display-line-numbers-mode' and `hl-line-mode'."
     :init-value nil
     :global
     nil
-    (if
-      prot/display-line-numbers-mode
-      (progn (display-line-numbers-mode 1) (hl-line-mode 1))
+    (if prot/display-line-numbers-mode
+      (progn
+        (display-line-numbers-mode 1)
+        (hl-line-mode 1))
       (display-line-numbers-mode -1)
       (hl-line-mode -1)))
   :bind ("<f7>" . prot/display-line-numbers-mode))
@@ -1088,8 +1087,7 @@
   ;; From https://github.com/purcell/emacs.d/blob/a97dc5a44242f7f78c70335a9532bc657ea0a8d8/lisp/init-http.el#L9
   (defun my/restclient ()
     (interactive)
-    (with-current-buffer
-      (get-buffer-create "*restclient*")
+    (with-current-buffer (get-buffer-create "*restclient*")
       (restclient-mode)
       (pop-to-buffer (current-buffer)))))
 
@@ -1169,8 +1167,7 @@
   edit-server
   :commands edit-server-start
   :init
-  (if
-    after-init-time
+  (if after-init-time
     (edit-server-start)
     (add-hook 'after-init-hook #'(lambda () (edit-server-start))))
   :config
@@ -1268,8 +1265,7 @@
         (candidate (url-generic-parse-url text))
         (is-url (not (null (url-type candidate))))
         url)
-      (if
-        is-url
+      (if is-url
         (setq url text)
         (setq url (concat "https://www.google.com/search?q=" text)))
       (browse-url-xdg-open url))))
@@ -1305,8 +1301,7 @@
 
 (defun my/toggle-local-modeline ()
   (interactive)
-  (if
-    (null mode-line-format)
+  (if (null mode-line-format)
     (kill-local-variable 'mode-line-format)
     (setq-local mode-line-format nil)
     (force-mode-line-update)))
@@ -1370,8 +1365,7 @@
 
 (defun my/toggle-window-split ()
   (interactive)
-  (unless
-    (= (count-windows) 2)
+  (unless (= (count-windows) 2)
     (error ("Can only toggle window split for exactly 2 windows")))
   (let
     (
@@ -1380,7 +1374,9 @@
       (original (current-buffer)))
     (other-window 1)
     (delete-other-windows)
-    (if is-horizontal (split-window-below) (split-window-right))
+    (if is-horizontal
+      (split-window-below)
+      (split-window-right))
     (switch-to-buffer original)))
 
 (use-package
