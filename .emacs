@@ -598,8 +598,7 @@
 (use-package
   circadian
   :config
-  (setq circadian-themes
-    '(("8:00" . modus-operandi) ("17:30" . ef-night)))
+  (setq circadian-themes '(("8:00" . ef-cherie) ("17:30" . ef-night)))
   (circadian-setup))
 
 ;;; Rust:
