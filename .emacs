@@ -39,7 +39,7 @@
 ;;; General rebinds:
 
 ;; other-window
-(global-set-key (kbd "M-o") 'other-window)
+(global-set-key (kbd "C-c M-o") 'other-window)
 
 ;; other-frame
 (global-set-key (kbd "C-M-o") 'other-frame)
@@ -528,11 +528,10 @@
 
 ;;; ace-window:
 
-;; TODO: Buffer number is massive
 (use-package
   ace-window
-  :custom (aw-dispatch-always t)
-  :bind ("C-c M-o" . ace-window))
+  :bind ("M-o" . ace-window)
+  :custom (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 ;;; expand-region:
 
