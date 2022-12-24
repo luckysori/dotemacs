@@ -334,9 +334,9 @@
     ("C-c C-j" . 'magit-status-here)
     ("C-c m b" . 'magit-blame-addition)
     ("C-c l r" . 'magit-list-repositories))
-  :config
-  (unbind-key "C-x g" magit-section-mode-map)
-  (setq magit-repository-directories '(("~/github" . 2))))
+  :config (unbind-key "C-x g" magit-section-mode-map)
+  (setq magit-repository-directories
+    '(("~/github" . 2) ("~/prolog" . 1))))
 
 ;;; forge
 
@@ -656,7 +656,26 @@
   ;; To improve performance
   (gc-cons-threshold 100000000)
   (read-process-output-max (* 1024 1024))
-  (lsp-idle-delay 0.500))
+  (lsp-idle-delay 0.500)
+  :config
+  (lsp-register-client
+    (make-lsp-client
+      :new-connection
+      (lsp-stdio-connection
+        (list
+          "swipl"
+          "-g"
+          "use_module(library(lsp_server))."
+          "-g"
+          "lsp_server:main"
+          "-t"
+          "halt"
+          "--"
+          "stdio"))
+      :major-modes '(prolog-mode)
+      :priority 1
+      :multi-root t
+      :server-id 'prolog-ls)))
 
 (use-package
   lsp-ui
@@ -1392,5 +1411,7 @@
     :repo "luckysori/advent"
     :files ("advent.el")))
 
-(use-package prolog :straight (prolog :type built-in)
+(use-package
+  prolog
+  :straight (prolog :type built-in)
   :config (add-to-list 'auto-mode-alist '("\\.pl$" . prolog-mode)))
