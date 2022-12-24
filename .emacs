@@ -593,6 +593,8 @@
 
 (use-package ef-themes)
 
+(use-package modus-themes)
+
 (use-package
   circadian
   :config
