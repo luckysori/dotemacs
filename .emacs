@@ -345,7 +345,7 @@
 (use-package
   auth-source
   :straight (auth-source :type built-in)
-  :custom (auth-sources '("~/.authinfo")))
+  :custom (auth-sources '("~/.authinfo.gpg")))
 
 ;; TODO: Create function to stage a region. Would probably only work by line
 
