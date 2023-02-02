@@ -196,7 +196,7 @@
   (org-tags-column 0)
   (org-export-with-tasks t)
   (org-md-headline-style 'setext)
-  :config
+  :config (unbind-key "C-c RET" org-mode-map)
   ;; TODO: Make this work
   (define-key org-mode-map (kbd "<M-return>") nil)
   ;; New org heading or list item doesn't generate new line
