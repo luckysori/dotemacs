@@ -1045,13 +1045,7 @@
   :commands (elisp-autofmt-mode)
   :hook
   (emacs-lisp-mode . elisp-autofmt-mode)
-  (lisp-data-mode . elisp-autofmt-mode)
-  :straight
-  (elisp-autofmt
-    :type git
-    :host nil
-    :files (:defaults "elisp-autofmt" "elisp-autofmt.overrides.json")
-    :repo "https://codeberg.org/ideasman42/emacs-elisp-autofmt.git"))
+  (lisp-data-mode . elisp-autofmt-mode))
 
 ;; do not try to find Emacs C source code
 (setq find-function-C-source-directory nil)
