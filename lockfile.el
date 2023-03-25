@@ -83,6 +83,7 @@
  ("map" . "361f23dd3c6ae6788685471b9fb4a70e7a9351b6")
  ("markdown-mode" . "d95107f5b77d6c010e89259e05adfcd79a21f26a")
  ("melpa" . "d1323633bd185b3b9a779faeacedd272216eeb77")
+ ("modus-themes" . "df3e2a80de11449250034af1d5a31cdca64c6e8a")
  ("multiple-cursors.el" . "fe0d5167459b792a699af782685582a195852cb9")
  ("narrow-indirect" . "5a7fffffb8278ee01574b9317873aaa371c60142")
  ("nix-mode" . "54e5626829168e22126b233e079f04dff3c71b90")
