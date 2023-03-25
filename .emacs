@@ -247,6 +247,11 @@
           plain
           (file "~/Sync/org/links.org")
           "- %?\n %x\n")
+         ("e"
+          "Learning"
+          plain
+          (file "~/Sync/org/learnings.org")
+          "** %?\n %x\n")
          ("d"
           "Daily work task"
           plain
