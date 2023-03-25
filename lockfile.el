@@ -82,7 +82,7 @@
  ("magit" . "99d9b3008adf72a0c2cdb7df70b5ae03ea9271c8")
  ("map" . "361f23dd3c6ae6788685471b9fb4a70e7a9351b6")
  ("markdown-mode" . "d95107f5b77d6c010e89259e05adfcd79a21f26a")
- ("melpa" . "f01c0af156ac4f89ebb706c93085f46f1740f212")
+ ("melpa" . "d1323633bd185b3b9a779faeacedd272216eeb77")
  ("multiple-cursors.el" . "fe0d5167459b792a699af782685582a195852cb9")
  ("narrow-indirect" . "5a7fffffb8278ee01574b9317873aaa371c60142")
  ("nix-mode" . "54e5626829168e22126b233e079f04dff3c71b90")
