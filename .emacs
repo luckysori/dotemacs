@@ -1026,7 +1026,7 @@
 
 (use-package
  elisp-autofmt
- :commands (elisp-autofmt-mode)
+ :commands (elisp-autofmt-mode elisp-autofmt-buffer)
  :hook
  (emacs-lisp-mode . elisp-autofmt-mode)
  (lisp-data-mode . elisp-autofmt-mode))
