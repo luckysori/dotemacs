@@ -120,7 +120,7 @@
  ("treemacs" . "b19060f25e55514f3d798d9f5af2dcd5b94a6026")
  ("treepy.el" . "7c4a0d21322506a4d4b2301b4274ec955b429b47")
  ("typescript.el" . "c7004fc5a85591a795524bd920618e5e467746af")
- ("use-package" . "bcf0984cf55b70fe6896c6a15f61df92b24f8ffd")
+ ("use-package" . "77945e002f11440eae72d8730d3de218163d551e")
  ("vundo" . "7045420021f3f016cfae30b10e18e80645169c10")
  ("web-mode" . "4b8a695825fda366927894e498421f35fce1cbb9")
  ("with-editor" . "4da109748da0828b79198701eb641d5b724153ce")
