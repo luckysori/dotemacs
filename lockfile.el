@@ -35,7 +35,7 @@
  ("emacs-ctable" . "48b73742757a3ae5736d825fe49e00034cc453b5")
  ("emacs-deferred" . "2239671d94b38d92e9b28d4e12fd79814cfb9c16")
  ("emacs-edbi" . "6f50aaf4bde75255221f2292c7a4ad3fa9d918c0")
- ("emacs-elisp-autofmt" . "ecfd46cd6e087b42478009949a57971b5365ecce")
+ ("emacs-elisp-autofmt" . "ea5c047bc0f11e8bed5744ec2f876d3cb42b05f4")
  ("emacs-epc" . "e1bfa5ca163273859336e3cc89b4b6460f7f8cda")
  ("emacs-libvterm" . "f14d113ee4618f052879509ec378feb9766b871b")
  ("emacs-reformatter" . "f454b179ab7d39dc8783b9f2a046cab353b272f5")
