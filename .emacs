@@ -1413,3 +1413,8 @@
   prolog
   :straight (prolog :type built-in)
   :config (add-to-list 'auto-mode-alist '("\\.pl$" . prolog-mode)))
+
+(use-package just-mode)
+
+(use-package justl)
+

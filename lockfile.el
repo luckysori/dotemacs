@@ -71,6 +71,8 @@
  ("json-mode" . "eedb4560034f795a7950fa07016bd4347c368873")
  ("json-snatcher" . "b28d1c0670636da6db508d03872d96ffddbc10f2")
  ("jsonrpc" . "b5f6171bbcbb16844c8cee60fcb6d9c8dfef72ec")
+ ("just-mode.el" . "45a221063093f3461816913acdaba898e62b42ce")
+ ("justl.el" . "141daaa4b0dc07fe25423609dcd14441a9f2613e")
  ("let-alist" . "592553db5929b54db40af0df90c5add0aaca045b")
  ("lsp-dart" . "f5b0d81e1bb32dda411499356f36ba25ba55ac76")
  ("lsp-docker" . "e64d1e3a19b1529a9812b953bd3fe924f68e3234")
