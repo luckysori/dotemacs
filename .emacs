@@ -1387,6 +1387,12 @@
 
 (use-package justl)
 
+(use-package
+ gptel
+ :config
+ (setq gptel-api-key 'my/chat-gpt-api-key)
+ (require 'chat-gpt-api-key nil 'noerror))
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:
