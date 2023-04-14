@@ -30,6 +30,7 @@
  ("el-get" . "d28d617972d11e7df2cb1df86cc145f47f025a18")
  ("eldoc" . "192bcd5571a84e4b4084a840565f40fbec0b0abc")
  ("elfeed" . "162d7d545ed41c27967d108c04aa31f5a61c8e16")
+ ("elisp-def" . "1d2e88a232ec16bce036b49577c4d4d96035f9f7")
  ("elisp-refs" . "af73739084637c8ebadad337a8fe58ff4f1d2ec1")
  ("emacs-async" . "10cedd8ac7173e92a6822317f1782550199d2d6d")
  ("emacs-ctable" . "48b73742757a3ae5736d825fe49e00034cc453b5")

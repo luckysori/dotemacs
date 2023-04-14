@@ -1025,6 +1025,12 @@
 ;;; Emacs lisp:
 
 (use-package
+ elisp-def
+ :config
+ (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+   (add-hook hook #'elisp-def-mode)))
+
+(use-package
  elisp-autofmt
  :commands (elisp-autofmt-mode elisp-autofmt-buffer)
  :hook
