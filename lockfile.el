@@ -116,7 +116,7 @@
  ("smart-mode-line" . "abcb0ab6f7110a03d6c7428bae67cf8731496433")
  ("smartparens" . "0a23136dd6b1f326419c5828f4197ecfd820b204")
  ("spinner" . "634529bb3173e09b37499f636de70abf29d9fa8a")
- ("straight.el" . "3eca39dfc6797243ec7d1c6a7d45142407f73f88")
+ ("straight.el" . "039e5c9a9b5c00749602afb41341e9e77ba09429")
  ("tablist" . "faab7a035ef2258cc4ea2182f67e3aedab7e2af9")
  ("tide" . "4cf6a0d89da7f946565a425a632ee2410a40c7da")
  ("transient" . "c6cf2f2705ab56cd89d807e723ce45b9fcdfb9e1")
