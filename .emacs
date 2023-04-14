@@ -344,16 +344,16 @@
  (setq magit-repository-directories
        '(("~/github" . 2) ("~/prolog" . 1))))
 
+;; TODO: Create function to stage a region. Would probably only work by line
+
 ;;; forge
 
-(use-package forge :after magit)
+;; (use-package forge :after magit)
 
 (use-package
  auth-source
  :straight (auth-source :type built-in)
  :custom (auth-sources '("~/.authinfo.gpg")))
-
-;; TODO: Create function to stage a region. Would probably only work by line
 
 ;;; git-timemachine:
 
