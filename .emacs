@@ -1151,12 +1151,6 @@
  :straight (eldoc :type built-in)
  :diminish eldoc-mode)
 
-;;; smart-mode-line:
-
-(use-package
- smart-mode-line
- :config (setq sml/theme 'respectful) (sml/setup))
-
 ;;; nmcli-mode:
 
 (use-package
@@ -1304,7 +1298,32 @@
  vundo
  :straight (vundo :type git :host github :repo "casouri/vundo"))
 
-;;; hide modeline:
+;;; Mode-line:
+
+(setq-default mode-line-format
+              '("%e"
+                mode-line-front-space
+                (:propertize
+                 (""
+                  mode-line-mule-info
+                  mode-line-client
+                  mode-line-modified
+                  mode-line-remote)
+                 display (min-width (5.0)))
+                mode-line-frame-identification
+                mode-line-buffer-identification
+                "   "
+                mode-line-position
+                "  "
+                mode-line-modes
+                mode-line-misc-info
+                mode-line-end-spaces))
+
+(use-package
+ moody
+ :config (moody-replace-mode-line-buffer-identification))
+
+(use-package minions :config (minions-mode 1))
 
 (defun my/toggle-local-modeline ()
   (interactive)
