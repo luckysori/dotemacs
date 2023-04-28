@@ -1432,6 +1432,15 @@
 
 (use-package which-key)
 
+;;; LSP mode for the LTEX Language Server:
+
+(use-package
+ lsp-ltex
+ :hook
+ (markdown-mode . lsp)
+ (rst-mode . lsp)
+ :init (setq lsp-ltex-version "16.0.0"))
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:

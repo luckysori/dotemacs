@@ -75,6 +75,7 @@
  ("let-alist" . "592553db5929b54db40af0df90c5add0aaca045b")
  ("lsp-dart" . "f5b0d81e1bb32dda411499356f36ba25ba55ac76")
  ("lsp-docker" . "e64d1e3a19b1529a9812b953bd3fe924f68e3234")
+ ("lsp-ltex" . "d1a599c8ec3748c2b81899d5831b6e7158255479")
  ("lsp-mode" . "3143400be9dfc1335483838e24ae5e0f5705d420")
  ("lsp-treemacs" . "a48763ba5d1c024426e237ce65926db849d3ae6f")
  ("lsp-ui" . "295d8984da06a745b0a36c56e28ce915bc389adb")
