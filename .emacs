@@ -749,7 +749,7 @@
  ;; sp-kill-sexp doesn't play nice with self-closing html tags and
  ;; I don't like how hungry sp-kill-sexp is anyway
  ("C-M-k" . kill-sexp)
- ("C-M-<backspace>" . sp-backward-kill-sexp)
+ ("C-<backspace>" . sp-backward-kill-sexp)
  ("C-(" . sp-rewrap-sexp)
  ("M-D" . sp-splice-sexp)
  ("C-M-w" . sp-copy-sexp)
