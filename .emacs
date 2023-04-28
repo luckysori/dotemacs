@@ -616,19 +616,24 @@
  :init
  ;; prevent warnings caused by lsp-execute-code-action keybinding
  (setq gud-key-prefix (kbd "C-c C-x C-a"))
+ (setq lsp-keymap-prefix "C-c l")
  :diminish lsp-lens-mode
  :hook
+ (rust-mode . lsp-rust-analyzer-inlay-hints-mode)
  (rust-mode . lsp)
  (c++-mode .lsp)
  (go-mode . lsp)
  (dart-mode . lsp)
+ (lsp-mode . lsp-enable-which-key-integration)
  :commands lsp
+ :bind-keymap ("C-c l" . lsp-command-map)
  :bind
  ("C-x C-a" . lsp-execute-code-action)
  ("C-x C-." . lsp-find-type-definition)
  ("C-x C-r" . lsp-rename)
  ("C-x C-," . helm-lsp-workspace-symbol)
  :custom
+ (lsp-keep-workspace-alive nil)
  (lsp-enable-snippet t)
  (lsp-prefer-capf t)
  (lsp-headerline-breadcrumb-enable nil)
@@ -644,6 +649,7 @@
  (lsp-rust-analyzer-import-granularity "item")
  (lsp-rust-analyzer-import-merge-behaviour "none")
  (lsp-rust-all-features nil)
+ (lsp-rust-analyzer-server-display-inlay-hints t)
  ;; (lsp-rust-target-dir "/tmp/lsp-rust-target")
  ;; To improve performance
  (gc-cons-threshold 100000000)
@@ -673,14 +679,15 @@
  lsp-ui
  :after (lsp-mode flycheck)
  :commands lsp-ui-mode
+ :bind ("C-x C-d" . lsp-ui-doc-hide)
  :custom
  ;; doc
+ (lsp-ui-doc-enable t)
  (lsp-ui-doc-show-with-mouse nil)
  (lsp-ui-doc-show-with-cursor t)
- (lsp-ui-doc-enable t)
  (lsp-ui-doc-use-childframe t)
  (lsp-ui-doc-position 'top)
- (lsp-ui-doc-include-signature nil)
+ (lsp-ui-doc-include-signature t)
  (lsp-ui-doc-max-height 10)
  (lsp-ui-doc-delay 0.5)
  ;; sideline
@@ -688,7 +695,7 @@
  (lsp-ui-sideline-show-hover nil)
  (lsp-ui-sideline-ignore-duplicate t)
  (lsp-ui-sideline-show-code-actions nil)
- (lsp-ui-sideline-update_mode 'line)
+ (lsp-ui-sideline-update-mode 'line)
  ;; modeline
  (lsp-modeline-code-actions-mode t)
  (lsp-modeline-code-actions-kind-regex ".*")
@@ -1401,6 +1408,10 @@
  :config
  (setq gptel-api-key 'my/chat-gpt-api-key)
  (require 'chat-gpt-api-key nil 'noerror))
+
+;;; which-key:
+
+(use-package which-key)
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
