@@ -23,6 +23,7 @@
  ("diminish.el" . "fbd5d846611bad828e336b25d2e131d1bc06b83d")
  ("dired-hacks" . "41d3eb42195d9f0894c20d18cc8e722b099aa1c1")
  ("diredfl" . "94bd99eeced6d52a5a7b9db3745239feafd633e2")
+ ("dotsies" . "cf149db0eea7b3cae2b4154d5883faa21badca45")
  ("dprint-fmt" . "88ab37467a4a7a7d7660297b462b676239508485")
  ("edbi-sqlite" . "52cb9ca1af7691b592f2cfd2f007847e7a4ccd5f")
  ("ef-themes" . "d6ac4dd1253202e4c30641e79b099afdbd42c108")

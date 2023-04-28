@@ -1441,6 +1441,17 @@
  (rst-mode . lsp)
  :init (setq lsp-ltex-version "16.0.0"))
 
+;;; Zone-words:
+
+(use-package
+ zone-words
+ :straight
+ (zone-words
+  :type git
+  :host github
+  :repo "xenodium/dotsies"
+  :files ("emacs/ar/zone-words*")))
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:
