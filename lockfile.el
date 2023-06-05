@@ -41,7 +41,6 @@
  ("emacs-reformatter" . "f454b179ab7d39dc8783b9f2a046cab353b272f5")
  ("emacs-sdcv" . "c51569ebf3fd1f8c02c33c289d229996bf2ff186")
  ("emacs-which-key" . "bd34ede7bf77ad3988330b37207f3978e7342c79")
- ("emacs_chrome" . "3ce09c6eb2919d56ef052b1584bba6abb12f7e99")
  ("emacsmirror-mirror" . "91e39fcdc6122ce5fd02388872e0dd42bf4a09c1")
  ("epl" . "78ab7a85c08222cd15582a298a364774e3282ce6")
  ("erc-highlight-nicknames" . "d3cd7f87074bafc11ade8594e626b16932a478f5")
