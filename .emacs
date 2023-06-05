@@ -346,15 +346,6 @@
 
 ;; TODO: Create function to stage a region. Would probably only work by line
 
-;;; forge
-
-;; (use-package forge :after magit)
-
-(use-package
- auth-source
- :straight (auth-source :type built-in)
- :custom (auth-sources '("~/.authinfo.gpg")))
-
 ;;; git-timemachine:
 
 (use-package git-timemachine)
