@@ -264,7 +264,7 @@
 
 (use-package org-tree-slide)
 
-;;; nmcli-mode:
+;;; org-asciidoc:
 
 (use-package
  ox-asciidoc
