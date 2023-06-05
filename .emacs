@@ -691,10 +691,6 @@
  ("C-M-t" . sp-transpose-sexp)
  :config (require 'smartparens-config))
 
-;;; expand-region:
-
-(use-package expand-region :bind ("C-=" . 'er/expand-region))
-
 ;;; dired:
 
 (use-package
