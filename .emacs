@@ -25,7 +25,7 @@
 
 ;;; Garbage Collector Magic Hack:
 
-(use-package gcmh :diminish gcmh-mode :init (gcmh-mode 1))
+(use-package gcmh :init (gcmh-mode 1))
 
 ;;; Add priv folder to load-path:
 
@@ -115,10 +115,6 @@
 ;; speed up next-line
 ;; (see https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag)
 (setq auto-window-vscroll nil)
-
-;;; diminish:
-
-(use-package diminish :config (diminish 'auto-revert-mode))
 
 ;;; utf-8 as default coding system:
 
@@ -557,7 +553,6 @@
  ;; prevent warnings caused by lsp-execute-code-action keybinding
  (setq gud-key-prefix (kbd "C-c C-x C-a"))
  (setq lsp-keymap-prefix "C-c l")
- :diminish lsp-lens-mode
  :hook
  (rust-mode . lsp-rust-analyzer-inlay-hints-mode)
  (rust-mode . lsp)
@@ -677,7 +672,6 @@
 
 (use-package
  smartparens
- :diminish smartparens-mode
  :init
  (smartparens-global-mode)
  (show-smartparens-global-mode)
@@ -743,7 +737,6 @@
 (use-package
  subword
  :straight (subword :type built-in)
- :diminish
  :config (global-subword-mode 1))
 
 ;;; JavaScript:
@@ -761,9 +754,6 @@
 
 (use-package
  helm
- :diminish
- helm-mode
- helm-ff-cache-mode
  :bind
  (("C-x C-f" . 'helm-find-files)
   ("C-x c b" . 'helm-resume)
@@ -896,7 +886,6 @@
 
 (use-package
  company
- :diminish company-mode
  :hook (after-init . global-company-mode)
  :bind ("C-." . company-complete)
  :config
@@ -967,7 +956,6 @@
 ;; TODO: Configure projectile-commander to look for cargo aliases
 (use-package
  projectile
- :diminish projectile-mode
  :init (projectile-mode 1)
  :bind
  (:map projectile-mode-map ("C-c p" . 'projectile-command-map)))
@@ -1056,10 +1044,7 @@
 
 (use-package
  yasnippet
- :diminish yas-minor-mode
- :config
- (use-package yasnippet-snippets)
- (yas-global-mode 1))
+ :config (use-package yasnippet-snippets) (yas-global-mode 1))
 
 ;;; dumb-jump:
 
@@ -1086,10 +1071,7 @@
 
 ;;; eldoc:
 
-(use-package
- eldoc
- :straight (eldoc :type built-in)
- :diminish eldoc-mode)
+(use-package eldoc :straight (eldoc :type built-in))
 
 ;;; nmcli-mode:
 

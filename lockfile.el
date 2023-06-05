@@ -20,7 +20,6 @@
  ("dash.el" . "c30c6bea49b79d966c92ce606fea53dea647b959")
  ("dictionary-el" . "bdf0aa7761d1c1a3bc0652b2fdc4a54b3acdb06a")
  ("diff-hl" . "68fb280b300c5d8460cc7b9183e29fb3ec604136")
- ("diminish.el" . "fbd5d846611bad828e336b25d2e131d1bc06b83d")
  ("dired-hacks" . "41d3eb42195d9f0894c20d18cc8e722b099aa1c1")
  ("diredfl" . "94bd99eeced6d52a5a7b9db3745239feafd633e2")
  ("dotsies" . "cf149db0eea7b3cae2b4154d5883faa21badca45")
