@@ -224,7 +224,7 @@
           "Work TODO"
           entry
           (file+olp "~/Sync/org/work-tasks.org" "Work tasks")
-          "* TODO %? :work:\n  %i\n  %a")
+          "* TODO %?\n  %i\n  %a")
          ("i"
           "Work idea"
           entry
