@@ -181,11 +181,11 @@
  (org-todo-keywords
   '((sequence "TODO" "IN-PROGRESS" "BLOCKED" "DONE" "CANCELLED")))
  (org-todo-keyword-faces
-  '(("TODO" . org-warning)
-    ("IN-PROGRESS" . "yellow")
-    ("BLOCKED" . "dim gray")
+  '(("TODO" . org-todo)
     ("DONE" . org-done)
-    ("CANCELLED" . "blue")))
+    ("IN-PROGRESS" . 'modus-themes-fg-yellow-intense)
+    ("BLOCKED" . 'modus-themes-fg-magenta-faint)
+    ("CANCELLED" . 'modus-themes-fg-blue-intense)))
  (org-tags-column 0)
  (org-export-with-tasks t)
  (org-md-headline-style 'setext)
