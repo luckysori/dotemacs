@@ -1066,6 +1066,7 @@
  ("C-c C-s" . vterm-other-window)
  ("C-c p C-s" . projectile-run-vterm)
  ("C-c g" . vterm-send-C-g)
+ :custom (vterm-max-scrollback 100000)
  :config
  (unbind-key "C-c C-g" vterm-mode-map)
  (unbind-key "M-O" vterm-mode-map)
