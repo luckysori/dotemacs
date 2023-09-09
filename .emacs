@@ -330,6 +330,7 @@
 
 (use-package
  magit
+ :straight (:branch "main")
  :bind
  (("C-c C-m" . 'magit-status)
   ("C-x C-m" . 'magit-dispatch)
