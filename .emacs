@@ -339,7 +339,9 @@
   ("C-c l r" . 'magit-list-repositories))
  :config (unbind-key "C-x g" magit-section-mode-map)
  (setq magit-repository-directories
-       '(("~/github" . 2) ("~/prolog" . 1))))
+       '(("~/github" . 2)
+         ("~/prolog" . 1)
+         ("~/.emacs.d/straight/repos/" . 1))))
 
 ;; TODO: Create function to stage a region. Would probably only work by line
 
