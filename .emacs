@@ -343,6 +343,8 @@
          ("~/prolog" . 1)
          ("~/.emacs.d/straight/repos/" . 1))))
 
+(use-package transient :straight (:branch "main"))
+
 ;; TODO: Create function to stage a region. Would probably only work by line
 
 ;;; git-timemachine:
