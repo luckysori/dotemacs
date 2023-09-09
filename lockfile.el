@@ -108,6 +108,7 @@
  ("projectile" . "271007c6611fcb08ddd326d7de9727c2ad5ef265")
  ("queue" . "130c2d656cd5d7376552272fab9e50a7c37d0c4a")
  ("restclient.el" . "0ba72816f92f3d5906cdf76f418fd0a3ee72809b")
+ ("rg.el" . "e9dc4ed342e0212d08fb82554dfd3c57fdfa5b1a")
  ("rust-mode" . "e443ccf2884028d3b6cc550ff20e7c92dadccb68")
  ("s.el" . "dda84d38fffdaf0c9b12837b504b402af910d01d")
  ("sesman" . "e0f555f963c9f02f8e4a50e06fc353eb4c15ee77")

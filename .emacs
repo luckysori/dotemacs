@@ -1307,6 +1307,11 @@
   :repo "xenodium/dotsies"
   :files ("emacs/ar/zone-words*")))
 
+;; rg.el:
+
+;; TODO: Fix jump to match
+(use-package rg)
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:
