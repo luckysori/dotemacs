@@ -1354,7 +1354,7 @@
   :repo "xenodium/dotsies"
   :files ("emacs/ar/zone-words*")))
 
-;; rg.el:
+;;; rg.el:
 
 ;; TODO: Fix jump to match
 (use-package rg)
