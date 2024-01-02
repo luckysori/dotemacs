@@ -536,7 +536,7 @@
  :config
  (setq circadian-themes
        '(("8:00" . modus-operandi-tinted)
-         ("17:30" . modus-vivendi-tinted)))
+         ("20:30" . modus-vivendi-tinted)))
  (circadian-setup))
 
 ;;; Rust:
