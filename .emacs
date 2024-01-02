@@ -1324,8 +1324,10 @@
 
 (use-package
  gptel
+ :custom (gptel-model "gpt-4")
  :config
  (setq gptel-api-key 'my/chat-gpt-api-key)
+ (setq gptel-default-mode 'org-mode)
  (require 'chat-gpt-api-key nil 'noerror))
 
 ;;; which-key:
