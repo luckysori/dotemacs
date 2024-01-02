@@ -54,7 +54,7 @@
  ("git-timemachine" . "13769fb603ae88c64566529eae4525ce88026e86")
  ("gnu-elpa-mirror" . "e605acd167c0c94989ba962597f452a66e180440")
  ("go-mode.el" . "166dfb1e090233c4609a50c2ec9f57f113c1da72")
- ("gptel" . "e6a1468bd25633bf440075256e39b002886774ef")
+ ("gptel" . "6e604b2c94b3419a58f40d59c43234c735116701")
  ("helm" . "2c7719ae67ba4df3ed8b4221189ad70863cfe4a6")
  ("helm-ag" . "c16d7a7e72a6834bf94832c2b1cad8f6c920108c")
  ("helm-company" . "6eb5c2d730a60e394e005b47c1db018697094dde")
