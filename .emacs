@@ -683,6 +683,19 @@
 
 (use-package helm-lsp :commands helm-lsp-workspace-symbol)
 
+;;; dap-mode:
+
+(use-package
+ dap-mode
+ :config
+ (dap-ui-mode)
+ (dap-ui-controls-mode 1)
+ (require 'dap-cpptools)
+ (dap-cpptools-setup)
+ (with-eval-after-load 'dap-mode
+   (setq dap-default-terminal-kind "integrated")
+   (dap-auto-configure-mode +1)))
+
 ;;; smartparens:
 
 (use-package
