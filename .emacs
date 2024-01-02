@@ -344,7 +344,13 @@
  (setq magit-repository-directories
        '(("~/github" . 2)
          ("~/prolog" . 1)
-         ("~/.emacs.d/straight/repos/" . 1))))
+         ("~/.emacs.d/straight/repos/" . 1)))
+ (setq magit-revision-insert-related-refs-display-alist
+       '((parents . t)
+         (merged . nil)
+         (contained . t)
+         (follows . t)
+         (precedes . t))))
 
 (use-package transient :straight (:branch "main"))
 
