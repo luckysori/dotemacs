@@ -1291,6 +1291,19 @@
       (split-window-right))
     (switch-to-buffer original)))
 
+(defun my/swap-buffers ()
+  (interactive)
+  (let ((visible-buffers (window-list)))
+    (cond
+     ((not (= (length visible-buffers) 2))
+      (message "This command requires exactly two visible buffers."))
+     (t
+      (let ((current-buffer (current-buffer))
+            (other-window-buffer (window-buffer (next-window))))
+        (set-window-buffer (selected-window) other-window-buffer)
+        (set-window-buffer (next-window) current-buffer)
+        (select-window (next-window)))))))
+
 (use-package
  advent
  :straight
