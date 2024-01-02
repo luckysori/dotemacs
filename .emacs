@@ -237,7 +237,7 @@
          ("t"
           "TODO"
           entry
-          (file+olp "~/Sync/org/tasks.org" "Tasks")
+          (file+olp "~/Sync/org/home.org" "Tasks")
           "* TODO %? :home:\n  %i\n  %a")
          ("r"
           "Retro"
