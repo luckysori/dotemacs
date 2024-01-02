@@ -854,6 +854,7 @@
  :bind
  ("C-x g" . helm-do-ag-project-root)
  ("C-x G" . helm-do-ag)
+ ("C-x M-g" . helm-ag-pop-stack)
  :config
  (setq helm-ag-base-command "rg --ignore-case --no-heading --trim")
  (setq helm-ag-success-exit-status '(0 2)))
