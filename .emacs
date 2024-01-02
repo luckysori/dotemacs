@@ -339,8 +339,7 @@
  (("C-c C-m" . 'magit-status)
   ("C-x C-m" . 'magit-dispatch)
   ("C-c C-j" . 'magit-status-here)
-  ("C-c m b" . 'magit-blame-addition)
-  ("C-c l r" . 'magit-list-repositories))
+  ("C-c m b" . 'magit-blame-addition))
  :config (unbind-key "C-x g" magit-section-mode-map)
  (setq magit-repository-directories
        '(("~/github" . 2)
