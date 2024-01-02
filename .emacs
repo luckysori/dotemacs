@@ -102,6 +102,10 @@
 
 ;;; General variable setting:
 
+;; Ensure that the minibuffer (and the echo area) do not grow if there
+;; is a long message to display
+(setq resize-mini-windows nil)
+
 (setq warning-minimum-level :error)
 
 (setq undo-limit 800000)
