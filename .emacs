@@ -717,6 +717,7 @@
  ("C-M-w" . sp-copy-sexp)
  ("C-M-<SPC>" . sp-mark-sexp)
  ("C-M-t" . sp-transpose-sexp)
+ ("C-M-]" . sp-unwrap-sexp)
  :config (require 'smartparens-config))
 
 ;;; dired:
