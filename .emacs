@@ -228,22 +228,18 @@
           "Work TODO"
           entry
           (file+olp "~/Sync/org/work-tasks.org" "Work tasks")
-          "* TODO %?\n  %i\n  %a")
+          "* TODO %?\n %i\n  %a")
          ("i"
           "Work idea"
           entry
           (file+olp "~/Sync/org/work-ideas.org" "Work ideas")
-          "* %?\n  %i\n  %a")
+          "* %?\n %i\n %a")
          ("t"
           "TODO"
           entry
           (file+olp "~/Sync/org/home.org" "Tasks")
-          "* TODO %? :home:\n  %i\n  %a")
-         ("r"
-          "Retro"
-          plain
-          (file "~/Sync/org/retro.org")
-          "* %? :work:")
+          "* TODO %? %i\n %a")
+         ("r" "Retro" plain (file "~/Sync/org/retro.org") "* %?")
          ("l"
           "Link"
           plain
