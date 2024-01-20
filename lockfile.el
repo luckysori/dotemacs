@@ -37,7 +37,7 @@
  ("emacs-edbi" . "6f50aaf4bde75255221f2292c7a4ad3fa9d918c0")
  ("emacs-elisp-autofmt" . "90b81d0b02e8fa7b2ff0cc84ef90f95d1d26a691")
  ("emacs-epc" . "e1bfa5ca163273859336e3cc89b4b6460f7f8cda")
- ("emacs-libvterm" . "94e2b0b2b4a750e7907dacd5b4c0584900846dd1")
+ ("emacs-libvterm" . "c3a3a23a5eace137947524c93644204bf6b56cff")
  ("emacs-reformatter" . "f454b179ab7d39dc8783b9f2a046cab353b272f5")
  ("emacs-sdcv" . "c51569ebf3fd1f8c02c33c289d229996bf2ff186")
  ("emacs-which-key" . "bd34ede7bf77ad3988330b37207f3978e7342c79")
