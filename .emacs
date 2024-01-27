@@ -941,7 +941,10 @@
 
  (use-package
   company-quickhelp
-  :init (company-quickhelp-mode 1) (use-package pos-tip))
+  :init
+  (company-quickhelp-mode 1)
+  (use-package pos-tip)
+  :custom (company-quickhelp-max-lines 4))
 
  (use-package
   helm-company
