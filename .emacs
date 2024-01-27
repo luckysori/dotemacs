@@ -614,7 +614,7 @@
  (lsp-inlay-hint-enable t)
  (lsp-rust-analyzer-max-inlay-hint-length 4)
  (lsp-rust-analyzer-import-prefix "by_crate")
- (lsp-rust-analyzer-completion-auto-import-enable nil)
+ (lsp-rust-analyzer-completion-auto-import-enable t)
  ;; (lsp-rust-target-dir "/tmp/lsp-rust-target")
  ;; To improve performance
  (gc-cons-threshold 100000000)
