@@ -130,7 +130,9 @@
 
 ;;; Line wrapping:
 
-(setq-default truncate-lines nil)
+;; Enabled so that `lsp-ui-mode` doesn't cause code to jump around.
+;; Not sure if I want this everywhere.
+(setq-default truncate-lines t)
 
 ;;; Disable the splash screen:
 
