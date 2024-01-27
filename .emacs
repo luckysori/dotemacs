@@ -346,8 +346,10 @@
   ("C-c m b" . 'magit-blame-addition))
  :config (unbind-key "C-x g" magit-section-mode-map)
  (setq magit-repository-directories
-       '(("~/github" . 2)
-         ("~/prolog" . 1)
+       '(("~/github/" . 2)
+         ("~/prolog/" . 1)
+         ("~/programming/" . 2)
+         ("~/gitea/" . 2)
          ("~/.emacs.d/straight/repos/" . 1)))
  (setq magit-revision-insert-related-refs-display-alist
        '((parents . t)
