@@ -644,7 +644,7 @@
  lsp-ui
  :after (lsp-mode flycheck)
  :commands lsp-ui-mode
- :bind ("C-x C-d" . lsp-ui-doc-hide)
+ :bind ("C-x C-d" . lsp-ui-doc-toggle)
  :custom
  ;; doc
  (lsp-ui-doc-enable t)
