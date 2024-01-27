@@ -271,6 +271,12 @@
  :straight
  (ox-asciidoc :type git :host github :repo "yashi/org-asciidoc"))
 
+;;; org-pomodoro:
+
+(use-package
+ org-pomodoro
+ :custom (org-pomodoro-manual-break t) (org-pomodoro-play-sounds nil))
+
 ;;; Back up files:
 
 (setq backup-directory-alist `(("." . "~/.saves")))
