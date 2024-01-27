@@ -656,6 +656,7 @@
  (lsp-ui-doc-max-height 10)
  (lsp-ui-doc-delay 0.5)
  ;; sideline
+ (lsp-ui-sideline-show-diagnostics t)
  (lsp-ui-sideline-enable t)
  (lsp-ui-sideline-show-hover nil)
  (lsp-ui-sideline-ignore-duplicate t)
