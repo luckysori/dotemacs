@@ -649,7 +649,7 @@
  ;; doc
  (lsp-ui-doc-enable t)
  (lsp-ui-doc-show-with-mouse nil)
- (lsp-ui-doc-show-with-cursor t)
+ (lsp-ui-doc-show-with-cursor nil)
  (lsp-ui-doc-use-childframe t)
  (lsp-ui-doc-position 'top)
  (lsp-ui-doc-include-signature t)
