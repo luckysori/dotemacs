@@ -683,7 +683,12 @@
  (define-key
   lsp-ui-mode-map
   [remap xref-find-references]
-  #'lsp-ui-peek-find-references))
+  #'lsp-ui-peek-find-references)
+ ;; Ensure that code is not pushed around. Based on
+ ;; https://github.com/emacs-lsp/lsp-ui/issues/597#issuecomment-1094139301.
+ (defun lsp-ui-sideline--compute-height nil
+   '(height unspecified)))
+
 
 (defun my/hide-rust-analyzer-flip-comma (actions)
   "Filter flip-comma code action from the list of possible code actions returned by rust-analyzer"
