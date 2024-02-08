@@ -9,7 +9,6 @@
  ("cargo.el" . "225fdb846c702a193e58a98c1585bb3586a9aa86")
  ("cfrs" . "f3a21f237b2a54e6b9f8a420a9da42b4f0a63121")
  ("cider" . "ec97c88c46759afd929a415604311a3b2aecb338")
- ("circadian.el" . "52e336d9bb66cfd6d6dc5b9213ea21796ac873d4")
  ("clojure-mode" . "906d6a47a646d1191eaead6f8e1ae0810aa9b626")
  ("company-auctex" . "9400a2ec7459dde8cbf1a5d50dfee4e300ed7e18")
  ("company-mode" . "84b111f26663c65cb9e465a028c9558332b4951b")

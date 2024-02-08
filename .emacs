@@ -535,15 +535,7 @@
 
 (use-package ef-themes)
 
-(use-package modus-themes)
-
-(use-package
- circadian
- :config
- (setq circadian-themes
-       '(("8:00" . modus-operandi-tinted)
-         ("20:30" . modus-vivendi-tinted)))
- (circadian-setup))
+(use-package modus-themes :config (load-theme 'modus-operandi t))
 
 ;;; Rust:
 
