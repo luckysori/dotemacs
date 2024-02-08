@@ -794,7 +794,9 @@
 
 ;;; JSON:
 
-(use-package json-mode :custom (json-reformat:indent-width 2))
+(use-package
+ json-mode
+ :custom (json-reformat:indent-width 2) (js-indent-level 2))
 
 ;;; helm:
 
