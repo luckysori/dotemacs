@@ -56,7 +56,7 @@
  ("gntp.el" . "767571135e2c0985944017dc59b0be79af222ef5")
  ("gnu-elpa-mirror" . "e605acd167c0c94989ba962597f452a66e180440")
  ("go-mode.el" . "166dfb1e090233c4609a50c2ec9f57f113c1da72")
- ("gptel" . "6e604b2c94b3419a58f40d59c43234c735116701")
+ ("gptel" . "af5444a2ea33d717265d5bbf30a15347e2da4d05")
  ("helm" . "84a49c005310b6f823ae554c0d17c3b63dce6f59")
  ("helm-ag" . "c16d7a7e72a6834bf94832c2b1cad8f6c920108c")
  ("helm-company" . "6eb5c2d730a60e394e005b47c1db018697094dde")
