@@ -360,6 +360,8 @@
 
 (use-package transient :straight (:branch "main"))
 
+(use-package magit-delta :hook (magit-mode . magit-delta-mode))
+
 ;; TODO: Create function to stage a region. Would probably only work by line
 
 ;;; git-timemachine:
@@ -550,15 +552,6 @@
  cargo
  :hook (rust-mode . cargo-minor-mode)
  :config
- (defvar rustc-panics-compilation-regexps
-   (let
-       ((re
-         "thread '[^']+' panicked at \\(\\(.*\\):\\([0-9]+\\):\\([0-9]+\\)\\)"))
-     (cons re '(2 3 4 nil 1))))
- (add-to-list
-  'compilation-error-regexp-alist-alist
-  (cons 'rustc-panics rustc-panics-compilation-regexps))
- (add-to-list 'compilation-error-regexp-alist 'rustc-panics)
  (setq cargo-process--command-check "clippy --all-targets"))
 
 ;;; Dart:
