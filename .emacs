@@ -106,6 +106,8 @@
 
 ;; Ensure that the minibuffer (and the echo area) do not grow if there
 ;; is a long message to display
+;;
+;; TODO: This is not great, as it interferes with `straight.el'.
 (setq resize-mini-windows nil)
 
 (setq warning-minimum-level :error)
