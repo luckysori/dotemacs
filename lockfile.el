@@ -118,7 +118,7 @@
  ("sesman" . "e0f555f963c9f02f8e4a50e06fc353eb4c15ee77")
  ("smartparens" . "79a338db115f441cd47bb91e6f75816c5e78a772")
  ("spinner" . "67681b8f1580a7cd7a1aa49d78eaa30d11f7c178")
- ("straight.el" . "4701c9af1a63a7f583bdbb11d45571302105da31")
+ ("straight.el" . "b3760f5829dba37e855add7323304561eb57a3d4")
  ("tablist" . "5f7b71a92bfb25418d7da86ad9c45f14b149496f")
  ("tide" . "bb09bccf070c1915ca8dbaaaaee4e9e3d7ab2ec7")
  ("transient" . "a1575e58331b1ff85ac97667df0130ae822ccf5f")
