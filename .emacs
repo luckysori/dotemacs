@@ -19,6 +19,8 @@
 
 (setq straight-use-package-by-default t)
 
+(setq straight-host-usernames '((github . "luckysori")))
+
 ;;; use-package config manager:
 
 (straight-use-package 'use-package)
@@ -543,6 +545,13 @@
 
 (use-package
  rust-mode
+ :straight
+ (rust-mode
+  :type git
+  :flavor melpa
+  :host github
+  :remote "luckysori"
+  :repo "luckysori/rust-mode")
  :custom (rust-format-on-save t)
  :config (unbind-key "C-c C-n" rust-mode-map))
 
