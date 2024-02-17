@@ -134,7 +134,7 @@
 
 ;;; Line wrapping:
 
-;; Enabled so that `lsp-ui-mode` doesn't cause code to jump around.
+;; Enabled so that `lsp-ui-mode' doesn't cause code to jump around.
 ;; Not sure if I want this everywhere.
 (setq-default truncate-lines t)
 
