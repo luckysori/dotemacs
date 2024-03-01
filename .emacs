@@ -364,7 +364,10 @@
 
 (use-package transient :straight (:branch "main"))
 
-(use-package magit-delta :hook (magit-mode . magit-delta-mode))
+(use-package
+ magit-delta
+ :hook (magit-mode . magit-delta-mode)
+ :custom (magit-delta-hide-plus-minus-markers nil))
 
 ;; TODO: Create function to stage a region. Would probably only work by line
 
