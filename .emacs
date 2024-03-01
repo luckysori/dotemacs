@@ -1378,8 +1378,7 @@
 
 ;;; rg.el:
 
-;; TODO: Fix jump to match
-(use-package rg)
+(use-package rg :custom (rg-group-result nil))
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
