@@ -819,6 +819,7 @@
  (helm-M-x-use-completion-styles nil)
  (helm-show-completion-display-function
   #'helm-show-completion-default-display-function)
+ (helm-move-to-line-cycle-in-source nil)
  :config
  (defun my/helm-vterm ()
    "Open vterm in helm directory"
