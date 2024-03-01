@@ -568,6 +568,8 @@
  :config
  (setq cargo-process--command-check "clippy --all-targets"))
 
+(use-package toml-mode)
+
 ;;; Dart:
 
 (use-package dart-mode)

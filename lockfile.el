@@ -121,6 +121,7 @@
  ("straight.el" . "b3760f5829dba37e855add7323304561eb57a3d4")
  ("tablist" . "5f7b71a92bfb25418d7da86ad9c45f14b149496f")
  ("tide" . "bb09bccf070c1915ca8dbaaaaee4e9e3d7ab2ec7")
+ ("toml-mode.el" . "f6c61817b00f9c4a3cab1bae9c309e0fc45cdd06")
  ("transient" . "85ecbc66b68207275f81de4f9bd321474a6c8c61")
  ("treemacs" . "df26b6ab9a0f467e5ff99f7ed97551ccf756e06c")
  ("typescript.el" . "4fcb4594819caf472ae42ea068a1c7795cf07f46")
