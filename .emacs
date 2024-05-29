@@ -612,8 +612,6 @@
  (lsp-rust-all-features t)
  (lsp-rust-analyzer-import-granularity "item")
  (lsp-rust-all-features nil)
- (lsp-inlay-hint-enable t)
- (lsp-rust-analyzer-max-inlay-hint-length 4)
  (lsp-rust-analyzer-import-prefix "by_crate")
  (lsp-rust-analyzer-completion-auto-import-enable t)
  ;; TODO: Consider setting
