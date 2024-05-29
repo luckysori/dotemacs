@@ -604,10 +604,7 @@
  ;; rust
  (lsp-rust-clippy-preference "on")
  (lsp-rust-analyzer-cargo-watch-command "clippy")
- (lsp-rust-analyzer-cargo-watch-args
-  ["-j1"
-   ;; Allow rust-analyzer and regular cargo check to run in parallel
-   "--target-dir" "/tmp/rust-analyzer-check"])
+ (lsp-rust-analyzer-cargo-watch-args ["-j1"])
  (lsp-rust-analyzer-proc-macro-enable t)
  (lsp-rust-all-features t)
  (lsp-rust-analyzer-import-granularity "item")
