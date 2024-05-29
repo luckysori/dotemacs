@@ -724,19 +724,6 @@
  (defun lsp-ui-sideline--compute-height nil
    '(height unspecified)))
 
-
-(defun my/hide-rust-analyzer-flip-comma (actions)
-  "Filter flip-comma code action from the list of possible code actions returned by rust-analyzer"
-  nil
-  (seq-filter
-   '(lambda (action)
-      (not (string= "Flip comma" (gethash "title" action))))
-   actions))
-
-(advice-add
- 'lsp-code-actions-at-point
- :filter-return 'my/hide-rust-analyzer-flip-comma)
-
 (use-package helm-lsp :commands helm-lsp-workspace-symbol)
 
 ;;; dap-mode:
