@@ -575,6 +575,11 @@
 (use-package dart-mode)
 (use-package lsp-dart)
 
+(use-package
+ dart-format
+ :straight
+ (dart-format :type git :host github :repo "luckysori/dart-format"))
+
 ;;; lsp-mode:
 
 (use-package

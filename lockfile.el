@@ -16,6 +16,7 @@
  ("compat" . "0533ca41385aa4509dcd3f8310c0d5b3702f259e")
  ("cus-edit-plus" . "99b16cb95e1b892e15e3091f124e0be6dd914e16")
  ("dap-mode" . "2f0c5b28578ce65ec746e4084ba72ba5c652ea79")
+ ("dart-format" . "6d51aa3f1ef8656c5f6af76c670dad5804ea1b95")
  ("dart-mode" . "dffc0209a19fdfac72b861d6adb445c1b6b464f7")
  ("dash.el" . "1de9dcb83eacfb162b6d9a118a4770b1281bcd84")
  ("dictionary-el" . "bdf0aa7761d1c1a3bc0652b2fdc4a54b3acdb06a")
