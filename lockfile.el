@@ -26,7 +26,7 @@
  ("dotsies" . "21f9d28806ed2071d1105e8cb4ab97ab74e17122")
  ("dprint-fmt" . "88ab37467a4a7a7d7660297b462b676239508485")
  ("edbi-sqlite" . "52cb9ca1af7691b592f2cfd2f007847e7a4ccd5f")
- ("ef-themes" . "64c907d23025652af399e5b33f5ba654d00c7885")
+ ("ef-themes" . "63f54024d55bf6ca46da255afa66c7c6047ff374")
  ("el-get" . "807b15c9c99b512a5d42cb5f281ecf4fe43355cd")
  ("eldoc" . "bf2e88dcf00e6554e24b517aa315527011042fae")
  ("elfeed" . "162d7d545ed41c27967d108c04aa31f5a61c8e16")
