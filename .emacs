@@ -602,6 +602,7 @@
  ("C-x C-r" . lsp-rename)
  ("C-x C-," . helm-lsp-workspace-symbol)
  :custom
+ (lsp-file-watch-threshold 10000)
  (lsp-keep-workspace-alive nil)
  (lsp-enable-snippet t)
  (lsp-prefer-capf t)
