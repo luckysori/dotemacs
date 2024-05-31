@@ -87,7 +87,7 @@
  ("markdown-mode" . "0cdebc833ed9b98baf9f260ed12b1e36b0ca0e89")
  ("melpa" . "fd80964f4dab9fdf73a0c492a5c019f05b2e0d30")
  ("minions" . "62948a4a2951dab0716977421bfe0a87ea2583c5")
- ("modus-themes" . "b23c84e6b44e13ed12758eda05ab9d5f75928315")
+ ("modus-themes" . "64823c7767710207cdf443492e0f712876dc4ee4")
  ("moody" . "888e6fb37eb5122803c70ae60d28fc54589e26c0")
  ("multiple-cursors.el" . "6956e8e12ee191d7c80d042ae8ff495286fcbe38")
  ("narrow-indirect" . "5a7fffffb8278ee01574b9317873aaa371c60142")
