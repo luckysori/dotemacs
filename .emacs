@@ -1412,6 +1412,19 @@
 
 (use-package rg :custom (rg-group-result nil))
 
+;;; logview:
+
+(use-package
+ logview
+ :custom
+ (logview-additional-timestamp-formats
+  '(("RustTimestamp" (java-pattern . "yyyy-MM-dd HH:mm:ss"))))
+ (logview-additional-submodes
+  '(("Rust" (format .
+             "TIMESTAMP LEVEL NAME: MESSAGE")
+     (levels . "SLF4J")
+     (timestamp . "RustTimestamp")))))
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:
