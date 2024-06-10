@@ -542,9 +542,9 @@
 
 (setq custom-safe-themes t)
 
-(use-package ef-themes)
+(use-package ef-themes :config (load-theme 'ef-rosa t))
 
-(use-package modus-themes :config (load-theme 'modus-operandi t))
+(use-package modus-themes)
 
 ;;; Rust:
 
