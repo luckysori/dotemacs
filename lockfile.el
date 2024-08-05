@@ -103,7 +103,6 @@
  ("org" . "a144b2355096ef788aa19f158faa833958f87d66")
  ("org-asciidoc" . "3a8aad85c6df84155266ba5232f1cbadda8abc58")
  ("org-download" . "19e166f0a8c539b4144cfbc614309d47a9b2a9b7")
- ("org-noter" . "1fbf59833e4792e88645bffdcab387b77fda719f")
  ("org-pomodoro" . "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
  ("org-tree-slide" . "97273dbb1718e9f63d338468e4c310167a846a67")
  ("parseclj" . "4d0e780e00f1828b00c43099e6eebc6582998f72")
