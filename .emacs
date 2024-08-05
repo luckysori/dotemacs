@@ -221,52 +221,31 @@
  :straight (org-capture :type built-in)
  :bind ("C-c c" . 'org-capture)
  :config
- (defun my/org-daily-work-buffer ()
-   "Set org-capture-target-buffer as Org buffer with today's date as name"
-   (interactive)
-   (let* ((file-name (format-time-string "%F.org"))
-          (file-path
-           (expand-file-name file-name "~/work/org/daily/")))
-     (set-buffer (org-capture-target-buffer file-path))
-     (goto-char (point-max))))
  (setq org-capture-templates
        '(("w"
-          "Work TODO"
+          "Work task"
           entry
-          (file+olp "~/Sync/org/work-tasks.org" "Work tasks")
-          "* TODO %?\n %i\n  %a")
-         ("i"
-          "Work idea"
+          (file+olp "~/notes/work.org" "Tasks")
+          "* TODO %?\n %i\n %a")
+         ("h"
+          "Home task"
           entry
-          (file+olp "~/Sync/org/work-ideas.org" "Work ideas")
+          (file+olp "~/notes/home.org" "Tasks")
+          "* TODO %?\n %i\n %a")
+         ("k"
+          "Work knowledge"
+          entry
+          (file+olp "~/notes/work.org" "Knowledge")
           "* %?\n %i\n %a")
-         ("t"
-          "TODO"
+         ("n"
+          "Home knowledge"
           entry
-          (file+olp "~/Sync/org/home.org" "Tasks")
-          "* TODO %? %i\n %a")
-         ("r" "Retro" plain (file "~/Sync/org/retro.org") "* %?")
-         ("l"
-          "Link"
-          plain
-          (file "~/Sync/org/links.org")
-          "- %?\n %x\n")
-         ("e"
-          "Learning"
-          plain
-          (file "~/Sync/org/learnings.org")
-          "** %?\n %x\n")
-         ("d"
-          "Daily work task"
-          plain
-          (function my/org-daily-work-buffer)
-          "* %?"))))
+          (file+olp "~/notes/home.org" "Knowledge")
+          "* %?\n %i\n %a"))))
 
 (use-package
  org-download
  :custom (org-download-display-inline-images nil))
-
-(use-package org-noter)
 
 (use-package org-tree-slide)
 
