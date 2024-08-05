@@ -1404,6 +1404,10 @@
      (levels . "SLF4J")
      (timestamp . "RustTimestamp")))))
 
+;;; docker:
+
+(use-package docker)
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:
