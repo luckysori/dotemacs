@@ -133,7 +133,7 @@
  ("typescript.el" . "4fcb4594819caf472ae42ea068a1c7795cf07f46")
  ("use-package" . "a6e856418d2ebd053b34e0ab2fda328abeba731c")
  ("vundo" . "e7cfd047bbc28b1b107688392f7e97f78fd030d5")
- ("web-mode" . "57856ba64b9382811b35df0d9ab0a24aede0c1f0")
+ ("web-mode" . "0c83581d1e93d1d802c730a1d5e90cd1c740e1b2")
  ("wfnames" . "19b452fb698a5ba3b0f1d6e7d69a5e19af2c83e7")
  ("with-editor" . "1b4526453ef6bdee30635f469aa26085c02b1ac1")
  ("xterm-color" . "2ad407c651e90fff2ea85d17bf074cee2c022912")
