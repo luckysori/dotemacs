@@ -603,6 +603,13 @@
  (read-process-output-max (* 1024 1024))
  (lsp-idle-delay 0.500)
  :config
+ (with-eval-after-load 'lsp-mode
+   (lsp-register-client
+    (make-lsp-client
+     :new-connection (lsp-stdio-connection "nixd")
+     :major-modes '(nix-mode)
+     :priority 0
+     :server-id 'nixd)))
  (lsp-register-client
   (make-lsp-client
    :new-connection
