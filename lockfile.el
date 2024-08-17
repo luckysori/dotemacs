@@ -48,7 +48,7 @@
  ("emacsmirror-mirror" . "9a3385bc3ce33374df188f694e5e7f001d599db3")
  ("epl" . "78ab7a85c08222cd15582a298a364774e3282ce6")
  ("erc-highlight-nicknames" . "d3cd7f87074bafc11ade8594e626b16932a478f5")
- ("exec-path-from-shell" . "ddd24dc823de9a94435b4d8ea7569161657f31e2")
+ ("exec-path-from-shell" . "72ede29a0e0467b3b433e8edbee3c79bab005884")
  ("expand-region.el" . "b70feaa644310dc2d599dc277cd20a1f2b6446ac")
  ("extmap" . "5875a4ab27831eb81af6246b12a174c765d52a78")
  ("f.el" . "1e7020dc0d4c52d3da9bd610d431cab13aa02d8c")
