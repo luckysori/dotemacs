@@ -538,6 +538,7 @@
  (go-mode . lsp)
  (dart-mode . lsp)
  (lsp-mode . lsp-enable-which-key-integration)
+ ((tsx-ts-mode typescript-ts-mode js-ts-mode) . lsp-deferred)
  :commands lsp
  :bind-keymap ("C-c l" . lsp-command-map)
  :bind
@@ -911,6 +912,8 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
 ;;; company-mode:
+
+;; TODO: Try out corfu.
 
 (use-package
  company
@@ -1379,6 +1382,77 @@
 ;;; docker:
 
 (use-package docker)
+
+;;; treesitter:
+
+(use-package
+ treesit
+ :mode
+ (("\\.tsx\\'" . tsx-ts-mode)
+  ("\\.js\\'" . typescript-ts-mode)
+  ("\\.mjs\\'" . typescript-ts-mode)
+  ("\\.mts\\'" . typescript-ts-mode)
+  ("\\.cjs\\'" . typescript-ts-mode)
+  ("\\.ts\\'" . typescript-ts-mode)
+  ("\\.jsx\\'" . tsx-ts-mode)
+  ("\\.json\\'" . json-ts-mode))
+ :preface
+ (defun my/setup-install-grammars ()
+   "Install Tree-sitter grammars if they are absent."
+   (interactive)
+   (dolist
+       (grammar
+        '((css
+           .
+           ("https://github.com/tree-sitter/tree-sitter-css"
+            "v0.20.0"))
+          (html
+           .
+           ("https://github.com/tree-sitter/tree-sitter-html"
+            "v0.20.1"))
+          (javascript
+           .
+           ("https://github.com/tree-sitter/tree-sitter-javascript"
+            "v0.21.2"
+            "src"))
+          (json
+           .
+           ("https://github.com/tree-sitter/tree-sitter-json"
+            "v0.20.2"))
+          (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+          (tsx
+           .
+           ("https://github.com/tree-sitter/tree-sitter-typescript"
+            "v0.20.3"
+            "tsx/src"))
+          (typescript
+           .
+           ("https://github.com/tree-sitter/tree-sitter-typescript"
+            "v0.20.3"
+            "typescript/src"))))
+     (add-to-list 'treesit-language-source-alist grammar)
+     ;; Only install `grammar' if we don't already have it
+     ;; installed. However, if you want to *update* a grammar then
+     ;; this obviously prevents that from happening.
+     (unless (treesit-language-available-p (car grammar))
+       (treesit-install-language-grammar (car grammar)))))
+
+ ;; Optional, but recommended. Tree-sitter enabled major modes are
+ ;; distinct from their ordinary counterparts.
+ ;;
+ ;; You can remap major modes with `major-mode-remap-alist'. Note
+ ;; that this does *not* extend to hooks! Make sure you migrate them
+ ;; also
+ (dolist (mapping
+          '((css-mode . css-ts-mode)
+            (typescript-mode . typescript-ts-mode)
+            (js-mode . typescript-ts-mode)
+            (js2-mode . typescript-ts-mode)
+            (json-mode . json-ts-mode)
+            (js-json-mode . json-ts-mode)))
+   (add-to-list 'major-mode-remap-alist mapping))
+ :config (my/setup-install-grammars))
+
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
