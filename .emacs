@@ -434,6 +434,7 @@
  (web-mode-enable-auto-indentation t)
  (web-mode-enable-auto-quoting nil)
  :config
+ (unbind-key "C-c RET" web-mode-map)
  (add-hook 'flycheck-mode-hook 'add-node-modules-path)
  (add-hook
   'web-mode-hook
