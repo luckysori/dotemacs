@@ -1369,7 +1369,9 @@
  :config
  (setq gptel-api-key 'my/chat-gpt-api-key)
  (setq gptel-default-mode 'org-mode)
- (require 'chat-gpt-api-key nil 'noerror))
+ (require 'chat-gpt-api-key nil 'noerror)
+ (gptel-make-anthropic "Claude" :stream t :key 'my/claude-api-key)
+ (require 'claude-api-key nil 'noerror))
 
 ;;; which-key:
 
