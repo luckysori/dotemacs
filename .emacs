@@ -1418,6 +1418,10 @@
 
 (use-package docker)
 
+;;; prettier:
+
+(use-package prettier)
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:
