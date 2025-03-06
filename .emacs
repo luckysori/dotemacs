@@ -172,7 +172,7 @@
 
 ;; TODO: Dynamic font size depending on monitor resolution and size using
 ;; using display-monitor-attributes-list
-(add-to-list 'default-frame-alist '(font . "Hack-20"))
+(add-to-list 'default-frame-alist '(font . "Hack-14"))
 (set-face-attribute 'default nil :family "Hack")
 (set-face-attribute 'italic nil
                     :slant 'italic
@@ -193,15 +193,13 @@
  (org-todo-keyword-faces
   '(("TODO" . org-todo)
     ("DONE" . org-done)
-    ("IN-PROGRESS" . 'modus-themes-fg-yellow-intense)
-    ("BLOCKED" . 'modus-themes-fg-magenta-faint)
-    ("CANCELLED" . 'modus-themes-fg-blue-intense)))
+    ("IN-PROGRESS" . (:inherit modus-themes-fg-yellow-intense))
+    ("BLOCKED" . (:inherit modus-themes-fg-magenta-faint))
+    ("CANCELLED" . (:inherit modus-themes-fg-blue-intense))))
  (org-tags-column 0)
  (org-export-with-tasks t)
  (org-md-headline-style 'setext)
- :config (unbind-key "C-c RET" org-mode-map)
- ;; TODO: Make this work
- (define-key org-mode-map (kbd "<M-return>") nil)
+ :config (define-key org-mode-map (kbd "C-c RET") nil)
  ;; New org heading or list item doesn't generate new line
  (setf org-blank-before-new-entry
        '((heading . nil) (plain-list-item . nil)))
@@ -341,8 +339,6 @@
          (follows . t)
          (precedes . t))))
 
-(use-package transient :straight (:branch "main"))
-
 (use-package
  magit-delta
  :hook (magit-mode . magit-delta-mode)
@@ -404,50 +400,13 @@
  ;;   :bind ("M-U" . 'latex-preview-pane-update)
  ;;   :hook (LaTeX-mode . latex-preview-pane-mode)
  ;; )
- (use-package
-  company-auctex
-  :hook (LaTeX-mode . company-mode)
-  :init (company-auctex-init)))
+ )
 
 ;;; pdf-tools:
 
 (use-package pdf-tools :config (pdf-tools-install))
 
-;;; web-mode:
-
-(use-package
- web-mode
- :mode
- (("\\.html?\\'" . web-mode)
-  ("\\.tsx\\'" . web-mode)
-  ("\\.jsx\\'" . web-mode))
- :custom
- (web-mode-markup-indent-offset 2)
- (web-mode-css-indent-offset 2)
- (web-mode-code-indent-offset 2)
- (web-mode-block-padding 2)
- (web-mode-comment-style 2)
- (web-mode-enable-css-colorization t)
- (web-mode-enable-auto-pairing t)
- (web-mode-enable-comment-keywords t)
- (web-mode-enable-current-element-highlight t)
- (web-mode-enable-auto-indentation t)
- (web-mode-enable-auto-quoting nil)
- :config
- (unbind-key "C-c RET" web-mode-map)
- (add-hook 'flycheck-mode-hook 'add-node-modules-path)
- (add-hook
-  'web-mode-hook
-  (lambda ()
-    (when (string-equal "tsx" (file-name-extension buffer-file-name))
-      (setup-tide-mode))))
- ;; disable default jslint
- (setq-default flycheck-disabled-checkers
-               (append
-                flycheck-disabled-checkers
-                '(javascript-jshint json-jsonlist)))
- ;; enable typescript-tslint checker
- (flycheck-add-mode 'typescript-tslint 'web-mode))
+;;; add-node-modules-path:
 
 (use-package add-node-modules-path)
 
@@ -530,13 +489,7 @@
 
 (use-package
  rust-mode
- :straight
- (rust-mode
-  :type git
-  :flavor melpa
-  :host github
-  :remote "luckysori"
-  :repo "luckysori/rust-mode")
+ :init (setq rust-mode-treesitter-derive t)
  :custom (rust-format-on-save t)
  :config (unbind-key "C-c C-n" rust-mode-map))
 
@@ -568,12 +521,19 @@
  ;; prevent warnings caused by lsp-execute-code-action keybinding
  (setq gud-key-prefix (kbd "C-c C-x C-a"))
  (setq lsp-keymap-prefix "C-c l")
+ (defun my/lsp-mode-setup-completion ()
+   (setf (alist-get
+          'styles
+          (alist-get 'lsp-capf completion-category-defaults))
+         '(flex))) ;; Configure flex
  :hook
  (rust-mode . lsp)
  (c++-mode .lsp)
  (go-mode . lsp)
  (dart-mode . lsp)
  (lsp-mode . lsp-enable-which-key-integration)
+ (lsp-completion-mode . my/lsp-mode-setup-completion)
+ ((tsx-ts-mode typescript-ts-mode js-ts-mode) . lsp-deferred)
  :commands lsp
  :bind-keymap ("C-c l" . lsp-command-map)
  :bind
@@ -585,10 +545,12 @@
  (lsp-file-watch-threshold 10000)
  (lsp-keep-workspace-alive nil)
  (lsp-enable-snippet t)
- (lsp-prefer-capf t)
+ (lsp-completion-provider :none)
  (lsp-headerline-breadcrumb-enable nil)
  ;; rust
  (lsp-rust-clippy-preference "on")
+ ;; js
+ (lsp-eslint-enable t)
  (lsp-rust-analyzer-cargo-watch-command "clippy")
  (lsp-rust-analyzer-proc-macro-enable t)
  (lsp-rust-all-features t)
@@ -604,6 +566,8 @@
  (read-process-output-max (* 1024 1024))
  (lsp-idle-delay 0.500)
  :config
+ ;; To mitigate the corfu-related hangs.
+ (setq lsp-response-timeout 1)
  (with-eval-after-load 'lsp-mode
    (lsp-register-client
     (make-lsp-client
@@ -712,24 +676,6 @@
    '(height unspecified)))
 
 (use-package helm-lsp :commands helm-lsp-workspace-symbol)
-
-;;; dap-mode:
-
-(use-package
- dap-mode
- :config
- (dap-ui-mode)
- (dap-ui-controls-mode 1)
- (require 'dap-lldb)
- (require 'dap-gdb-lldb)
- (dap-gdb-lldb-setup)
- (dap-register-debug-template
-  "Rust::LLDB Run Configuration"
-  (list
-   :type "lldb"
-   :request "launch"
-   :name "LLDB::Run"
-   :gdbpath "rust-lldb")))
 
 ;;; smartparens:
 
@@ -908,6 +854,15 @@
  exec-path-from-shell
  :config
  ;; TODO: Figure out if this is needed
+ (dolist (var
+          '("SSH_AUTH_SOCK"
+            "SSH_AGENT_PID"
+            "GPG_AGENT_INFO"
+            "LANG"
+            "LC_CTYPE"
+            "NIX_SSL_CERT_FILE"
+            "NIX_PATH"))
+   (add-to-list 'exec-path-from-shell-variables var))
  (when (memq window-system '(mac ns x))
    (exec-path-from-shell-initialize)))
 
@@ -920,53 +875,32 @@
  (add-hook 'markdown-mode-hook 'visual-line-mode)
  (unbind-key "M-RET" markdown-mode-map))
 
-;;; Typescript:
+;;; corfu:
 
 (use-package
- typescript-mode
- :custom (typescript-indent-level 2)
- :config (add-hook 'typescript-mode-hook 'setup-tide-mode))
+ corfu
+ ;; Optional customizations
+ :custom
+ (corfu-cycle t) ;; Enable cycling for `corfu-next/previous'
+ (corfu-auto t) ;; Enable auto completion
+ (corfu-auto-prefix 2)
+ ;; (corfu-separator ?\s)          ;; Orderless field separator
+ ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
+ ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
+ ;; (corfu-preview-current nil)    ;; Disable current candidate preview
+ ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
+ ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
+ ;; (corfu-scroll-margin 5)        ;; Use scroll margin
 
-;;; Tide:
+ ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
+ ;; :hook ((prog-mode . corfu-mode)
+ ;;        (shell-mode . corfu-mode)
+ ;;        (eshell-mode . corfu-mode))
 
-(use-package
- tide
- :after (exec-path-from-shell typescript-mode company flycheck)
- :config
- (add-hook 'typescript-mode-hook 'tide-setup)
- (add-hook 'typescript-mode-hook 'tide-hl-identifier-mode))
-
-;; TODO: Delete this and declare all this with use-package
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (eldoc-mode)
-  (flycheck-mode)
-  (company-mode)
-  (tide-hl-identifier-mode)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled)))
-
-;;; company-mode:
-
-(use-package
- company
- :hook (after-init . global-company-mode)
- :bind ("C-." . company-complete)
- :config
- (setq company-show-numbers t)
- (setq company-tooltip-align-annotations t)
-
- (use-package
-  company-quickhelp
-  :init
-  (company-quickhelp-mode 1)
-  (use-package pos-tip)
-  :custom (company-quickhelp-max-lines 4))
-
- (use-package
-  helm-company
-  :config (define-key company-active-map (kbd "C-/") 'helm-company)))
-
+ ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
+ ;; be used globally (M-/).  See also the customization variable
+ ;; `global-corfu-modes' to exclude certain modes.
+ :init (global-corfu-mode))
 
 ;;; flycheck:
 
@@ -1154,6 +1088,13 @@
  dprint-fmt
  :straight
  (dprint-fmt :type git :host github :repo "luckysori/dprint-fmt"))
+
+;;; nix-fmt:
+
+(use-package
+ nix-fmt
+ :straight
+ (nix-fmt :type git :host github :repo "luckysori/nix-fmt"))
 
 ;;; clojure:
 
@@ -1367,10 +1308,11 @@
  gptel
  :custom (gptel-model "gpt-4o")
  :config
- (setq gptel-api-key 'my/chat-gpt-api-key)
+ ;; I'm using ~/.authinfo instead
+ ;; (setq gptel-api-key 'my/chat-gpt-api-key)
  (setq gptel-default-mode 'org-mode)
  (require 'chat-gpt-api-key nil 'noerror)
- (gptel-make-anthropic "Claude" :stream t :key 'my/claude-api-key)
+ ;; (gptel-make-anthropic "Claude" :stream t :key 'my/claude-api-key)
  (require 'claude-api-key nil 'noerror))
 
 ;;; which-key:
@@ -1421,6 +1363,20 @@
 ;;; prettier:
 
 (use-package prettier)
+
+;;; envrc:
+
+(use-package envrc :hook (after-init . envrc-global-mode))
+
+;;; Treesitter:
+
+(use-package
+ treesit-auto
+ :custom (treesit-auto-install 'prompt)
+ :config
+ (treesit-auto-add-to-auto-mode-alist 'all)
+ (delete 'rust treesit-auto-langs)
+ (global-treesit-auto-mode))
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
