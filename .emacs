@@ -1376,10 +1376,10 @@
 (use-package
  treesit-auto
  :custom (treesit-auto-install 'prompt)
- :config
- (treesit-auto-add-to-auto-mode-alist 'all)
- (delete 'rust treesit-auto-langs)
- (global-treesit-auto-mode))
+ :config (treesit-auto-add-to-auto-mode-alist 'all)
+ (setq auto-mode-alist
+       (remove '("\\.rs\\'" . rust-ts-mode) auto-mode-alist))
+ (delete 'rust treesit-auto-langs) (global-treesit-auto-mode))
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
