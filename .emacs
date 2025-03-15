@@ -568,8 +568,6 @@
  (read-process-output-max (* 1024 1024))
  (lsp-idle-delay 0.500)
  :config
- ;; To mitigate the corfu-related hangs.
- (setq lsp-response-timeout 1)
  (with-eval-after-load 'lsp-mode
    (lsp-register-client
     (make-lsp-client
