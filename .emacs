@@ -881,6 +881,7 @@
 
 (use-package
  corfu
+ :bind ("C-." . completion-at-point)
  ;; Optional customizations
  :custom
  (corfu-cycle t) ;; Enable cycling for `corfu-next/previous'
