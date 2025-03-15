@@ -1309,7 +1309,7 @@
 
 (use-package
  gptel
- :custom (gptel-model "gpt-4o")
+ :custom (gptel-model 'gpt-4o)
  :config
  ;; I'm using ~/.authinfo instead
  ;; (setq gptel-api-key 'my/chat-gpt-api-key)
