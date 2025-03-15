@@ -530,9 +530,9 @@
          '(flex))) ;; Configure flex
  :hook
  (rust-mode . lsp)
- (c++-mode .lsp)
- (go-mode . lsp)
- (dart-mode . lsp)
+ (c++-ts-mode .lsp)
+ (go-ts-mode . lsp)
+ (dart-ts-mode . lsp)
  (lsp-mode . lsp-enable-which-key-integration)
  (lsp-completion-mode . my/lsp-mode-setup-completion)
  ((tsx-ts-mode typescript-ts-mode js-ts-mode) . lsp-deferred)
