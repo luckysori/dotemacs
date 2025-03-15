@@ -491,7 +491,9 @@
  rust-mode
  :init (setq rust-mode-treesitter-derive t)
  :custom (rust-format-on-save t)
- :config (unbind-key "C-c C-n" rust-mode-map))
+ :config
+ (unbind-key "C-c C-n" rust-mode-map)
+ (setq rust-indent-offset 2))
 
 ;; TODO: Enable cargo-minor-mode when the file is Cargo.toml
 ;; TODO: Enable cargo-minor-mode when on magit-status for a Rust project?
