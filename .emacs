@@ -339,8 +339,6 @@
          (follows . t)
          (precedes . t))))
 
-(use-package transient :straight (:branch "main"))
-
 (use-package
  magit-delta
  :hook (magit-mode . magit-delta-mode)
