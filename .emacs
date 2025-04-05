@@ -675,24 +675,6 @@
 
 (use-package helm-lsp :commands helm-lsp-workspace-symbol)
 
-;;; dap-mode:
-
-(use-package
- dap-mode
- :config
- (dap-ui-mode)
- (dap-ui-controls-mode 1)
- (require 'dap-lldb)
- (require 'dap-gdb-lldb)
- (dap-gdb-lldb-setup)
- (dap-register-debug-template
-  "Rust::LLDB Run Configuration"
-  (list
-   :type "lldb"
-   :request "launch"
-   :name "LLDB::Run"
-   :gdbpath "rust-lldb")))
-
 ;;; smartparens:
 
 (use-package
