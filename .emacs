@@ -864,32 +864,6 @@
  (add-hook 'markdown-mode-hook 'visual-line-mode)
  (unbind-key "M-RET" markdown-mode-map))
 
-;;; Typescript:
-
-(use-package
- typescript-mode
- :custom (typescript-indent-level 2)
- :config (add-hook 'typescript-mode-hook 'setup-tide-mode))
-
-;;; Tide:
-
-(use-package
- tide
- :after (exec-path-from-shell typescript-mode company flycheck)
- :config
- (add-hook 'typescript-mode-hook 'tide-setup)
- (add-hook 'typescript-mode-hook 'tide-hl-identifier-mode))
-
-;; TODO: Delete this and declare all this with use-package
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (eldoc-mode)
-  (flycheck-mode)
-  (company-mode)
-  (tide-hl-identifier-mode)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled)))
-
 ;;; company-mode:
 
 (use-package
