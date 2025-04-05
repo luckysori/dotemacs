@@ -750,10 +750,10 @@
 
 ;;; JavaScript:
 
-;; Default JS mode set to js2-mode
 (use-package
- js2-mode
- :config (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
+ js
+ :straight (js-mode :type built-in)
+ :config (unbind-key "M-." js-ts-mode-map))
 
 ;;; JSON:
 

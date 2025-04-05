@@ -74,7 +74,6 @@
  ("hydra" . "59a2a45a35027948476d1d7751b0f0215b1e61aa")
  ("inheritenv" . "b9e67cc20c069539698a9ac54d0e6cc11e616c6f")
  ("iter2" . "632232b5ee627bf5d299db0b7714b3b687a0124c")
- ("js2-mode" . "dd7abb28844f745f7520db87695b7aa579cbe683")
  ("json-mode" . "eedb4560034f795a7950fa07016bd4347c368873")
  ("json-snatcher" . "b28d1c0670636da6db508d03872d96ffddbc10f2")
  ("jsonrpc" . "bc7aeb5294d16677ae70b72f8e5e9eea2d756164")
