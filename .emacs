@@ -179,6 +179,10 @@
                     :underline nil
                     :family "Hack")
 
+;;; recentf:
+
+(recentf-mode 1)
+
 ;;; org-mode:
 
 (use-package
@@ -421,10 +425,6 @@
 
 (setq sentence-end-double-space nil)
 
-;;; avy:
-
-(use-package avy :bind ("M-s" . 'avy-goto-char-timer))
-
 ;;; ace-window:
 
 (use-package
@@ -543,7 +543,6 @@
  ("C-x C-a" . lsp-execute-code-action)
  ("C-x C-." . lsp-find-type-definition)
  ("C-x C-r" . lsp-rename)
- ("C-x C-," . helm-lsp-workspace-symbol)
  :custom
  (lsp-file-watch-threshold 10000)
  (lsp-keep-workspace-alive nil)
@@ -569,8 +568,7 @@
  (read-process-output-max (* 1024 1024))
  (lsp-idle-delay 0.500)
  :config
- ;; To mitigate the corfu-related hangs.
- (setq lsp-response-timeout 1)
+ (setq lsp-response-timeout 10)
  (with-eval-after-load 'lsp-mode
    (lsp-register-client
     (make-lsp-client
@@ -678,8 +676,6 @@
  (defun lsp-ui-sideline--compute-height nil
    '(height unspecified)))
 
-(use-package helm-lsp :commands helm-lsp-workspace-symbol)
-
 ;;; smartparens:
 
 (use-package
@@ -761,95 +757,6 @@
  json-mode
  :custom (json-reformat:indent-width 2) (js-indent-level 2))
 
-;;; helm:
-
-(use-package
- helm
- :bind
- (("C-x C-f" . 'helm-find-files)
-  ("C-x c b" . 'helm-resume)
-  ("M-O" . 'helm-mini)
-  ("M-x" . 'helm-M-x)
-  ("C-c C-y" . 'helm-show-kill-ring)
-  (:map helm-find-files-map ("C-c C-s" . my/helm-vterm)))
- :init (helm-mode 1)
- :custom
- (helm-autoresize-mode t)
- (helm-split-window-in-side-p t)
- (helm-autoresize-max-height 30)
- (helm-autoresize-min-height 30)
- (helm-display-header-line nil)
- (helm-echo-input-in-header-line t)
- (set-face-attribute 'helm-source-header nil :height 0.1)
- (helm-mode-fuzzy-match t)
- (helm-completion-in-region-fuzzy-match t)
- (helm-M-x-use-completion-styles nil)
- (helm-show-completion-display-function
-  #'helm-show-completion-default-display-function)
- (helm-move-to-line-cycle-in-source nil)
- :config
- (defun my/helm-vterm ()
-   "Open vterm in helm directory"
-   (interactive)
-   (with-helm-alive-p
-    (helm-exit-and-execute-action
-     (lambda (candidate)
-       (progn
-         (let
-             ;; TODO: this action doesn't always open the vterm
-             ;; buffer in the expected directory
-             ((default-directory (file-name-directory candidate)))
-           (vterm))))))))
-
-(use-package
- helm-swoop
- :bind
- (("M-i" . 'helm-swoop-without-pre-input)
-  ("M-I" . 'helm-swoop-back-to-last-point)
-  ("C-c M-i" . 'helm-multi-swoop)
-  ("C-x M-i" . 'helm-multi-swoop-all)
-  :map
-  isearch-mode-map
-  ("M-i" . 'helm-swoop-from-isearch)
-  :map
-  helm-swoop-map
-  ("M-i" . 'helm-multi-swoop-all-from-helm-swoop)
-  ("M-m" . 'helm-multi-swoop-current-mode-from-helm-swoop)
-  ("C-r" . 'helm-previous-line)
-  ("C-s" . 'helm-next-line)
-  :map
-  helm-multi-swoop-map
-  ("C-r" . 'helm-previous-line)
-  ("C-s" . 'helm-next-line))
- :custom
- (helm-multi-swoop-edit-save t)
- (helm-swoop-split-with-multiple-windows nil)
- (helm-swoop-split-direction 'split-window-below)
- (helm-swoop-speed-or-color t)
- (helm-swoop-move-to-line-cycle t)
- (helm-swoop-use-line-number-face nil)
- (helm-swoop-use-fuzzy-match nil))
-
-;;; wgrep:
-
-(use-package wgrep-helm)
-
-;;; helm-ag:
-
-(use-package
- helm-ag
- :bind
- ("C-x g" . helm-do-ag-project-root)
- ("C-x G" . helm-do-ag)
- ("C-x M-g" . helm-ag-pop-stack)
- :config
- (setq helm-ag-base-command "rg --ignore-case --no-heading --trim")
- (setq helm-ag-success-exit-status '(0 2)))
-
-;;; helm-projectile:
-
-(use-package helm-projectile :config (helm-projectile-on))
-
 ;;; exec-path-from-shell:
 
 ;; TODO: Does not load path when using emacsclient
@@ -911,13 +818,6 @@
  :after (flycheck)
  :config
  (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
-
-;;; helm-ls-git:
-
-(use-package
- helm-ls-git
- :bind ("C-c f g" . 'helm-browse-project)
- :custom (helm-ls-git-status-command 'magit-status-setup-buffer))
 
 ;;; winner-mode:
 
@@ -1362,6 +1262,199 @@
  (setq auto-mode-alist
        (remove '("\\.rs\\'" . rust-ts-mode) auto-mode-alist))
  (delete 'rust treesit-auto-langs) (global-treesit-auto-mode))
+
+;;; vertico:
+
+(use-package
+ vertico
+ :straight
+ (:host
+  github
+  :repo "minad/vertico"
+  :files (:defaults "extensions/*"))
+ :demand t
+ :bind
+
+ (:map
+  vertico-map
+  ("C-j" . #'vertico-directory-enter)
+  ("C-l" . #'vertico-directory-delete-word))
+ :config
+
+ (vertico-mode +1)
+
+ (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
+
+ ;; Select first candidate rather than prompt by default.
+ ;;
+ ;; https://github.com/minad/vertico/issues/272
+ ;; https://github.com/minad/vertico/issues/306
+ (setq vertico-preselect 'first)
+
+ (setq vertico-cycle t)
+
+ ;; Ignore case... otherwise the behavior is really weird and
+ ;; confusing.
+ (setq
+  read-file-name-completion-ignore-case t
+  read-buffer-completion-ignore-case t
+  completion-ignore-case t)
+
+ ;; Don't re-sort buffer candidates. The recency order is correct.
+ (vertico-multiform-mode +1)
+ (setq vertico-multiform-categories
+       '((buffer (vertico-sort-function . copy-sequence)))))
+
+;;; consult:
+
+;; Example configuration for Consult
+(use-package
+ consult
+ ;; Replace bindings. Lazily loaded by `use-package'.
+ :bind
+ ( ;; C-c bindings in `mode-specific-map'
+  ("C-c M-x" . consult-mode-command)
+  ("C-c h" . consult-history)
+  ("C-c i" . consult-info)
+  ([remap Info-search] . consult-info)
+  ;; C-x bindings in `ctl-x-map'
+  ("C-x M-:" . consult-complex-command) ;; orig. repeat-complex-command
+  ("C-x 4 b" . consult-buffer-other-window) ;; orig. switch-to-buffer-other-window
+  ("C-x 5 b" . consult-buffer-other-frame) ;; orig. switch-to-buffer-other-frame
+  ("C-x t b" . consult-buffer-other-tab) ;; orig. switch-to-buffer-other-tab
+  ("C-x r b" . consult-bookmark) ;; orig. bookmark-jump
+  ("C-x p b" . consult-project-buffer) ;; orig. project-switch-to-buffer
+  ;; Custom M-# bindings for fast register access
+  ("M-#" . consult-register-load)
+  ("M-'" . consult-register-store) ;; orig. abbrev-prefix-mark (unrelated)
+  ("C-M-#" . consult-register)
+  ;; Other custom bindings
+  ("M-O" . consult-buffer) ;; orig. switch-to-buffer
+  ("M-y" . consult-yank-pop) ;; orig. yank-pop
+  ;; M-g bindings in `goto-map'
+  ("M-g e" . consult-compile-error)
+  ("M-g f" . consult-flymake) ;; Alternative: consult-flycheck
+  ("M-g g" . consult-goto-line) ;; orig. goto-line
+  ("M-g M-g" . consult-goto-line) ;; orig. goto-line
+  ("M-g o" . consult-outline) ;; Alternative: consult-org-heading
+  ("M-g m" . consult-mark)
+  ("M-g k" . consult-global-mark)
+  ("M-g i" . consult-imenu)
+  ("M-g I" . consult-imenu-multi)
+  ;; M-s bindings in `search-map'
+  ("M-s d" . consult-find) ;; Alternative: consult-fd
+  ("M-s c" . consult-locate)
+  ("M-s g" . consult-grep)
+  ("M-s G" . consult-git-grep)
+  ("C-x g" . consult-ripgrep)
+  ("M-i" . consult-line)
+  ("M-s L" . consult-line-multi)
+  ("M-s k" . consult-keep-lines)
+  ("M-s u" . consult-focus-lines)
+  ;; Isearch integration
+  ("M-s e" . consult-isearch-history)
+  :map
+  isearch-mode-map
+  ("M-e" . consult-isearch-history) ;; orig. isearch-edit-string
+  ("M-s e" . consult-isearch-history) ;; orig. isearch-edit-string
+  ("M-s l" . consult-line) ;; needed by consult-line to detect isearch
+  ("M-s L" . consult-line-multi) ;; needed by consult-line to detect isearch
+  ;; Minibuffer history
+  :map
+  minibuffer-local-map
+  ("M-s" . consult-history) ;; orig. next-matching-history-element
+  ("M-r" . consult-history)) ;; orig. previous-matching-history-element
+
+ ;; Enable automatic preview at point in the *Completions* buffer. This is
+ ;; relevant when you use the default completion UI.
+ :hook (completion-list-mode . consult-preview-at-point-mode)
+
+ ;; The :init configuration is always executed (Not lazy)
+ :init
+
+ ;; Tweak the register preview for `consult-register-load',
+ ;; `consult-register-store' and the built-in commands.  This improves the
+ ;; register formatting, adds thin separator lines, register sorting and hides
+ ;; the window mode line.
+ (advice-add #'register-preview :override #'consult-register-window)
+ (setq register-preview-delay 0.5)
+
+ ;; Use Consult to select xref locations with preview
+ (setq
+  xref-show-xrefs-function #'consult-xref
+  xref-show-definitions-function #'consult-xref)
+
+ ;; Configure other variables and modes in the :config section,
+ ;; after lazily loading the package.
+ :config
+
+ ;; Snappier `consult-ripgrep'.
+ ;;
+ ;; TODO: This may not be a good idea. See:
+ ;; https://github.com/minad/consult/discussions/951#discussioncomment-8579926.
+ (setq
+  consult-async-input-debounce 0
+  consult-async-input-throttle 0
+  consult-async-refresh-delay 0)
+
+ ;; Optionally configure preview. The default value
+ ;; is 'any, such that any key triggers the preview.
+ ;; (setq consult-preview-key 'any)
+ ;; (setq consult-preview-key "M-.")
+ ;; (setq consult-preview-key '("S-<down>" "S-<up>"))
+ (setq consult-preview-key nil)
+
+ ;; For some commands and buffer sources it is useful to configure the
+ ;; :preview-key on a per-command basis using the `consult-customize' macro.
+ (consult-customize
+  consult-line
+  :preview-key
+  'any
+  consult-theme
+  :preview-key
+  '(:debounce 0.2 any)
+  consult-ripgrep
+  consult-git-grep
+  consult-grep
+  consult-man
+  consult-bookmark
+  consult-recent-file
+  consult-xref
+  consult--source-bookmark
+  consult--source-file-register
+  consult--source-recent-file
+  consult--source-project-recent-file
+  :preview-key "M-.")
+
+ ;; Optionally configure the narrowing key.
+ ;; Both < and C-+ work reasonably well.
+ (setq consult-narrow-key "<") ;; "C-+"
+
+ ;; Optionally make narrowing help available in the minibuffer.
+ ;; You may want to use `embark-prefix-help-command' or which-key instead.
+ ;; (keymap-set consult-narrow-map (concat consult-narrow-key " ?") #'consult-narrow-help)
+ )
+
+;;; consult-flycheck:
+
+(use-package consult-flycheck)
+
+;;; marginalia:
+
+(use-package marginalia :ensure t :config (marginalia-mode 1))
+
+;;; orderless:
+
+(use-package
+ orderless
+ :ensure t
+ :config (setq completion-styles '(orderless basic)))
+
+;;; embark:
+
+(use-package embark)
+(use-package embark-consult :bind (("C-;" . embark-act)))
+
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
