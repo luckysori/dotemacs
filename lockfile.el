@@ -135,6 +135,7 @@
  ("toml-mode.el" . "f6c61817b00f9c4a3cab1bae9c309e0fc45cdd06")
  ("transient" . "680f079b5e2b67ef5e904168a27680cbf6831b6a")
  ("treemacs" . "df26b6ab9a0f467e5ff99f7ed97551ccf756e06c")
+ ("treesit-auto" . "016bd286a1ba4628f833a626f8b9d497882ecdf3")
  ("use-package" . "a6e856418d2ebd053b34e0ab2fda328abeba731c")
  ("vundo" . "e7cfd047bbc28b1b107688392f7e97f78fd030d5")
  ("wfnames" . "164e4efa2a96bed201a0a5402e137ebeef15bcc6")

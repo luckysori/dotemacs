@@ -492,13 +492,7 @@
 
 (use-package
  rust-mode
- :straight
- (rust-mode
-  :type git
-  :flavor melpa
-  :host github
-  :remote "luckysori"
-  :repo "luckysori/rust-mode")
+ :init (setq rust-mode-treesitter-derive t)
  :custom (rust-format-on-save t)
  :config (unbind-key "C-c C-n" rust-mode-map))
 
@@ -532,10 +526,11 @@
  (setq lsp-keymap-prefix "C-c l")
  :hook
  (rust-mode . lsp)
- (c++-mode .lsp)
- (go-mode . lsp)
- (dart-mode . lsp)
+ (c++-ts-mode .lsp)
+ (go-ts-mode . lsp)
+ (dart-ts-mode . lsp)
  (lsp-mode . lsp-enable-which-key-integration)
+ ((tsx-ts-mode typescript-ts-mode js-ts-mode) . lsp-deferred)
  :commands lsp
  :bind-keymap ("C-c l" . lsp-command-map)
  :bind
@@ -1350,6 +1345,16 @@
 ;;; envrc:
 
 (use-package envrc :hook (after-init . envrc-global-mode))
+
+;;; Treesitter:
+
+(use-package
+ treesit-auto
+ :custom (treesit-auto-install 'prompt)
+ :config (treesit-auto-add-to-auto-mode-alist 'all)
+ (setq auto-mode-alist
+       (remove '("\\.rs\\'" . rust-ts-mode) auto-mode-alist))
+ (delete 'rust treesit-auto-langs) (global-treesit-auto-mode))
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
