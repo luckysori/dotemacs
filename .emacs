@@ -524,12 +524,18 @@
  ;; prevent warnings caused by lsp-execute-code-action keybinding
  (setq gud-key-prefix (kbd "C-c C-x C-a"))
  (setq lsp-keymap-prefix "C-c l")
+ (defun my/lsp-mode-setup-completion ()
+   (setf (alist-get
+          'styles
+          (alist-get 'lsp-capf completion-category-defaults))
+         '(flex))) ;; Configure flex
  :hook
  (rust-mode . lsp)
  (c++-ts-mode .lsp)
  (go-ts-mode . lsp)
  (dart-ts-mode . lsp)
  (lsp-mode . lsp-enable-which-key-integration)
+ (lsp-completion-mode . my/lsp-mode-setup-completion)
  ((tsx-ts-mode typescript-ts-mode js-ts-mode) . lsp-deferred)
  :commands lsp
  :bind-keymap ("C-c l" . lsp-command-map)
@@ -542,7 +548,7 @@
  (lsp-file-watch-threshold 10000)
  (lsp-keep-workspace-alive nil)
  (lsp-enable-snippet t)
- (lsp-prefer-capf t)
+ (lsp-completion-provider :none)
  (lsp-headerline-breadcrumb-enable nil)
  ;; rust
  (lsp-rust-clippy-preference "on")
@@ -563,6 +569,8 @@
  (read-process-output-max (* 1024 1024))
  (lsp-idle-delay 0.500)
  :config
+ ;; To mitigate the corfu-related hangs.
+ (setq lsp-response-timeout 1)
  (with-eval-after-load 'lsp-mode
    (lsp-register-client
     (make-lsp-client
@@ -861,27 +869,33 @@
  (add-hook 'markdown-mode-hook 'visual-line-mode)
  (unbind-key "M-RET" markdown-mode-map))
 
-;;; company-mode:
+;;; corfu:
 
 (use-package
- company
- :hook (after-init . global-company-mode)
- :bind ("C-." . company-complete)
- :config
- (setq company-show-numbers t)
- (setq company-tooltip-align-annotations t)
+ corfu
+ :bind ("C-." . completion-at-point)
+ ;; Optional customizations
+ :custom
+ (corfu-cycle t) ;; Enable cycling for `corfu-next/previous'
+ (corfu-auto t) ;; Enable auto completion
+ (corfu-auto-prefix 2)
+ ;; (corfu-separator ?\s)          ;; Orderless field separator
+ ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
+ ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
+ ;; (corfu-preview-current nil)    ;; Disable current candidate preview
+ ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
+ ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
+ ;; (corfu-scroll-margin 5)        ;; Use scroll margin
 
- (use-package
-  company-quickhelp
-  :init
-  (company-quickhelp-mode 1)
-  (use-package pos-tip)
-  :custom (company-quickhelp-max-lines 4))
+ ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
+ ;; :hook ((prog-mode . corfu-mode)
+ ;;        (shell-mode . corfu-mode)
+ ;;        (eshell-mode . corfu-mode))
 
- (use-package
-  helm-company
-  :config (define-key company-active-map (kbd "C-/") 'helm-company)))
-
+ ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
+ ;; be used globally (M-/).  See also the customization variable
+ ;; `global-corfu-modes' to exclude certain modes.
+ :init (global-corfu-mode))
 
 ;;; flycheck:
 
