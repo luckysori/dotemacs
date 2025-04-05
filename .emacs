@@ -1373,6 +1373,10 @@
 
 (use-package prettier)
 
+;;; envrc:
+
+(use-package envrc :hook (after-init . envrc-global-mode))
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:
