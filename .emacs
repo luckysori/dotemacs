@@ -193,15 +193,13 @@
  (org-todo-keyword-faces
   '(("TODO" . org-todo)
     ("DONE" . org-done)
-    ("IN-PROGRESS" . 'modus-themes-fg-yellow-intense)
-    ("BLOCKED" . 'modus-themes-fg-magenta-faint)
-    ("CANCELLED" . 'modus-themes-fg-blue-intense)))
+    ("IN-PROGRESS" . (:inherit modus-themes-fg-yellow-intense))
+    ("BLOCKED" . (:inherit modus-themes-fg-magenta-faint))
+    ("CANCELLED" . (:inherit modus-themes-fg-blue-intense))))
  (org-tags-column 0)
  (org-export-with-tasks t)
  (org-md-headline-style 'setext)
- :config (unbind-key "C-c RET" org-mode-map)
- ;; TODO: Make this work
- (define-key org-mode-map (kbd "<M-return>") nil)
+ :config (define-key org-mode-map (kbd "C-c RET") nil)
  ;; New org heading or list item doesn't generate new line
  (setf org-blank-before-new-entry
        '((heading . nil) (plain-list-item . nil)))
