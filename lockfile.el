@@ -98,6 +98,7 @@
  ("moody" . "888e6fb37eb5122803c70ae60d28fc54589e26c0")
  ("multiple-cursors.el" . "6956e8e12ee191d7c80d042ae8ff495286fcbe38")
  ("narrow-indirect" . "5a7fffffb8278ee01574b9317873aaa371c60142")
+ ("nix-fmt" . "2afa2561559e9dba47f5ca7ffb9778f2520be4c4")
  ("nix-mode" . "719feb7868fb567ecfe5578f6119892c771ac5e5")
  ("nmcli-wifi" . "1fc3b21653dc34c340dd6372be1dea8bcacbab9d")
  ("nongnu-elpa" . "4456edc151f4147d763d0067a8da5922e6f60d25")

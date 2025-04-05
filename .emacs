@@ -1099,6 +1099,13 @@
  :straight
  (dprint-fmt :type git :host github :repo "luckysori/dprint-fmt"))
 
+;;; nix-fmt:
+
+(use-package
+ nix-fmt
+ :straight
+ (nix-fmt :type git :host github :repo "luckysori/nix-fmt"))
+
 ;;; clojure:
 
 (use-package cider)
