@@ -122,7 +122,7 @@
  ("queue" . "130c2d656cd5d7376552272fab9e50a7c37d0c4a")
  ("restclient.el" . "0ba72816f92f3d5906cdf76f418fd0a3ee72809b")
  ("rg.el" . "4885473a6d248a6ee508b7b7ef3705762af631d9")
- ("rust-mode" . "3948faec12f72b0b11fd573e3bcfe323de5b6d80")
+ ("rust-mode" . "efd830806c8519bb7f614504eac6bdfdbbac1247")
  ("s.el" . "dda84d38fffdaf0c9b12837b504b402af910d01d")
  ("seq" . "da86da9bf111f68fb81efd466d76d53af5aebc00")
  ("sesman" . "e0f555f963c9f02f8e4a50e06fc353eb4c15ee77")
