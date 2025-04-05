@@ -136,7 +136,6 @@
  ("typescript.el" . "dd10f702d4946ddb2e1c2863bf02bf241bce5fc8")
  ("use-package" . "a6e856418d2ebd053b34e0ab2fda328abeba731c")
  ("vundo" . "e7cfd047bbc28b1b107688392f7e97f78fd030d5")
- ("web-mode" . "0c83581d1e93d1d802c730a1d5e90cd1c740e1b2")
  ("wfnames" . "164e4efa2a96bed201a0a5402e137ebeef15bcc6")
  ("with-editor" . "1b4526453ef6bdee30635f469aa26085c02b1ac1")
  ("xterm-color" . "2ad407c651e90fff2ea85d17bf074cee2c022912")
