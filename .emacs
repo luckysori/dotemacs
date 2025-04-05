@@ -546,6 +546,8 @@
  (lsp-headerline-breadcrumb-enable nil)
  ;; rust
  (lsp-rust-clippy-preference "on")
+ ;; js
+ (lsp-eslint-enable t)
  (lsp-rust-analyzer-cargo-watch-command "clippy")
  (lsp-rust-analyzer-proc-macro-enable t)
  (lsp-rust-all-features t)
