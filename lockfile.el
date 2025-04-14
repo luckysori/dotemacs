@@ -83,6 +83,7 @@
  ("lsp-docker" . "60e1103ac7c8e30d036ea65fad489210682d6259")
  ("lsp-ltex" . "c44f02bf92ca49cb85f72bee28a40ad3b8ab0bf2")
  ("lsp-mode" . "4cddd2d99d9e61609396e562df876351007aaf2b")
+ ("lsp-tailwindcss" . "42348b0926a2da1ab4747e4d7f5a6e9278632802")
  ("lsp-treemacs" . "e54e74deb8150964e3c3024e1ec14295a34e2a3b")
  ("lsp-ui" . "09d40806429fadc01a12d9a1841b49430f58adb5")
  ("magit" . "f9268a959828d0c6ab26171dd2fb1ffc55e5ae70")

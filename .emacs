@@ -676,6 +676,11 @@
  (defun lsp-ui-sideline--compute-height nil
    '(height unspecified)))
 
+(use-package
+ lsp-tailwindcss
+ :after lsp-mode
+ :init (setq lsp-tailwindcss-add-on-mode t))
+
 ;;; smartparens:
 
 (use-package
