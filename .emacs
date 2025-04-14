@@ -1460,6 +1460,16 @@
 (use-package embark)
 (use-package embark-consult :bind (("C-;" . embark-act)))
 
+;;; combobulate:
+
+(use-package
+ combobulate
+ :straight (:host github :repo "mickeynp/combobulate")
+ :custom
+ ;; You can customize Combobulate's key prefix here.
+ ;; Note that you may have to restart Emacs for this to take effect!
+ (combobulate-key-prefix "C-c o")
+ :hook ((prog-mode . combobulate-mode)))
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
