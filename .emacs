@@ -62,8 +62,8 @@
 (global-set-key (kbd "C-c C-r") 'revert-buffer)
 (setq revert-without-query '(".*"))
 
-;; kill-this-buffer
-(global-set-key (kbd "C-x k") 'kill-this-buffer)
+;; kill-current-buffer
+(global-set-key (kbd "C-x k") 'kill-current-buffer)
 
 ;; close emacs client and server
 (global-set-key (kbd "C-c C-x C-c") 'save-buffers-kill-emacs)
