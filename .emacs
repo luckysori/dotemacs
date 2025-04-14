@@ -1250,10 +1250,6 @@
 
 (use-package docker)
 
-;;; prettier:
-
-(use-package prettier)
-
 ;;; envrc:
 
 (use-package envrc :hook (after-init . envrc-global-mode))
@@ -1554,6 +1550,19 @@
  ;; Note that you may have to restart Emacs for this to take effect!
  (combobulate-key-prefix "C-c o")
  :hook ((prog-mode . combobulate-mode)))
+
+;;; apheleia:
+
+(use-package
+ apheleia
+ :ensure apheleia
+ :diminish ""
+ :defines apheleia-formatters apheleia-mode-alist
+ :functions apheleia-global-mode
+ :config
+ (setf (alist-get 'prettier-json apheleia-formatters)
+       '("prettier" "--stdin-filepath" filepath))
+ (apheleia-global-mode +1))
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
