@@ -1559,8 +1559,8 @@
 
 ;;; embark:
 
-(use-package embark)
-(use-package embark-consult :bind (("C-;" . embark-act)))
+(use-package embark :bind (("C-;" . embark-act)))
+(use-package embark-consult :after (embark consult))
 
 ;;; combobulate:
 
