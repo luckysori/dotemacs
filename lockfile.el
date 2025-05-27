@@ -11,7 +11,6 @@
  ("cfrs" . "f3a21f237b2a54e6b9f8a420a9da42b4f0a63121")
  ("cider" . "ec97c88c46759afd929a415604311a3b2aecb338")
  ("clojure-mode" . "906d6a47a646d1191eaead6f8e1ae0810aa9b626")
- ("combobulate" . "59b64d66d66eb84da6a2cedd152b1692378af674")
  ("company-auctex" . "9400a2ec7459dde8cbf1a5d50dfee4e300ed7e18")
  ("company-mode" . "84b111f26663c65cb9e465a028c9558332b4951b")
  ("compat" . "77b5bb2fc581b68fb1f2c0e4214696c9b182cb5c")

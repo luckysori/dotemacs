@@ -1562,17 +1562,6 @@
 (use-package embark :bind (("C-;" . embark-act)))
 (use-package embark-consult :after (embark consult))
 
-;;; combobulate:
-
-(use-package
- combobulate
- :straight (:host github :repo "mickeynp/combobulate")
- :custom
- ;; You can customize Combobulate's key prefix here.
- ;; Note that you may have to restart Emacs for this to take effect!
- (combobulate-key-prefix "C-c o")
- :hook ((prog-mode . combobulate-mode)))
-
 ;;; apheleia:
 
 (use-package
