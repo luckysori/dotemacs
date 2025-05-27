@@ -524,18 +524,12 @@
  ;; prevent warnings caused by lsp-execute-code-action keybinding
  (setq gud-key-prefix (kbd "C-c C-x C-a"))
  (setq lsp-keymap-prefix "C-c l")
- (defun my/lsp-mode-setup-completion ()
-   (setf (alist-get
-          'styles
-          (alist-get 'lsp-capf completion-category-defaults))
-         '(flex))) ;; Configure flex
  :hook
  (rust-mode . lsp)
  (c++-ts-mode .lsp)
  (go-ts-mode . lsp)
  (dart-ts-mode . lsp)
  (lsp-mode . lsp-enable-which-key-integration)
- (lsp-completion-mode . my/lsp-mode-setup-completion)
  ((tsx-ts-mode typescript-ts-mode js-ts-mode) . lsp-deferred)
  :commands lsp
  :bind-keymap ("C-c l" . lsp-command-map)
@@ -548,7 +542,15 @@
  (lsp-keep-workspace-alive nil)
  (lsp-enable-snippet t)
  (lsp-completion-provider :none)
+ (lsp-diagnostics-provider :flycheck)
+ (lsp-log-io nil)
  (lsp-headerline-breadcrumb-enable nil)
+ (lsp-enable-xref t)
+ (lsp-auto-configure t)
+ (lsp-enable-identation nil)
+ (lsp-enable-links nil)
+ (lsp-enable-text-document-color nil)
+ (lsp-enable-on-type-formatting t)
  ;; rust
  (lsp-rust-clippy-preference "on")
  ;; js
@@ -594,6 +596,10 @@
    :priority 1
    :multi-root t
    :server-id 'prolog-ls)))
+
+;; HACK: If we enable `lsp-enable-on-type-formatting' this is needed
+;; for some reason.
+(setq rust-indent-offset 4)
 
 (defun lsp-booster--advice-json-parse (old-fn &rest args)
   "Try to parse bytecode instead of json."
@@ -650,18 +656,20 @@
  (lsp-ui-sideline-show-code-actions nil)
  (lsp-ui-sideline-update-mode 'line)
  ;; modeline
- (lsp-modeline-code-actions-mode t)
- (lsp-modeline-code-actions-kind-regex ".*")
+ (lsp-modeline-code-actions-mode nil)
+ (lsp-modeline-diagnostics-enable nil)
  (lsp-modeline-code-actions-segments '(count))
  (lsp-modeline-workspace-status-mode t)
- (lsp-modeline-diagnostics-mode nil)
- ;;flycheck
+ (lsp-signature-doc-lines 1)
+ ;; flycheck
  (lsp-ui-flycheck-list-position 'right)
  (lsp-ui-flycheck-live-reporting t)
- ;;peek
+ ;; peek
  (lsp-ui-peek-enable t)
  (lsp-ui-peek-list-width 60)
  (lsp-ui-peek-peek-height 25)
+ ;; semantic
+ (lsp-semantic-tokens-enable nil)
  :config
  (define-key
   lsp-ui-mode-map
@@ -673,13 +681,24 @@
   #'lsp-ui-peek-find-references)
  ;; Ensure that code is not pushed around. Based on
  ;; https://github.com/emacs-lsp/lsp-ui/issues/597#issuecomment-1094139301.
- (defun lsp-ui-sideline--compute-height nil
-   '(height unspecified)))
+ )
 
 (use-package
  lsp-tailwindcss
  :after lsp-mode
- :init (setq lsp-tailwindcss-add-on-mode t))
+ :init (setq lsp-tailwindcss-add-on-mode t)
+ :config
+ (dolist (tw-major-mode
+          '(css-mode
+            css-ts-mode
+            typescript-mode
+            typescript-ts-mode
+            mhtml-mode
+            tsx-ts-mode
+            js2-mode
+            js-ts-mode
+            clojure-mode))
+   (add-to-list 'lsp-tailwindcss-major-modes tw-major-mode)))
 
 ;;; smartparens:
 
