@@ -750,13 +750,16 @@
   dired-narrow
   :bind (:map dired-mode-map ("/" . dired-narrow))))
 
-;;; global-diff-hl-mode:
+;;; diff-hl:
 
 (use-package
  diff-hl
  :hook
  ((after-init . global-diff-hl-mode)
   (dired-mode . diff-hl-dired-mode))
+ :bind
+ ("C-x C-n" . diff-hl-next-hunk)
+ ("C-x C-p" . diff-hl-previous-hunk)
  :config
  (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
