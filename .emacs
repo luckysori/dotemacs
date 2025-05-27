@@ -1580,6 +1580,10 @@
  (setf (alist-get 'tsx-ts-mode apheleia-mode-alist) 'biome)
  (apheleia-global-mode +1))
 
+;;; wgrep:
+
+(use-package wgrep)
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:
