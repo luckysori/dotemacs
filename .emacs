@@ -1568,11 +1568,16 @@
  apheleia
  :ensure apheleia
  :diminish ""
- :defines apheleia-formatters apheleia-mode-alist
+ :defines
+ apheleia-formatters
+ apheleia-mode-alist
  :functions apheleia-global-mode
  :config
  (setf (alist-get 'prettier-json apheleia-formatters)
        '("prettier" "--stdin-filepath" filepath))
+ ;; TODO: I had to do this because customising `apheleia-formatter' in
+ ;; `.dir-locals.el' did not work.
+ (setf (alist-get 'tsx-ts-mode apheleia-mode-alist) 'biome)
  (apheleia-global-mode +1))
 
 ;; Local variables:
