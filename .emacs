@@ -1588,6 +1588,42 @@
 
 (use-package wgrep)
 
+;;; claude-code.el:
+
+(use-package
+ claude-code
+ :straight
+ (:type
+  git
+  :host github
+  :repo "stevemolitor/claude-code.el"
+  :branch "main"
+  :files ("*.el" (:exclude "demo.gif")))
+ :bind-keymap ("C-c c" . claude-code-command-map)
+ :config
+ (claude-code-mode)
+ (setq claude-code-program "/home/luckysori/.claude/local/claude"))
+
+;;; eat:
+
+(use-package
+ eat
+ :straight
+ (:type
+  git
+  :host codeberg
+  :repo "akib/emacs-eat"
+  :files
+  ("*.el"
+   ("term" "term/*.el")
+   "*.texi"
+   "*.ti"
+   ("terminfo/e" "terminfo/e/*")
+   ("terminfo/65" "terminfo/65/*")
+   ("integration" "integration/*")
+   (:exclude ".dir-locals.el" "*-tests.el")))
+ :config (unbind-key "M-o" eat-semi-char-mode-map))
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:
