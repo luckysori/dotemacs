@@ -1222,7 +1222,7 @@
 
 (use-package
  gptel
- :custom (gptel-model "gpt-4o")
+ :custom (gptel-model 'gpt-4.1)
  :config
  (setq gptel-api-key 'my/chat-gpt-api-key)
  (setq gptel-default-mode 'org-mode)
