@@ -898,7 +898,8 @@
  :commands (elisp-autofmt-mode elisp-autofmt-buffer)
  :hook
  (emacs-lisp-mode . elisp-autofmt-mode)
- (lisp-data-mode . elisp-autofmt-mode))
+ (lisp-data-mode . elisp-autofmt-mode)
+ :custom (elisp-autofmt-python-bin "python3"))
 
 ;; do not try to find Emacs C source code
 (setq find-function-C-source-directory nil)
