@@ -221,7 +221,7 @@
 (use-package
  org-capture
  :straight (org-capture :type built-in)
- :bind ("C-c c" . 'org-capture)
+ :bind ("C-c x" . 'org-capture)
  :config
  (setq org-capture-templates
        '(("w"
