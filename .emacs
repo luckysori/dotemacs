@@ -1581,6 +1581,7 @@
  ;; TODO: I had to do this because customising `apheleia-formatter' in
  ;; `.dir-locals.el' did not work.
  (setf (alist-get 'tsx-ts-mode apheleia-mode-alist) 'biome)
+ (setf (alist-get 'emacs-lisp-mode apheleia-mode-alist) nil)
  (apheleia-global-mode +1))
 
 ;;; wgrep:
