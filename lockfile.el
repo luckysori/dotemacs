@@ -31,7 +31,6 @@
  ("docker.el" . "d5255a65b7240d0038cc417f301b43df05a27922")
  ("dotsies" . "21f9d28806ed2071d1105e8cb4ab97ab74e17122")
  ("dprint-fmt" . "88ab37467a4a7a7d7660297b462b676239508485")
- ("eat" . "c8d54d649872bfe7b2b9f49ae5c2addbf12d3b99")
  ("edbi-sqlite" . "52cb9ca1af7691b592f2cfd2f007847e7a4ccd5f")
  ("ef-themes" . "63f54024d55bf6ca46da255afa66c7c6047ff374")
  ("el-get" . "807b15c9c99b512a5d42cb5f281ecf4fe43355cd")
