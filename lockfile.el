@@ -43,7 +43,6 @@
  ("emacs-async" . "b99658e831bc7e7d20ed4bb0a85bdb5c7dd74142")
  ("emacs-ctable" . "48b73742757a3ae5736d825fe49e00034cc453b5")
  ("emacs-deferred" . "2239671d94b38d92e9b28d4e12fd79814cfb9c16")
- ("emacs-eat" . "c8d54d649872bfe7b2b9f49ae5c2addbf12d3b99")
  ("emacs-edbi" . "6f50aaf4bde75255221f2292c7a4ad3fa9d918c0")
  ("emacs-elisp-autofmt" . "fa30ffc2320c41fc3827e2a800d40d7d5bcaddbe")
  ("emacs-epc" . "e1bfa5ca163273859336e3cc89b4b6460f7f8cda")
