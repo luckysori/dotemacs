@@ -1621,9 +1621,7 @@
   :branch "main"
   :files ("*.el" (:exclude "demo.gif")))
  :bind-keymap ("C-c c" . claude-code-command-map)
- :config
- (claude-code-mode)
- (setq claude-code-program "/home/luckysori/.claude/local/claude"))
+ :config (claude-code-mode))
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
