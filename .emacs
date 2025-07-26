@@ -893,6 +893,16 @@
    (add-hook 'markdown-mode-hook 'visual-line-mode)
    (unbind-key "M-RET" markdown-mode-map)))
 
+;;; ispell configuration:
+
+(use-package
+ ispell
+ :straight (ispell :type built-in)
+ :custom
+ ;; Set the dictionary path for NixOS
+ (ispell-alternate-dictionary
+  "/run/current-system/sw/share/dict/words"))
+
 ;;; corfu:
 
 (straight-register-package 'corfu)
