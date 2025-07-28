@@ -1636,6 +1636,11 @@
  (setq claude-code-notification-function
        #'my-claude-notify-with-sound))
 
+;;; jujutsu:
+
+(use-package
+ vc-jj
+ :straight (:type git :host codeberg :repo "emacs-jj-vc/vc-jj.el"))
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")

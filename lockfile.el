@@ -132,6 +132,7 @@
  ("transient" . "49bbb29fd34b807948d4f2b91f61587c12a595f0")
  ("treemacs" . "df26b6ab9a0f467e5ff99f7ed97551ccf756e06c")
  ("use-package" . "a6e856418d2ebd053b34e0ab2fda328abeba731c")
+ ("vc-jj.el" . "7055389ce993e38dd75597710c1e02add39757eb")
  ("vertico" . "e0bb699ebf9e41893dbd19e7d19381fa73c08bc1")
  ("vundo" . "e7cfd047bbc28b1b107688392f7e97f78fd030d5")
  ("with-editor" . "1b4526453ef6bdee30635f469aa26085c02b1ac1")
