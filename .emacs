@@ -1623,7 +1623,19 @@
   :branch "main"
   :files ("*.el" (:exclude "demo.gif")))
  :bind-keymap ("C-c c" . claude-code-command-map)
- :config (claude-code-mode))
+ :config (claude-code-mode)
+ (defun my-claude-notify-with-sound (title message)
+   "Display a Linux notification with sound."
+   (when (executable-find "notify-send")
+     (call-process "notify-send" nil nil nil title message))
+   ;; Play sound if paplay is available
+   (when (executable-find "paplay")
+     (call-process
+      "paplay"
+      nil nil nil "/usr/share/sounds/mixit/correct-answer-tone.wav")))
+ (setq claude-code-notification-function
+       #'my-claude-notify-with-sound))
+
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
