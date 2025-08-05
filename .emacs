@@ -1642,6 +1642,18 @@
  vc-jj
  :straight (:type git :host codeberg :repo "emacs-jj-vc/vc-jj.el"))
 
+;;; Lean:
+
+(use-package
+ lean4-mode
+ :commands lean4-mode
+ :straight
+ (lean4-mode
+  :type git
+  :host github
+  :repo "leanprover-community/lean4-mode"
+  :files ("*.el" "data")))
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:
