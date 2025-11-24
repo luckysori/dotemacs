@@ -266,9 +266,7 @@
 
 (use-package
  org-pomodoro
- :custom
- (org-pomodoro-manual-break t)
- (org-pomodoro-play-sounds nil))
+ :custom (org-pomodoro-manual-break t) (org-pomodoro-play-sounds nil))
 
 ;;; Back up files:
 
@@ -534,10 +532,7 @@
 (use-package
  dart-format
  :straight
- (dart-format
-  :type git
-  :host github
-  :repo "luckysori/dart-format"))
+ (dart-format :type git :host github :repo "luckysori/dart-format"))
 
 ;;; lsp-mode:
 
@@ -600,8 +595,7 @@
  (with-eval-after-load 'lsp-mode
    (lsp-register-client
     (make-lsp-client
-     :new-connection
-     (lsp-stdio-connection "nixd")
+     :new-connection (lsp-stdio-connection "nixd")
      :major-modes '(nix-mode)
      :priority 0
      :server-id 'nixd)))
@@ -644,8 +638,7 @@
    'json-read)
  :around #'lsp-booster--advice-json-parse)
 
-(defun lsp-booster--advice-final-command
-    (old-fn cmd &optional test?)
+(defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
   "Prepend emacs-lsp-booster command to lsp CMD."
   (let ((orig-result (funcall old-fn cmd test?)))
     (if (and
@@ -1263,8 +1256,7 @@
 (use-package
  prolog
  :straight (prolog :type built-in)
- :config
- (add-to-list 'auto-mode-alist '("\\.pl$" . prolog-mode)))
+ :config (add-to-list 'auto-mode-alist '("\\.pl$" . prolog-mode)))
 
 (use-package just-mode)
 
@@ -1318,7 +1310,13 @@
 
 ;;; envrc:
 
-(use-package envrc :hook (after-init . envrc-global-mode))
+(use-package
+ envrc
+ :config
+ ;; Load envrc-global-mode late in initialization to ensure proper environment setup
+ (add-hook 'server-after-make-frame-hook 'envrc-global-mode)
+ (unless (daemonp)
+   (envrc-global-mode)))
 
 ;;; Treesitter:
 
@@ -1369,8 +1367,7 @@
            ("https://github.com/tree-sitter/tree-sitter-rust"
             "v0.23.3"))
           (go
-           "https://github.com/tree-sitter/tree-sitter-go"
-           "v0.23.4")
+           "https://github.com/tree-sitter/tree-sitter-go" "v0.23.4")
           (make "https://github.com/alemuller/tree-sitter-make")
           (elisp "https://github.com/Wilfred/tree-sitter-elisp")
           (toml "https://github.com/tree-sitter/tree-sitter-toml")
@@ -1435,8 +1432,7 @@
 
  (vertico-mode +1)
 
- (add-hook
-  'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
+ (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
 
  ;; Select first candidate rather than prompt by default.
  ;;
@@ -1669,10 +1665,7 @@
    (when (executable-find "paplay")
      (call-process
       "paplay"
-      nil
-      nil
-      nil
-      "/usr/share/sounds/mixit/correct-answer-tone.wav")))
+      nil nil nil "/usr/share/sounds/mixit/correct-answer-tone.wav")))
  (setq claude-code-notification-function
        #'my-claude-notify-with-sound))
 
@@ -1687,9 +1680,7 @@
   :repo "dnouri/pi-coding-agent"
   :branch "master"
   :files ("*.el"))
- :bind
- ("C-c c" . pi-coding-agent)
- ("C-c C" . my/pi-switch-session)
+ :bind ("C-c c" . pi-coding-agent) ("C-c C" . my/pi-switch-session)
  :config
  (defun my/pi-switch-session ()
    "Switch between active pi-coding-agent sessions.
@@ -1715,44 +1706,47 @@ and displays the selected session's chat + input buffer pair."
          (pi-coding-agent--display-buffers chat-buf input-buf)))
       (t
        ;; Multiple sessions — let user pick
-       (let* ((choices
-               (mapcar
-                (lambda (chat-buf)
-                  (let* ((name (buffer-name chat-buf))
-                         ;; Extract directory from buffer name
-                         ;; Format: *pi-coding-agent-chat:DIR*
-                         (dir
-                          (when (string-match
-                                 "\\*pi-coding-agent-chat:\\(.+?\\)\\(?:<.*>\\)?\\*"
-                                 name)
-                            (match-string 1 name)))
-                         (session-name
-                          (buffer-local-value
-                           'pi-coding-agent--session-name chat-buf))
-                         (status
-                          (buffer-local-value
-                           'pi-coding-agent--status chat-buf))
-                         (status-str
-                          (pcase status
-                            ('streaming " [streaming]")
-                            ('compacting " [compacting]")
-                            (_ "")))
-                         (label
-                          (concat
-                           (or dir "?")
-                           (when session-name
-                             (format " (%s)" session-name))
-                           status-str)))
-                    (cons label chat-buf)))
-                chat-buffers))
-              (choice
-               (completing-read "Switch to pi session: "
-                                (mapcar #'car choices)
-                                nil t))
-              (chat-buf (cdr (assoc choice choices)))
-              (input-buf
-               (buffer-local-value
-                'pi-coding-agent--input-buffer chat-buf)))
+       (let*
+           ((choices
+             (mapcar
+              (lambda (chat-buf)
+                (let*
+                    ((name (buffer-name chat-buf))
+                     ;; Extract directory from buffer name
+                     ;; Format: *pi-coding-agent-chat:DIR*
+                     (dir
+                      (when
+                          (string-match
+                           "\\*pi-coding-agent-chat:\\(.+?\\)\\(?:<.*>\\)?\\*"
+                           name)
+                        (match-string 1 name)))
+                     (session-name
+                      (buffer-local-value
+                       'pi-coding-agent--session-name chat-buf))
+                     (status
+                      (buffer-local-value
+                       'pi-coding-agent--status chat-buf))
+                     (status-str
+                      (pcase status
+                        ('streaming " [streaming]")
+                        ('compacting " [compacting]")
+                        (_ "")))
+                     (label
+                      (concat
+                       (or dir "?")
+                       (when session-name
+                         (format " (%s)" session-name))
+                       status-str)))
+                  (cons label chat-buf)))
+              chat-buffers))
+            (choice
+             (completing-read
+              "Switch to pi session: " (mapcar #'car choices)
+              nil t))
+            (chat-buf (cdr (assoc choice choices)))
+            (input-buf
+             (buffer-local-value
+              'pi-coding-agent--input-buffer chat-buf)))
          (when (and chat-buf input-buf)
            (pi-coding-agent--display-buffers
             chat-buf input-buf))))))))
@@ -1774,10 +1768,6 @@ and displays the selected session's chat + input buffer pair."
   :host github
   :repo "leanprover-community/lean4-mode"
   :files ("*.el" "data")))
-
-;;; direnv:
-
-(use-package direnv :straight t :config (direnv-mode))
 
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
