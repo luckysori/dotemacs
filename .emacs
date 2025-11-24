@@ -902,9 +902,10 @@
  ispell
  :straight (ispell :type built-in)
  :custom
- ;; Set the dictionary path for NixOS
+ ;; Point to the word list installed by scowl package
  (ispell-alternate-dictionary
-  "/run/current-system/sw/share/dict/words"))
+  (expand-file-name "~/.nix-profile/share/dict/words.txt"))
+ :config (ispell-minor-mode nil))
 
 ;;; corfu:
 
