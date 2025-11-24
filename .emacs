@@ -614,6 +614,7 @@
    (lsp-file-watch-threshold 10000)
    (lsp-keep-workspace-alive nil)
    (lsp-enable-snippet t)
+   (lsp-completion-enable nil)
    (lsp-completion-provider :none)
    (lsp-diagnostics-provider :flycheck)
    (lsp-log-io nil)
