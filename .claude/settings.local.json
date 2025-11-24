@@ -3,7 +3,11 @@
     "allow": [
       "Bash(find:*)",
       "Read(.emacs)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(ispell:*)",
+      "Read(//usr/**)",
+      "Bash(nix-env:*)",
+      "WebFetch(domain:discourse.doomemacs.org)"
     ],
     "deny": []
   }
