@@ -1921,6 +1921,12 @@
     :repo "leanprover-community/lean4-mode"
     :files ("*.el" "data"))))
 
+;;; direnv:
+
+(straight-register-package 'direnv)
+(when my/enable-direnv
+  (use-package direnv :straight t :config (direnv-mode)))
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:

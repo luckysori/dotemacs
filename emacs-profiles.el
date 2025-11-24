@@ -87,6 +87,7 @@
 (defvar my/enable-vc-jj nil)
 (defvar my/enable-lean4-mode nil)
 (defvar my/enable-toml-mode nil)
+(defvar my/enable-direnv nil)
 
 ;;; Profile activation logic:
 
@@ -185,7 +186,8 @@
      my/enable-claude-code t
      my/enable-vc-jj t
      my/enable-lean4-mode t
-     my/enable-toml-mode t))
+     my/enable-toml-mode t
+     my/enable-direnv t))
    ;; Unknown profile: warn user and fall back to minimal configuration
    (t
     (when emacs-profile
