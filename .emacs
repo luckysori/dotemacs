@@ -345,7 +345,7 @@
 
 ;;; magit:
 
-(straight-register-package 'magit)
+(straight-register-package '(magit :branch "main"))
 (when my/enable-magit
   (use-package
    magit
