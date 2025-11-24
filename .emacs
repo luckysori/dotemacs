@@ -1595,7 +1595,11 @@
 
 ;;; vertico:
 
-(straight-register-package 'vertico)
+(straight-register-package
+ '(vertico
+   :host github
+   :repo "minad/vertico"
+   :files (:defaults "extensions/*")))
 (when my/enable-vertico
   (use-package
    vertico
