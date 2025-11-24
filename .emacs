@@ -1885,7 +1885,9 @@
     :branch "main"
     :files ("*.el" (:exclude "demo.gif")))
    :bind-keymap ("C-c c" . claude-code-command-map)
-   :config (claude-code-mode)
+   :config
+   (claude-code-mode)
+   (setq claude-code-sandbox-program "claude")
    (defun my-claude-notify-with-sound (title message)
      "Display a Linux notification with sound."
      (when (executable-find "notify-send")
