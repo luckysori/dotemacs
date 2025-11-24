@@ -538,7 +538,7 @@
 
 (use-package
  modus-themes
- :config (load-theme 'modus-operandi-tinted t))
+ :config (load-theme 'modus-vivendi-tinted t))
 
 ;;; Rust:
 
