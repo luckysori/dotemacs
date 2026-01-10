@@ -181,9 +181,9 @@
 
 ;; TODO: Dynamic font size depending on monitor resolution and size using
 ;; using display-monitor-attributes-list
-(add-to-list 'default-frame-alist '(font . "Hack-10"))
-(set-face-attribute 'mode-line nil :font "Hack-10")
-(set-face-attribute 'mode-line-inactive nil :font "Hack-10")
+(add-to-list 'default-frame-alist '(font . "Hack-20"))
+(set-face-attribute 'mode-line nil :font "Hack-20")
+(set-face-attribute 'mode-line-inactive nil :font "Hack-20")
 (set-face-attribute 'default nil :family "Hack")
 (set-face-attribute 'italic nil
                     :slant 'italic
@@ -345,7 +345,8 @@
 
 ;;; magit:
 
-(straight-register-package '(magit :branch "main"))
+(straight-register-package
+ '(git-commit :branch "main" :host github :repo "magit/magit"))
 (when my/enable-magit
   (use-package
    magit
@@ -354,8 +355,16 @@
    (("C-c C-m" . 'magit-status)
     ("C-x C-m" . 'magit-dispatch)
     ("C-c C-j" . 'magit-status-here)
-    ("C-c m b" . 'magit-blame-addition))
+    ("C-c m b" . 'magit-blame-addition)
+    :map
+    magit-revision-mode-map
+    ("j" . my/magit-jump-and-remember))
    :config (unbind-key "C-x g" magit-section-mode-map)
+   (defun my/magit-jump-and-remember ()
+     "Jump to diff and save position to mark ring."
+     (interactive)
+     (push-mark)
+     (magit-jump-to-diffstat-or-diff))
    (setq magit-repository-directories
          '(("~/github/" . 2)
            ("~/prolog/" . 1)
@@ -587,6 +596,8 @@
     :host github
     :repo "luckysori/dart-format")))
 
+(setq lsp-dart-flutter-daemon nil)
+
 ;;; lsp-mode:
 
 (straight-register-package 'lsp-mode)
@@ -601,7 +612,7 @@
    (rust-mode . lsp)
    (c++-ts-mode .lsp)
    (go-ts-mode . lsp)
-   (dart-ts-mode . lsp)
+   (dart-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration)
    ((tsx-ts-mode typescript-ts-mode js-ts-mode) . lsp-deferred)
    :commands lsp
@@ -625,13 +636,14 @@
    (lsp-enable-links nil)
    (lsp-enable-text-document-color nil)
    (lsp-enable-on-type-formatting t)
-   ;; rust
-   (lsp-rust-clippy-preference "on")
    ;; js
    (lsp-eslint-enable t)
+   ;; rust
+   (lsp-rust-clippy-preference "on")
+   (lsp-rust-analyzer-proc-macro-enable nil)
    (lsp-rust-analyzer-cargo-watch-command "clippy")
-   (lsp-rust-analyzer-cargo-watch-args
-    ["--target-dir" "/tmp/rust-analyzer-check"])
+   ;; (lsp-rust-analyzer-cargo-watch-args
+   ;;  ["--target-dir" "/tmp/rust-analyzer-check"])
    (lsp-rust-analyzer-proc-macro-enable t)
    (lsp-rust-all-features t)
    (lsp-rust-analyzer-import-granularity "item")
@@ -920,8 +932,8 @@
    (corfu-auto t) ;; Enable auto completion
    (corfu-auto-prefix 2)
    ;; (corfu-separator ?\s)          ;; Orderless field separator
-   ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
-   ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
+   (corfu-quit-at-boundary nil) ;; Never quit at completion boundary
+   (corfu-quit-no-match nil) ;; Never quit, even if there is no match
    ;; (corfu-preview-current nil)    ;; Disable current candidate preview
    ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
    ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
@@ -1820,6 +1832,7 @@
    ;; `.dir-locals.el' did not work.
    (setf (alist-get 'tsx-ts-mode apheleia-mode-alist) 'biome)
    (setf (alist-get 'emacs-lisp-mode apheleia-mode-alist) nil)
+   (setf (alist-get 'dart-mode apheleia-mode-alist) nil)
    (apheleia-global-mode +1)))
 
 ;;; wgrep:
@@ -1896,10 +1909,7 @@
      (when (executable-find "paplay")
        (call-process
         "paplay"
-        nil
-        nil
-        nil
-        "/usr/share/sounds/mixit/correct-answer-tone.wav")))
+        nil nil "/usr/share/sounds/mixit/correct-answer-tone.wav")))
    (setq claude-code-notification-function
          #'my-claude-notify-with-sound)))
 
@@ -1918,7 +1928,8 @@
  '(lean4-mode
    :type git
    :host github
-   :repo "leanprover-community/lean4-mode"
+   :repo "luckysori/lean4-mode"
+   :branch "fix/hook"
    :files ("*.el" "data")))
 (when my/enable-lean4-mode
   (use-package
@@ -1928,7 +1939,8 @@
    (lean4-mode
     :type git
     :host github
-    :repo "leanprover-community/lean4-mode"
+    :repo "luckysori/lean4-mode"
+    :branch "fix/hook"
     :files ("*.el" "data"))))
 
 ;;; direnv:
