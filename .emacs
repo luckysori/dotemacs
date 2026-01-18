@@ -358,6 +358,7 @@
    :config (unbind-key "C-x g" magit-section-mode-map)
    (setq magit-repository-directories
          '(("~/github/" . 2)
+           ("~/git/" . 2)
            ("~/prolog/" . 1)
            ("~/programming/" . 2)
            ("~/gitea/" . 2)
