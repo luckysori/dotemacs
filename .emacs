@@ -1881,7 +1881,7 @@
     :repo "stevemolitor/claude-code.el"
     :branch "main"
     :files ("*.el" (:exclude "demo.gif")))
-   :bind-keymap ("C-c c" . claude-code-command-map)
+   :bind-keymap ("C-c C" . claude-code-command-map)
    :config
    (claude-code-mode)
    (setq claude-code-sandbox-program "claude")
@@ -1899,6 +1899,28 @@
         "/usr/share/sounds/mixit/correct-answer-tone.wav")))
    (setq claude-code-notification-function
          #'my-claude-notify-with-sound)))
+
+;;; pi-coding-agent:
+
+(straight-register-package
+ '(pi-coding-agent
+   :type git
+   :host github
+   :repo "dnouri/pi-coding-agent"
+   :branch "master"
+   :files
+   ("*.el")))
+(when my/enable-pi-coding-agent
+  (use-package
+   pi-coding-agent
+   :straight
+   (:type
+    git
+    :host github
+    :repo "dnouri/pi-coding-agent"
+    :branch "master"
+    :files ("*.el"))
+   :bind ("C-c c" . pi-coding-agent)))
 
 ;;; jujutsu:
 

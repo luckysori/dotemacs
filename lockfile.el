@@ -12,6 +12,7 @@
  ("cfrs" . "f3a21f237b2a54e6b9f8a420a9da42b4f0a63121")
  ("cider" . "6594b4aa26a6e4255bd5d7028221130d35619b2c")
  ("claude-code.el" . "becece683bcf60f7b150a87a30ef14885dcf8ce3")
+ ("pi-coding-agent" . "781090df1dd13ce66295079a5463295066f05964")
  ("clojure-mode" . "eabe29b076fff19db552d36d4babaa36ecf0b704")
  ("company-auctex" . "9400a2ec7459dde8cbf1a5d50dfee4e300ed7e18")
  ("company-mode" . "58542350fb6a949f5ed91616a715e79ee42bd8a8")

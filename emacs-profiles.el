@@ -84,6 +84,7 @@
 (defvar my/enable-wgrep nil)
 (defvar my/enable-eat nil)
 (defvar my/enable-claude-code nil)
+(defvar my/enable-pi-coding-agent nil)
 (defvar my/enable-vc-jj nil)
 (defvar my/enable-lean4-mode nil)
 (defvar my/enable-toml-mode nil)
@@ -184,6 +185,7 @@
      my/enable-wgrep t
      my/enable-eat t
      my/enable-claude-code t
+     my/enable-pi-coding-agent t
      my/enable-vc-jj t
      my/enable-lean4-mode t
      my/enable-toml-mode t
