@@ -1667,7 +1667,6 @@
   :repo "stevemolitor/claude-code.el"
   :branch "main"
   :files ("*.el" (:exclude "demo.gif")))
- :bind-keymap ("C-c C" . claude-code-command-map)
  :config
  (claude-code-mode)
  (setq claude-code-sandbox-program "claude")
@@ -1697,7 +1696,75 @@
   :repo "dnouri/pi-coding-agent"
   :branch "master"
   :files ("*.el"))
- :bind ("C-c c" . pi-coding-agent))
+ :bind
+ ("C-c c" . pi-coding-agent)
+ ("C-c C" . my/pi-switch-session)
+ :config
+ (defun my/pi-switch-session ()
+   "Switch between active pi-coding-agent sessions.
+Shows a list of all active sessions (identified by their chat buffers)
+and displays the selected session's chat + input buffer pair."
+   (interactive)
+   (let* ((chat-buffers
+           (seq-filter
+            (lambda (buf)
+              (with-current-buffer buf
+                (derived-mode-p 'pi-coding-agent-chat-mode)))
+            (buffer-list)))
+          (count (length chat-buffers)))
+     (cond
+      ((= count 0)
+       (user-error "No active pi sessions"))
+      ((= count 1)
+       ;; Only one session — just switch to it
+       (let* ((chat-buf (car chat-buffers))
+              (input-buf
+               (buffer-local-value
+                'pi-coding-agent--input-buffer chat-buf)))
+         (pi-coding-agent--display-buffers chat-buf input-buf)))
+      (t
+       ;; Multiple sessions — let user pick
+       (let* ((choices
+               (mapcar
+                (lambda (chat-buf)
+                  (let* ((name (buffer-name chat-buf))
+                         ;; Extract directory from buffer name
+                         ;; Format: *pi-coding-agent-chat:DIR*
+                         (dir
+                          (when (string-match
+                                 "\\*pi-coding-agent-chat:\\(.+?\\)\\(?:<.*>\\)?\\*"
+                                 name)
+                            (match-string 1 name)))
+                         (session-name
+                          (buffer-local-value
+                           'pi-coding-agent--session-name chat-buf))
+                         (status
+                          (buffer-local-value
+                           'pi-coding-agent--status chat-buf))
+                         (status-str
+                          (pcase status
+                            ('streaming " [streaming]")
+                            ('compacting " [compacting]")
+                            (_ "")))
+                         (label
+                          (concat
+                           (or dir "?")
+                           (when session-name
+                             (format " (%s)" session-name))
+                           status-str)))
+                    (cons label chat-buf)))
+                chat-buffers))
+              (choice
+               (completing-read "Switch to pi session: "
+                                (mapcar #'car choices)
+                                nil t))
+              (chat-buf (cdr (assoc choice choices)))
+              (input-buf
+               (buffer-local-value
+                'pi-coding-agent--input-buffer chat-buf)))
+         (when (and chat-buf input-buf)
+           (pi-coding-agent--display-buffers
+            chat-buf input-buf))))))))
 
 ;;; jujutsu:
 
