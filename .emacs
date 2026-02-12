@@ -1676,6 +1676,11 @@
 
 ;;; pi-coding-agent:
 
+;; Horizontal scrolling for wide markdown tables in pi-coding-agent
+(use-package
+ phscroll
+ :straight (:host github :repo "misohena/phscroll"))
+
 (use-package
  pi-coding-agent
  :straight
@@ -1686,6 +1691,8 @@
   :branch "master"
   :files ("*.el"))
  :bind ("C-c c" . pi-coding-agent) ("C-c C" . my/pi-switch-session)
+ :custom
+ (pi-coding-agent-phscroll-offer-install nil) ; already installed via straight
  :config
  (defun my/pi-switch-session ()
    "Switch between active pi-coding-agent sessions.
