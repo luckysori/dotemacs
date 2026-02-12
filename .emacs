@@ -495,11 +495,10 @@
 
 (setq custom-safe-themes t)
 
-(use-package ef-themes)
+(use-package ef-themes
+  :config (load-theme 'ef-night t))
 
-(use-package
- modus-themes
- :config (load-theme 'modus-vivendi-tinted t))
+(use-package modus-themes)
 
 ;;; Rust:
 
