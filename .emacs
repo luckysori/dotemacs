@@ -1763,6 +1763,17 @@ and displays the selected session's chat + input buffer pair."
            (pi-coding-agent--display-buffers
             chat-buf input-buf))))))))
 
+;; Disable dictionary completion in pi input buffers
+(defun my/disable-dict-completion ()
+  "Remove dictionary completion from completion-at-point-functions."
+  (setq-local completion-at-point-functions
+              (seq-remove (lambda (f)
+                            (memq f '(ispell-completion-at-point
+                                      dabbrev-completion)))
+                          completion-at-point-functions)))
+
+(add-hook 'pi-coding-agent-input-mode-hook #'my/disable-dict-completion)
+
 ;;; jujutsu:
 
 (use-package
