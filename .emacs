@@ -437,7 +437,8 @@
  ace-window
  :straight t
  :bind ("M-o" . ace-window)
- :custom (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+ :custom (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+ :config (ace-window-display-mode) (setq aw-display-mode-overlay nil))
 
 ;;; expand-region:
 
