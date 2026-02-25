@@ -304,6 +304,16 @@
 
 (setq visible-bell 1)
 
+(defun my/bell-unless-posframe ()
+  "Ring visible bell unless vertico-posframe is active."
+  (unless (and (bound-and-true-p vertico-posframe-mode)
+               (posframe--find-existing-posframe
+                (get-buffer vertico-posframe--buffer)))
+    (let ((ring-bell-function nil))
+      (ding))))
+
+(setq ring-bell-function #'my/bell-unless-posframe)
+
 ;;; isearch:
 
 (use-package
