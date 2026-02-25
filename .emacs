@@ -1460,6 +1460,16 @@
  (setq vertico-multiform-categories
        '((buffer (vertico-sort-function . copy-sequence)))))
 
+(use-package
+ vertico-posframe
+ :after vertico
+ :config
+ (vertico-posframe-mode 1)
+ :custom
+ (vertico-posframe-poshandler #'posframe-poshandler-frame-center)
+ (vertico-posframe-parameters
+  '((left-fringe . 8) (right-fringe . 8))))
+
 ;;; consult:
 
 (use-package
