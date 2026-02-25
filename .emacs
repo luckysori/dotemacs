@@ -108,7 +108,7 @@
 ;; is a long message to display
 ;;
 ;; TODO: This is not great, as it interferes with `straight.el'.
-(setq resize-mini-windows nil)
+(setq resize-mini-windows t)
 
 (setq warning-minimum-level :error)
 
