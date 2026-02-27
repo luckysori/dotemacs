@@ -402,6 +402,10 @@
  :config
  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
+;;; difftastic:
+
+(use-package difftastic)
+
 ;;; LaTeX mode:
 
 (use-package
