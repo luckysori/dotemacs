@@ -404,7 +404,42 @@
 
 ;;; difftastic:
 
-(use-package difftastic)
+(use-package
+ difftastic
+ :hook
+ (difftastic-mode
+  .
+  (lambda ()
+    ;; Prevent font-lock from stripping `invisible' and `difftastic'
+    ;; text properties that `difftastic-hide-chunk' sets.
+    (setq-local font-lock-unfontify-region-function
+                (lambda (beg end)
+                  (let ((inhibit-read-only t))
+                    (remove-list-of-text-properties
+                     beg end
+                     '(face font-lock-face font-lock-multiline))))))))
+
+(let ((dotemacs-priv-dir
+       (expand-file-name
+        "priv"
+        (file-name-directory (file-truename user-init-file)))))
+  (when (file-directory-p dotemacs-priv-dir)
+    (add-to-list 'load-path dotemacs-priv-dir)))
+
+(use-package
+ gh-pr-comment
+ :straight nil
+ :after difftastic
+ :bind
+ (:map
+  difftastic-mode-map
+  ("C-c r n" . gh-pr-comment-start)
+  ("C-c r a" . gh-pr-comment-add)
+  ("C-c r l" . gh-pr-comment-list)
+  ("C-c r v" . gh-pr-comment-check)
+  ("C-c r s" . gh-pr-comment-submit)
+  ("C-c r c" . gh-pr-comment-clear)
+  ("C-c r R" . gh-pr-comment-force-right-side)))
 
 ;;; LaTeX mode:
 
@@ -557,12 +592,12 @@
  (setq gud-key-prefix (kbd "C-c C-x C-a"))
  (setq lsp-keymap-prefix "C-c l")
  :hook
- (rust-mode . lsp)
- (c++-ts-mode .lsp)
- (go-ts-mode . lsp)
- (dart-ts-mode . lsp)
+ ;; (rust-mode . lsp)
+ ;; (c++-ts-mode .lsp)
+ ;; (go-ts-mode . lsp)
+ ;; (dart-ts-mode . lsp)
  (lsp-mode . lsp-enable-which-key-integration)
- ((tsx-ts-mode typescript-ts-mode js-ts-mode) . lsp-deferred)
+ ;; ((tsx-ts-mode typescript-ts-mode js-ts-mode) . lsp-deferred)
  :commands lsp
  :bind-keymap ("C-c l" . lsp-command-map)
  :bind
@@ -1221,6 +1256,12 @@
 (use-package edbi)
 
 (use-package edbi-sqlite :after edbi)
+
+;;; sqlite-mode-extras:
+
+(use-package sqlite-mode-extras
+  :ensure t
+  :hook ((sqlite-mode . sqlite-extras-minor-mode)))
 
 ;;; sidecar-locals:
 
