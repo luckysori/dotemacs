@@ -404,24 +404,7 @@
 
 ;;; difftastic:
 
-(use-package
- difftastic
- :hook
- (difftastic-mode
-  .
-  (lambda ()
-    ;; The default unfontify function strips all `face' properties,
-    ;; which destroys both the ANSI color faces from difftastic output
-    ;; and the `invisible'/`difftastic' properties used by
-    ;; `difftastic-hide-chunk'.  Since difftastic's font-lock keywords
-    ;; only create URL buttons (no face properties), we can limit
-    ;; unfontification to font-lock's own bookkeeping properties.
-    (setq-local font-lock-unfontify-region-function
-                (lambda (beg end)
-                  (let ((inhibit-read-only t))
-                    (remove-list-of-text-properties
-                     beg end
-                     '(font-lock-face font-lock-multiline))))))))
+(use-package difftastic)
 
 (let ((dotemacs-priv-dir
        (expand-file-name
