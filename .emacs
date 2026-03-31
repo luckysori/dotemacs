@@ -595,8 +595,8 @@
  (lsp-file-watch-threshold 10000)
  (lsp-keep-workspace-alive nil)
  (lsp-enable-snippet t)
- (lsp-completion-enable nil)
- (lsp-completion-provider :none)
+ (lsp-completion-enable t)
+ (lsp-completion-provider :capf)
  (lsp-diagnostics-provider :flycheck)
  (lsp-log-io nil)
  (lsp-headerline-breadcrumb-enable nil)
@@ -879,25 +879,13 @@
 
 ;;; corfu:
 
-(defun luckysori/completion-at-point ()
-  (interactive)
-  (require 'lsp-completion)
-  (let ((completion-at-point-functions
-         (if (bound-and-true-p lsp-mode)
-             (cons #'lsp-completion-at-point completion-at-point-functions)
-           completion-at-point-functions))
-        (completion-category-defaults
-         (cons '(lsp-capf (styles . (lsp-passthrough)))
-               completion-category-defaults)))
-    (completion-at-point)))
-
 (use-package
  corfu
- :bind ("C-." . luckysori/completion-at-point)
+ :bind ("C-." . completion-at-point)
  ;; Optional customizations
  :custom
  (corfu-cycle t) ;; Enable cycling for `corfu-next/previous'
- (corfu-auto t) ;; Enable auto completion
+ (corfu-auto nil) ;; Only complete when explicitly requested
  (corfu-auto-prefix 2)
  ;; (corfu-separator ?\s)          ;; Orderless field separator
  ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
