@@ -879,9 +879,21 @@
 
 ;;; corfu:
 
+(defun luckysori/completion-at-point ()
+  (interactive)
+  (require 'lsp-completion)
+  (let ((completion-at-point-functions
+         (if (bound-and-true-p lsp-mode)
+             (cons #'lsp-completion-at-point completion-at-point-functions)
+           completion-at-point-functions))
+        (completion-category-defaults
+         (cons '(lsp-capf (styles . (lsp-passthrough)))
+               completion-category-defaults)))
+    (completion-at-point)))
+
 (use-package
  corfu
- :bind ("C-." . completion-at-point)
+ :bind ("C-." . luckysori/completion-at-point)
  ;; Optional customizations
  :custom
  (corfu-cycle t) ;; Enable cycling for `corfu-next/previous'
