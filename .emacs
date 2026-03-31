@@ -578,7 +578,6 @@
  ;; prevent warnings caused by lsp-execute-code-action keybinding
  (setq gud-key-prefix (kbd "C-c C-x C-a"))
  (setq lsp-keymap-prefix "C-c l")
- (setq lsp-clients-typescript-tls-path "vtsls")
  :hook
  (rust-mode . lsp)
  ;; (c++-ts-mode .lsp)
@@ -691,6 +690,11 @@
 (advice-add
  'lsp-resolve-final-command
  :around #'lsp-booster--advice-final-command)
+
+(use-package
+ lsp-vtsls
+ :straight (lsp-vtsls :type git :host github :repo "sdvcrx/lsp-vtsls")
+ :after lsp-mode)
 
 (use-package
  lsp-ui
