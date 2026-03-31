@@ -578,13 +578,14 @@
  ;; prevent warnings caused by lsp-execute-code-action keybinding
  (setq gud-key-prefix (kbd "C-c C-x C-a"))
  (setq lsp-keymap-prefix "C-c l")
+ (setq lsp-clients-typescript-tls-path "vtsls")
  :hook
- ;; (rust-mode . lsp)
+ (rust-mode . lsp)
  ;; (c++-ts-mode .lsp)
  ;; (go-ts-mode . lsp)
  ;; (dart-ts-mode . lsp)
  (lsp-mode . lsp-enable-which-key-integration)
- ;; ((tsx-ts-mode typescript-ts-mode js-ts-mode) . lsp-deferred)
+ ((tsx-ts-mode typescript-ts-mode js-ts-mode) . lsp-deferred)
  :commands lsp
  :bind-keymap ("C-c l" . lsp-command-map)
  :bind
