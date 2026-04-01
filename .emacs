@@ -543,7 +543,7 @@
  rust-mode
  :straight t
  :init (setq rust-mode-treesitter-derive t)
- :custom (rust-format-on-save t)
+ :custom (rust-format-on-save nil)
  :config
  (unbind-key "C-c C-n" rust-mode-map)
  (setq rust-rustfmt-switches '("--edition" "2024")))
@@ -1075,7 +1075,9 @@
 (use-package
  dprint-fmt
  :straight
- (dprint-fmt :type git :host github :repo "luckysori/dprint-fmt"))
+ (dprint-fmt :type git :host github :repo "luckysori/dprint-fmt")
+ :config
+ (setq dprint-fmt-command "dprint-emacs"))
 
 ;;; nix-fmt:
 
