@@ -579,7 +579,7 @@
  (setq gud-key-prefix (kbd "C-c C-x C-a"))
  (setq lsp-keymap-prefix "C-c l")
  :hook
- (rust-mode . lsp)
+ (rust-mode . lsp-deferred)
  ;; (c++-ts-mode .lsp)
  ;; (go-ts-mode . lsp)
  ;; (dart-ts-mode . lsp)
@@ -1367,11 +1367,7 @@
 (use-package
  envrc
  :after inheritenv
- :config
- ;; Load envrc-global-mode late in initialization to ensure proper environment setup
- (add-hook 'server-after-make-frame-hook 'envrc-global-mode)
- (unless (daemonp)
-   (envrc-global-mode)))
+ :hook (after-init . envrc-global-mode))
 
 ;;; Treesitter:
 
