@@ -404,7 +404,12 @@
 
 ;;; difftastic:
 
-(use-package difftastic)
+(use-package difftastic
+  :straight (:type git
+             :host github
+             :repo "luckysori/difftastic.el"
+             :local-repo "difftastic.el"
+             :protocol ssh))
 
 (let ((dotemacs-priv-dir
        (expand-file-name
