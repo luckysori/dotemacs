@@ -575,6 +575,18 @@
  :straight
  (dart-format :type git :host github :repo "luckysori/dart-format"))
 
+;;; GDScript:
+
+(use-package
+ gdscript-mode
+ :straight (gdscript-mode :type git :host github :repo "godotengine/emacs-gdscript-mode")
+ :mode "\\.gd\\'"
+ :hook (gdscript-mode . lsp-deferred)
+ :custom
+ (gdscript-godot-executable "godot4")
+ (gdscript-indent-offset 4)
+ (gdscript-use-tab-indents t))
+
 ;;; lsp-mode:
 
 (use-package
