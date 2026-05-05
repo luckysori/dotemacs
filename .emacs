@@ -1524,9 +1524,7 @@
 
 (use-package
  vertico-posframe
- :after vertico
- :config
- (vertico-posframe-mode 1)
+ :commands vertico-posframe-mode
  :custom
  (vertico-posframe-poshandler #'posframe-poshandler-frame-center)
  (vertico-posframe-parameters
