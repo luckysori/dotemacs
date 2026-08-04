@@ -404,17 +404,20 @@
 
 ;;; difftastic:
 
-(use-package difftastic
-  :straight (:type git
-             :host github
-             :repo "luckysori/difftastic.el"
-             :local-repo "difftastic.el"
-             :protocol ssh))
+(use-package
+ difftastic
+ :straight
+ (:type
+  git
+  :host github
+  :repo "luckysori/difftastic.el"
+  :local-repo "difftastic.el"
+  :protocol ssh))
 
 (let ((dotemacs-priv-dir
-       (expand-file-name
-        "priv"
-        (file-name-directory (file-truename user-init-file)))))
+       (expand-file-name "priv"
+                         (file-name-directory
+                          (file-truename user-init-file)))))
   (when (file-directory-p dotemacs-priv-dir)
     (add-to-list 'load-path dotemacs-priv-dir)))
 
@@ -479,7 +482,9 @@
  :straight t
  :bind ("M-o" . ace-window)
  :custom (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
- :config (ace-window-display-mode) (setq aw-display-mode-overlay nil))
+ :config
+ (ace-window-display-mode)
+ (setq aw-display-mode-overlay nil))
 
 ;;; expand-region:
 
@@ -537,8 +542,7 @@
 
 (setq custom-safe-themes t)
 
-(use-package ef-themes
-  :config (load-theme 'ef-night t))
+(use-package ef-themes :config (load-theme 'ef-night t))
 
 (use-package modus-themes)
 
@@ -579,7 +583,11 @@
 
 (use-package
  gdscript-mode
- :straight (gdscript-mode :type git :host github :repo "godotengine/emacs-gdscript-mode")
+ :straight
+ (gdscript-mode
+  :type git
+  :host github
+  :repo "godotengine/emacs-gdscript-mode")
  :mode "\\.gd\\'"
  :hook (gdscript-mode . lsp-deferred)
  :custom
@@ -595,8 +603,7 @@
  ;; prevent warnings caused by lsp-execute-code-action keybinding
  (setq gud-key-prefix (kbd "C-c C-x C-a"))
  (setq lsp-keymap-prefix "C-c l")
- :hook
- (rust-mode . lsp-deferred)
+ :hook (rust-mode . lsp-deferred)
  ;; (c++-ts-mode .lsp)
  ;; (go-ts-mode . lsp)
  ;; (dart-ts-mode . lsp)
@@ -710,7 +717,8 @@
 
 (use-package
  lsp-vtsls
- :straight (lsp-vtsls :type git :host github :repo "sdvcrx/lsp-vtsls")
+ :straight
+ (lsp-vtsls :type git :host github :repo "sdvcrx/lsp-vtsls")
  :after lsp-mode)
 
 (use-package
@@ -1093,8 +1101,7 @@
  dprint-fmt
  :straight
  (dprint-fmt :type git :host github :repo "luckysori/dprint-fmt")
- :config
- (setq dprint-fmt-command "dprint-emacs"))
+ :config (setq dprint-fmt-command "dprint-emacs"))
 
 ;;; nix-fmt:
 
@@ -1270,9 +1277,10 @@
 
 ;;; sqlite-mode-extras:
 
-(use-package sqlite-mode-extras
-  :ensure t
-  :hook ((sqlite-mode . sqlite-extras-minor-mode)))
+(use-package
+ sqlite-mode-extras
+ :ensure t
+ :hook ((sqlite-mode . sqlite-extras-minor-mode)))
 
 ;;; sidecar-locals:
 
@@ -1834,12 +1842,14 @@ and displays the selected session's chat + input buffer pair."
 (defun my/disable-dict-completion ()
   "Remove dictionary completion from completion-at-point-functions."
   (setq-local completion-at-point-functions
-              (seq-remove (lambda (f)
-                            (memq f '(ispell-completion-at-point
-                                      dabbrev-completion)))
-                          completion-at-point-functions)))
+              (seq-remove
+               (lambda (f)
+                 (memq
+                  f '(ispell-completion-at-point dabbrev-completion)))
+               completion-at-point-functions)))
 
-(add-hook 'pi-coding-agent-input-mode-hook #'my/disable-dict-completion)
+(add-hook
+ 'pi-coding-agent-input-mode-hook #'my/disable-dict-completion)
 
 ;;; jujutsu:
 
