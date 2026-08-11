@@ -1768,7 +1768,7 @@
  :custom
  (pi-coding-agent-phscroll-offer-install nil) ; already installed via straight
  :init (defalias 'pi 'pi-coding-agent)
- :config
+ :config (unbind-key "C-c RET" pi-coding-agent-chat-mode-map)
  (defun my/pi-switch-session ()
    "Switch between active pi-coding-agent sessions.
 Shows a list of all active sessions (identified by their chat buffers)
