@@ -1075,11 +1075,50 @@
  vterm
  :load-path "~/.emacs.d/straight/repos/emacs-libvterm"
  :bind
- ("C-c C-s" . vterm-other-window)
- ("C-c p C-s" . projectile-run-vterm)
- ("C-c g" . vterm-send-C-g)
+ (("C-c C-s" . vterm-other-window)
+  ("C-c S" . my/vterm-switch-buffer)
+  ("C-c p C-s" . projectile-run-vterm)
+  ("C-c g" . vterm-send-C-g))
  :custom (vterm-max-scrollback 100000)
  :config
+ (defun my/vterm-buffer-label (buf)
+   "Return a completion label for vterm buffer BUF."
+   (with-current-buffer buf
+     (let* ((proc (get-buffer-process buf))
+            (status
+             (cond
+              ((null proc) " [dead]")
+              ((memq (process-status proc) '(run open)) "")
+              (t (format " [%s]" (process-status proc)))))
+            (dir (abbreviate-file-name default-directory)))
+       (format "%s — %s%s" (buffer-name buf) dir status))))
+ (defun my/vterm-switch-buffer ()
+   "Switch to an existing vterm buffer, or create one if none exist."
+   (interactive)
+   (let* ((vterm-buffers
+           (seq-filter
+            (lambda (buf)
+              (with-current-buffer buf
+                (derived-mode-p 'vterm-mode)))
+            (buffer-list)))
+          (count (length vterm-buffers)))
+     (cond
+      ((= count 0)
+       (vterm-other-window))
+      ((= count 1)
+       (pop-to-buffer (car vterm-buffers)))
+      (t
+       (let* ((choices
+               (mapcar
+                (lambda (buf)
+                  (cons (my/vterm-buffer-label buf) buf))
+                vterm-buffers))
+              (choice
+               (completing-read
+                "Switch to vterm: " (mapcar #'car choices) nil t))
+              (buf (cdr (assoc choice choices))))
+         (when buf
+           (pop-to-buffer buf)))))))
  (unbind-key "C-c C-g" vterm-mode-map)
  (unbind-key "M-O" vterm-mode-map)
  (unbind-key "C-M-m" vterm-mode-map))
