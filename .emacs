@@ -436,6 +436,13 @@
   ("C-c r c" . gh-pr-comment-clear)
   ("C-c r R" . gh-pr-comment-force-right-side)))
 
+;;; satora-db (private DB access):
+
+(use-package
+ satora-db
+ :straight nil
+ :bind ("C-c d" . my/satora-db-connect))
+
 ;;; LaTeX mode:
 
 (use-package
