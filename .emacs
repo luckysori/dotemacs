@@ -1094,9 +1094,12 @@
      (let* ((proc (get-buffer-process buf))
             (status
              (cond
-              ((null proc) " [dead]")
-              ((memq (process-status proc) '(run open)) "")
-              (t (format " [%s]" (process-status proc)))))
+              ((null proc)
+               " [dead]")
+              ((memq (process-status proc) '(run open))
+               "")
+              (t
+               (format " [%s]" (process-status proc)))))
             (dir (abbreviate-file-name default-directory)))
        (format "%s — %s%s" (buffer-name buf) dir status))))
  (defun my/vterm-switch-buffer ()
@@ -1122,7 +1125,8 @@
                 vterm-buffers))
               (choice
                (completing-read
-                "Switch to vterm: " (mapcar #'car choices) nil t))
+                "Switch to vterm: " (mapcar #'car choices)
+                nil t))
               (buf (cdr (assoc choice choices))))
          (when buf
            (pop-to-buffer buf)))))))
