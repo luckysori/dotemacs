@@ -1919,6 +1919,10 @@ and displays the selected session's chat + input buffer pair."
   :repo "leanprover-community/lean4-mode"
   :files ("*.el" "data")))
 
+;;; ghostel:
+
+(use-package ghostel)
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:

@@ -66,6 +66,7 @@
  ("flycheck" . "5c24d1b732e86433f34ebf5ec7ca3c985edbc744")
  ("flycheck-color-mode-line" . "df9be4c5bf26c4dc5ddaeed8179c4d66bdaa91f5")
  ("gcmh" . "0089f9c3a6d4e9a310d0791cf6fa8f35642ecfd9")
+ ("ghostel" . "ccd9d27408752172c4abdb5a6fc7f94b50666752")
  ("git-link" . "12caebc0982d3401a0b74ccddc2d5a651122de8a")
  ("git-timemachine" . "d1346a76122595aeeb7ebb292765841c6cfd417b")
  ("gntp.el" . "767571135e2c0985944017dc59b0be79af222ef5")
