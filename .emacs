@@ -1530,7 +1530,11 @@
      ;; installed. However, if you want to *update* a grammar then
      ;; this obviously prevents that from happening.
      (unless (treesit-language-available-p (car grammar))
-       (treesit-install-language-grammar (car grammar)))))
+       (if (executable-find "cc")
+           (treesit-install-language-grammar (car grammar))
+         (message
+          "Skipping Tree-sitter grammar install for %s: no cc in PATH"
+          (car grammar))))))
 
  ;; Optional, but recommended. Tree-sitter enabled major modes are
  ;; distinct from their ordinary counterparts.
