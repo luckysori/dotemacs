@@ -41,16 +41,29 @@ package and removes the module. A missing Linux module reports
 
 The Straight installation and Linux dynamic module load were tested with
 Emacs 30.2: 438 of 441 upstream tests passed, including grid editing, CSV
-saving, and XLSX import/export. Two financial-formula tests also fail when run directly
-from upstream source without Straight. The plugin-directory test assumes
+saving, and XLSX import/export. Two financial-formula tests also fail when
+run directly from upstream source without Straight. The plugin-directory test assumes
 upstream's directory layout rather than Straight's flattened plugin files.
 
 The test suite needs `zip` and `unzip`. Use Bash as Emacs's
 `shell-file-name` when testing in a temporary Nix shell: this machine's Zsh
 startup drops the temporary tools from `PATH`.
 
+The complete `.emacs` also loaded successfully in a fresh batch Emacs,
+opened a new `.grid` buffer in `exc-mode`, and loaded the Linux XLSX
+module. A graphical check needs an available display output.
+
 ## Activate the configuration
 
-The user's `~/.emacs` is managed by Home Manager. Deploy this repository's
-configuration through the normal Home Manager workflow, or evaluate the
-`Spreadsheets` section in `.emacs` to try it in an existing Emacs.
+Launch this checkout directly without Home Manager or a NixOS rebuild:
+
+```sh
+emacs -q \
+  --eval '(setq user-init-file "/home/lucas/git/luckysori/dotemacs/.emacs")' \
+  -l /home/lucas/git/luckysori/dotemacs/early-init.el \
+  -l /home/lucas/git/luckysori/dotemacs/.emacs
+```
+
+Setting `user-init-file` lets the configuration find its adjacent `priv/`
+directory. Alternatively, evaluate the `Spreadsheets` section in an
+existing Emacs, or deploy through the normal Home Manager workflow.
