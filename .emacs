@@ -1923,6 +1923,20 @@ and displays the selected session's chat + input buffer pair."
 
 (use-package ghostel)
 
+;;; Spreadsheets:
+
+(use-package ecss :straight (:host github :repo "emacs-taf/ecss"))
+
+(use-package ebox :straight (:host github :repo "emacs-taf/ebox"))
+
+(use-package etaf :straight (:host github :repo "emacs-taf/etaf"))
+
+(use-package
+ exc
+ :straight
+ (:host github :repo "yibie/exc.el" :files (:defaults "plugins/*"))
+ :config (require 'exc-xlsx) (require 'exc-csv))
+
 ;; Local variables:
 ;; elisp-autofmt-load-packages-local: ("use-package")
 ;; end:
