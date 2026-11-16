@@ -1237,22 +1237,36 @@
 
 ;;; browse-url:
 
-(use-package
- browse-url
- :straight (browse-url :type built-in)
- :config
- (defun my/browse (text)
-   (interactive "sSearch: ")
-   (let* (
-          ;; TODO: a string such as "google.com" should be parsed as
-          ;; the host but is instead identified as the filename
-          (candidate (url-generic-parse-url text))
-          (is-url (not (null (url-type candidate))))
-          url)
-     (if is-url
-         (setq url text)
-       (setq url (concat "https://www.google.com/search?q=" text)))
-     (browse-url-xdg-open url))))
+(use-package browse-url
+  :straight (browse-url :type built-in)
+  :custom
+  (browse-url-browser-function 'eww-browse-url)
+  (browse-url-secondary-browser-function 'browse-url-generic)
+  (browse-url-generic-program "brave")
+  (browse-url-generic-args
+   '("--ozone-platform=x11" "--force-device-scale-factor=1.5")))
+
+;;; eww:
+
+(use-package eww
+  :straight (eww :type built-in)
+  :commands (eww eww-browse-url)
+  :custom (eww-download-directory (expand-file-name "~/Downloads/"))
+  :bind
+  (:map
+   eww-mode-map
+   ("=" . text-scale-increase)
+   ("-" . text-scale-decrease)
+   ("0" .
+    (lambda ()
+      (interactive)
+      (text-scale-set 0)))))
+
+(use-package shr
+  :straight (shr :type built-in)
+  :custom
+  (shr-width 100)
+  (shr-use-fonts nil))
 
 ;;; dash:
 
