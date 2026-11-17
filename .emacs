@@ -1821,24 +1821,17 @@
  (setq claude-code-notification-function
        #'my-claude-notify-with-sound))
 
-;;; pi-coding-agent:
+;;; pilish (pi-coding-agent):
 
 (use-package
- pi-coding-agent
- :straight
- (:type
-  git
-  :host github
-  :repo "dnouri/pi-coding-agent"
-  :branch "master"
-  :files ("*.el"))
- :bind ("C-c c" . pi-coding-agent) ("C-c C" . my/pi-switch-session)
+ pilish
+ :bind ("C-c c" . pilish) ("C-c C" . my/pi-switch-session)
  :custom
- (pi-coding-agent-phscroll-offer-install nil) ; already installed via straight
- :init (defalias 'pi 'pi-coding-agent)
- :config (unbind-key "C-c RET" pi-coding-agent-chat-mode-map)
+ (pilish-phscroll-offer-install nil) ; already installed via straight
+ :init (defalias 'pi 'pilish)
+ :config (unbind-key "C-c RET" pilish-chat-mode-map)
  (defun my/pi-switch-session ()
-   "Switch between active pi-coding-agent sessions.
+   "Switch between active pilish sessions.
 Shows a list of all active sessions (identified by their chat buffers)
 and displays the selected session's chat + input buffer pair."
    (interactive)
@@ -1846,7 +1839,7 @@ and displays the selected session's chat + input buffer pair."
            (seq-filter
             (lambda (buf)
               (with-current-buffer buf
-                (derived-mode-p 'pi-coding-agent-chat-mode)))
+                (derived-mode-p 'pilish-chat-mode)))
             (buffer-list)))
           (count (length chat-buffers)))
      (cond
@@ -1856,9 +1849,8 @@ and displays the selected session's chat + input buffer pair."
        ;; Only one session — just switch to it
        (let* ((chat-buf (car chat-buffers))
               (input-buf
-               (buffer-local-value
-                'pi-coding-agent--input-buffer chat-buf)))
-         (pi-coding-agent--display-buffers chat-buf input-buf)))
+               (buffer-local-value 'pilish--input-buffer chat-buf)))
+         (pilish--display-buffers chat-buf input-buf)))
       (t
        ;; Multiple sessions — let user pick
        (let*
@@ -1868,19 +1860,18 @@ and displays the selected session's chat + input buffer pair."
                 (let*
                     ((name (buffer-name chat-buf))
                      ;; Extract directory from buffer name
-                     ;; Format: *pi-coding-agent-chat:DIR*
+                     ;; Format: *pilish-chat:DIR*
                      (dir
                       (when
                           (string-match
-                           "\\*pi-coding-agent-chat:\\(.+?\\)\\(?:<.*>\\)?\\*"
+                           "\\*pilish-chat:\\(.+?\\)\\(?:<.*>\\)?\\*"
                            name)
                         (match-string 1 name)))
                      (session-name
                       (buffer-local-value
-                       'pi-coding-agent--session-name chat-buf))
+                       'pilish--session-name chat-buf))
                      (status
-                      (buffer-local-value
-                       'pi-coding-agent--status chat-buf))
+                      (buffer-local-value 'pilish--status chat-buf))
                      (status-str
                       (pcase status
                         ('streaming " [streaming]")
@@ -1900,11 +1891,9 @@ and displays the selected session's chat + input buffer pair."
               nil t))
             (chat-buf (cdr (assoc choice choices)))
             (input-buf
-             (buffer-local-value
-              'pi-coding-agent--input-buffer chat-buf)))
+             (buffer-local-value 'pilish--input-buffer chat-buf)))
          (when (and chat-buf input-buf)
-           (pi-coding-agent--display-buffers
-            chat-buf input-buf))))))))
+           (pilish--display-buffers chat-buf input-buf))))))))
 
 ;; Disable dictionary completion in pi input buffers
 (defun my/disable-dict-completion ()
@@ -1916,8 +1905,7 @@ and displays the selected session's chat + input buffer pair."
                   f '(ispell-completion-at-point dabbrev-completion)))
                completion-at-point-functions)))
 
-(add-hook
- 'pi-coding-agent-input-mode-hook #'my/disable-dict-completion)
+(add-hook 'pilish-input-mode-hook #'my/disable-dict-completion)
 
 ;;; jujutsu:
 
