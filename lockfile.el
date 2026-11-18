@@ -89,6 +89,7 @@
  ("lsp-dart" . "2170823139269b77c39e3bf7600ff6c751a73b0d")
  ("lsp-docker" . "3960c73349e5658220f0f48587894ac098e62b97")
  ("lsp-mode" . "ac71048270a7845ec89998516d9f7908e915a57c")
+ ("lsp-pyright" . "147d6d9c799f945ba4a2fb14824ddea9ade6de74")
  ("lsp-tailwindcss" . "42348b0926a2da1ab4747e4d7f5a6e9278632802")
  ("lsp-treemacs" . "2495abd9df2f19335b4a280d9db641e02e2ddcfa")
  ("lsp-ui" . "09d40806429fadc01a12d9a1841b49430f58adb5")

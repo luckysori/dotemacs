@@ -575,6 +575,31 @@
 
 (use-package toml-mode :straight t)
 
+;;; Python:
+
+(use-package
+ python
+ :straight (python :type built-in)
+ :custom
+ (python-shell-interpreter "uv")
+ (python-shell-interpreter-args "run python"))
+
+(use-package
+ lsp-pyright
+ :init
+ (setq lsp-pyright-langserver-command "basedpyright")
+ (setq lsp-pyright-multi-root nil)
+ :custom
+ (lsp-pyright-disable-organize-imports t)
+ (lsp-pyright-type-checking-mode "standard")
+ :hook
+ ((python-mode python-ts-mode)
+  .
+  (lambda ()
+    (require 'lsp-pyright)
+    (require 'lsp-ruff)
+    (lsp-deferred))))
+
 ;;; Dart:
 
 (use-package dart-mode :straight t)
@@ -1506,6 +1531,9 @@
            .
            ("https://github.com/tree-sitter/tree-sitter-rust"
             "v0.23.3"))
+          (python
+           "https://github.com/tree-sitter/tree-sitter-python"
+           "v0.23.6")
           (go
            "https://github.com/tree-sitter/tree-sitter-go" "v0.23.4")
           (make "https://github.com/alemuller/tree-sitter-make")
@@ -1543,7 +1571,8 @@
  ;; that this does *not* extend to hooks! Make sure you migrate them
  ;; also
  (dolist (mapping
-          '((css-mode . css-ts-mode)
+          '((python-mode . python-ts-mode)
+            (css-mode . css-ts-mode)
             (typescript-mode . typescript-ts-mode)
             (js-mode . typescript-ts-mode)
             (js2-mode . typescript-ts-mode)
@@ -1767,6 +1796,10 @@
  ;; TODO: I had to do this because customising `apheleia-formatter' in
  ;; `.dir-locals.el' did not work.
  (setf (alist-get 'tsx-ts-mode apheleia-mode-alist) 'biome)
+ (setf (alist-get 'ruff apheleia-formatters)
+       '("ruff" "format" "--stdin-filename" filepath "-"))
+ (dolist (mode '(python-mode python-ts-mode))
+   (setf (alist-get mode apheleia-mode-alist) '(ruff-isort ruff)))
  (setf (alist-get 'emacs-lisp-mode apheleia-mode-alist) nil)
  (apheleia-global-mode +1))
 
