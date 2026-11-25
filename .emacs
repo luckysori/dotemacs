@@ -803,23 +803,6 @@
  ;; https://github.com/emacs-lsp/lsp-ui/issues/597#issuecomment-1094139301.
  )
 
-(use-package
- lsp-tailwindcss
- :after lsp-mode
- :init (setq lsp-tailwindcss-add-on-mode t)
- :config
- (dolist (tw-major-mode
-          '(css-mode
-            css-ts-mode
-            typescript-mode
-            typescript-ts-mode
-            mhtml-mode
-            tsx-ts-mode
-            js2-mode
-            js-ts-mode
-            clojure-mode))
-   (add-to-list 'lsp-tailwindcss-major-modes tw-major-mode)))
-
 ;;; smartparens:
 
 (use-package
