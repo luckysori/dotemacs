@@ -1262,36 +1262,37 @@
 
 ;;; browse-url:
 
-(use-package browse-url
-  :straight (browse-url :type built-in)
-  :custom
-  (browse-url-browser-function 'eww-browse-url)
-  (browse-url-secondary-browser-function 'browse-url-generic)
-  (browse-url-generic-program "brave")
-  (browse-url-generic-args
-   '("--ozone-platform=x11" "--force-device-scale-factor=1.5")))
+(use-package
+ browse-url
+ :straight (browse-url :type built-in)
+ :custom
+ (browse-url-browser-function 'eww-browse-url)
+ (browse-url-secondary-browser-function 'browse-url-generic)
+ (browse-url-generic-program "brave")
+ (browse-url-generic-args
+  '("--ozone-platform=x11" "--force-device-scale-factor=1.5")))
 
 ;;; eww:
 
-(use-package eww
-  :straight (eww :type built-in)
-  :commands (eww eww-browse-url)
-  :custom (eww-download-directory (expand-file-name "~/Downloads/"))
-  :bind
-  (:map
-   eww-mode-map
-   ("=" . text-scale-increase)
-   ("-" . text-scale-decrease)
-   ("0" .
-    (lambda ()
-      (interactive)
-      (text-scale-set 0)))))
+(use-package
+ eww
+ :straight (eww :type built-in)
+ :commands (eww eww-browse-url)
+ :custom (eww-download-directory (expand-file-name "~/Downloads/"))
+ :bind
+ (:map
+  eww-mode-map ("=" . text-scale-increase) ("-" . text-scale-decrease)
+  ("0" .
+   (lambda ()
+     (interactive)
+     (text-scale-set 0)))))
 
-(use-package shr
-  :straight (shr :type built-in)
-  :custom
-  (shr-width 100)
-  (shr-use-fonts nil))
+(use-package
+ shr
+ :straight (shr :type built-in)
+ :custom
+ (shr-width 100)
+ (shr-use-fonts nil))
 
 ;;; dash:
 
