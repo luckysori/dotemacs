@@ -1924,6 +1924,15 @@ and displays the selected session's chat + input buffer pair."
 
 (add-hook 'pilish-input-mode-hook #'my/disable-dict-completion)
 
+;;; Agent Shell (for Anthropic/Claude):
+
+(use-package
+ agent-shell
+ :custom
+ (agent-shell-anthropic-claude-environment
+  (agent-shell-make-environment-variables
+   "CLAUDE_CODE_DISABLE_BACKGROUND_TASKS" "1")))
+
 ;;; jujutsu:
 
 (use-package
